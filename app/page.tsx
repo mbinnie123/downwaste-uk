@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ScrollReveal } from "./components/scroll-reveal";
 import downwasteLogo from "../assets/images/downwaste-logo.svg";
 import disposalChute from "../assets/images/downwaste-disposal-chute.svg";
 import pneumaticConstruction from "../assets/images/downwaste-pneumatic-construction-disposal.svg";
@@ -143,68 +144,83 @@ export default function Home() {
             />
           </div>
           <div className="relative z-10 mx-auto flex max-w-7xl flex-col px-4 pb-14 pt-8 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8 lg:pb-32">
-            <section className="grid items-center gap-10 sm:gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 animate-[fadeIn_1s_ease-in-out]">
+            <section className="grid items-center gap-10 sm:gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
               <div className="space-y-5 sm:space-y-6">
-                <span className="inline-flex rounded-full border-2 border-sky-300 bg-sky-100 px-3 py-1 text-xs sm:text-sm font-semibold text-sky-700 animate-[slideUp_0.8s_ease-out]">
-                  Urban disposal solutions for modern buildings
-                </span>
-                <h1 className="max-w-3xl text-[1.75rem] leading-tight font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-r from-slate-950 via-blue-900 to-slate-950 bg-clip-text text-transparent animate-[slideUp_0.8s_ease-out_0.1s_both]">
-                  We design and manufacture chutes for waste, recycling and laundry.
-                </h1>
-                <p className="max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 animate-[slideUp_0.8s_ease-out_0.2s_both]">
-                  Downwaste UK delivers smart and sustainable waste handling solutions for residential, commercial and mixed-use developments, combining robust equipment with practical systems that support cleaner, more efficient buildings.
-                </p>
-                <div className="flex flex-col gap-3 sm:flex-row animate-[slideUp_0.8s_ease-out_0.3s_both]">
-                  <a
-                    href="mailto:info@downwaste.com"
-                    className="group relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-slate-950 to-blue-900 px-8 py-3 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 overflow-hidden"
-                  >
-                    <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                    <span className="relative">Discuss your project</span>
-                  </a>
-                  <a
-                    href="#solutions"
-                    className="group relative inline-flex items-center justify-center rounded-full border-2 border-sky-400 bg-white px-8 py-3 text-sm font-bold text-sky-600 shadow-md transition-all duration-300 hover:shadow-lg hover:bg-sky-50 hover:border-sky-500 hover:scale-105"
-                  >
-                    <span className="absolute inset-0 bg-sky-400 opacity-0 group-hover:opacity-5 rounded-full transition-opacity duration-300" />
-                    <span className="relative">View solutions</span>
-                  </a>
-                </div>
-                <ul className="grid grid-cols-1 gap-2 pt-1 sm:grid-cols-2 sm:gap-3">
-                  {benefits.map((benefit, idx) => (
-                    <li
-                      key={benefit}
-                      className="group rounded-2xl border-2 border-sky-200 bg-gradient-to-br from-sky-50 to-cyan-50 px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:shadow-md hover:border-sky-400 transition-all duration-300 hover:scale-105 cursor-default animate-[slideUp_0.8s_ease-out] transform"
-                      style={{ animationDelay: `${0.4 + idx * 0.1}s` }}
+                <ScrollReveal>
+                  <span className="inline-flex rounded-full border-2 border-sky-300 bg-sky-100 px-3 py-1 text-xs sm:text-sm font-semibold text-sky-700">
+                    Urban disposal solutions for modern buildings
+                  </span>
+                </ScrollReveal>
+                <ScrollReveal delay={120}>
+                  <h1 className="max-w-3xl text-[1.75rem] leading-tight font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-r from-slate-950 via-blue-900 to-slate-950 bg-clip-text text-transparent">
+                    We design and manufacture chutes for waste, recycling and laundry.
+                  </h1>
+                </ScrollReveal>
+                <ScrollReveal delay={240}>
+                  <p className="max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+                    Downwaste UK delivers smart and sustainable waste handling solutions for residential, commercial and mixed-use developments, combining robust equipment with practical systems that support cleaner, more efficient buildings.
+                  </p>
+                </ScrollReveal>
+                <ScrollReveal delay={360}>
+                  <div className="flex flex-col gap-3 sm:flex-row">
+                    <a
+                      href="mailto:info@downwaste.com"
+                      className="group relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-slate-950 to-blue-900 px-8 py-3 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 overflow-hidden"
                     >
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
+                      <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                      <span className="relative">Discuss your project</span>
+                    </a>
+                    <a
+                      href="#solutions"
+                      className="group relative inline-flex items-center justify-center rounded-full border-2 border-sky-400 bg-white px-8 py-3 text-sm font-bold text-sky-600 shadow-md transition-all duration-300 hover:shadow-lg hover:bg-sky-50 hover:border-sky-500 hover:scale-105"
+                    >
+                      <span className="absolute inset-0 bg-sky-400 opacity-0 group-hover:opacity-5 rounded-full transition-opacity duration-300" />
+                      <span className="relative">View solutions</span>
+                    </a>
+                  </div>
+                </ScrollReveal>
+                <ScrollReveal delay={480}>
+                  <ul className="grid grid-cols-1 gap-2 pt-1 sm:grid-cols-2 sm:gap-3">
+                    {benefits.map((benefit) => (
+                      <li
+                        key={benefit}
+                        className="group rounded-2xl border-2 border-sky-200 bg-gradient-to-br from-sky-50 to-cyan-50 px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm hover:shadow-md hover:border-sky-400 transition-all duration-300 hover:scale-105 cursor-default"
+                      >
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </ScrollReveal>
               </div>
               {/* Hero image: constrained on mobile, full beside text on desktop */}
-              <div className="mx-auto w-full max-w-[18rem] sm:max-w-none rounded-2xl sm:rounded-[2rem] border-2 border-sky-300 bg-white/95 p-3 sm:p-6 shadow-[0_20px_60px_-15px_rgba(14,165,233,0.4)] backdrop-blur animate-[scaleIn_0.8s_ease-out] hover:shadow-2xl transition-all duration-500 group">
-                <Image
-                  src={chuteDisposal3}
-                  alt="Downwaste disposal chute system"
-                  width={760}
-                  height={760}
-                  priority
-                  className="h-auto w-full rounded-xl sm:rounded-[1.5rem] group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+              <ScrollReveal variant="scale" delay={200}>
+                <div className="mx-auto w-full max-w-[18rem] sm:max-w-none rounded-2xl sm:rounded-[2rem] border-2 border-sky-300 bg-white/95 p-3 sm:p-6 shadow-[0_20px_60px_-15px_rgba(14,165,233,0.4)] backdrop-blur hover:shadow-2xl transition-shadow duration-500 group">
+                  <Image
+                    src={chuteDisposal3}
+                    alt="Downwaste disposal chute system"
+                    width={760}
+                    height={760}
+                    priority
+                    className="h-auto w-full rounded-xl sm:rounded-[1.5rem] group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </ScrollReveal>
             </section>
           </div>
         </div>
 
         <section id="solutions" className="flex flex-col">
           <div className="mx-auto flex w-full max-w-7xl flex-col px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
-              Our solutions
-            </p>
-            <h2 className="mt-2 max-w-2xl text-2xl font-semibold text-slate-950 sm:text-3xl">
-              From disposal to management, every element is designed to support cleaner, more efficient buildings.
-            </h2>
+            <ScrollReveal>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
+                  Our solutions
+                </p>
+                <h2 className="mt-2 max-w-2xl text-2xl font-semibold text-slate-950 sm:text-3xl">
+                  From disposal to management, every element is designed to support cleaner, more efficient buildings.
+                </h2>
+              </div>
+            </ScrollReveal>
           </div>
 
           {solutionGroups.map((solution, index) => {
@@ -219,7 +235,7 @@ export default function Home() {
             return (
               <div
                 key={solution.section}
-                className={`relative w-full ${gradients[index]} transition-all duration-500 ease-out animate-[fadeIn_0.8s_ease-in-out] group`}
+                className={`relative w-full ${gradients[index]} group`}
               >
                 {/* Decorative glow */}
                 <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -251,29 +267,41 @@ export default function Home() {
                     <div className="mx-auto w-full max-w-7xl gap-10 px-4 py-10 sm:px-6 sm:py-14 lg:grid lg:grid-cols-2 lg:px-8 lg:py-20">
                       {/* Text col — always first on mobile, order swaps on desktop for odd panels */}
                       <div className={`flex flex-col justify-center ${!isEven ? 'lg:order-2' : ''}`}>
-                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-                          {solution.section}
-                        </p>
+                        <ScrollReveal>
+                          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+                            {solution.section}
+                          </p>
+                        </ScrollReveal>
                         <div className="mt-3 overflow-hidden">
-                          <h3 className="text-2xl font-semibold text-slate-950 sm:text-3xl animate-[revealUp_0.7s_cubic-bezier(0.16,1,0.3,1)_both]">{solution.title}</h3>
+                          <ScrollReveal variant="clip" delay={80}>
+                            <h3 className="text-2xl font-semibold text-slate-950 sm:text-3xl">{solution.title}</h3>
+                          </ScrollReveal>
                         </div>
-                        <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">{solution.description}</p>
+                        <ScrollReveal delay={160}>
+                          <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">{solution.description}</p>
+                        </ScrollReveal>
                         <div className="mt-6 overflow-hidden sm:mt-8">
-                          <h4 className="text-xl font-semibold text-slate-950 sm:text-2xl animate-[revealUp_0.7s_cubic-bezier(0.16,1,0.3,1)_0.1s_both]">{solution.secondaryTitle}</h4>
+                          <ScrollReveal variant="clip" delay={260}>
+                            <h4 className="text-xl font-semibold text-slate-950 sm:text-2xl">{solution.secondaryTitle}</h4>
+                          </ScrollReveal>
                         </div>
-                        <p className="mt-3 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">{solution.secondaryDescription}</p>
+                        <ScrollReveal delay={340}>
+                          <p className="mt-3 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">{solution.secondaryDescription}</p>
+                        </ScrollReveal>
                       </div>
                       {/* Image col — centred below text on mobile, beside on desktop */}
                       <div className={`mt-10 flex items-center justify-center sm:mt-12 lg:mt-0 ${!isEven ? 'lg:order-1' : ''}`}>
-                        <div className="w-full max-w-[14rem] sm:max-w-sm rounded-2xl border border-slate-200 bg-white p-4 shadow-lg sm:p-6 lg:max-w-none lg:rounded-[2rem] lg:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]">
-                          <Image
-                            src={solution.image}
-                            alt={solution.alt}
-                            width={500}
-                            height={500}
-                            className="h-auto w-full rounded-xl lg:rounded-[1.5rem]"
-                          />
-                        </div>
+                        <ScrollReveal variant="scale" delay={120}>
+                          <div className="w-full max-w-[14rem] sm:max-w-sm rounded-2xl border border-slate-200 bg-white p-4 shadow-lg sm:p-6 lg:max-w-none lg:rounded-[2rem] lg:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]">
+                            <Image
+                              src={solution.image}
+                              alt={solution.alt}
+                              width={500}
+                              height={500}
+                              className="h-auto w-full rounded-xl lg:rounded-[1.5rem]"
+                            />
+                          </div>
+                        </ScrollReveal>
                       </div>
                     </div>
                   </div>
@@ -295,74 +323,83 @@ export default function Home() {
 
         <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
           <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-            <article className="rounded-2xl sm:rounded-[2rem] bg-slate-950 p-6 sm:p-8 text-white shadow-[0_30px_80px_-30px_rgba(2,6,23,0.6)]">
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
-                Why UK teams specify Downwaste
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
-                Practical systems for projects where performance and presentation matter.
-              </h2>
-              <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-                From high-rise residential towers to commercial refurbishments, Downwaste supports efficient waste handling with systems that are robust, easy to use and well suited to modern site demands.
-              </p>
-            </article>
+            <ScrollReveal>
+              <article className="rounded-2xl sm:rounded-[2rem] bg-slate-950 p-6 sm:p-8 text-white shadow-[0_30px_80px_-30px_rgba(2,6,23,0.6)]">
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
+                  Why UK teams specify Downwaste
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">
+                  Practical systems for projects where performance and presentation matter.
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
+                  From high-rise residential towers to commercial refurbishments, Downwaste supports efficient waste handling with systems that are robust, easy to use and well suited to modern site demands.
+                </p>
+              </article>
+            </ScrollReveal>
 
-            <article className="rounded-2xl sm:rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.25)]">
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                <div className="rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-4">
-                  <p className="text-base font-semibold text-slate-950 sm:text-xl">Built for</p>
-                  <p className="mt-1 text-xs text-slate-600 sm:text-sm">Residential, commercial and mixed-use schemes</p>
+            <ScrollReveal delay={150}>
+              <article className="rounded-2xl sm:rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.25)]">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                  <div className="rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-4">
+                    <p className="text-base font-semibold text-slate-950 sm:text-xl">Built for</p>
+                    <p className="mt-1 text-xs text-slate-600 sm:text-sm">Residential, commercial and mixed-use schemes</p>
+                  </div>
+                  <div className="rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-4">
+                    <p className="text-base font-semibold text-slate-950 sm:text-xl">Focused on</p>
+                    <p className="mt-1 text-xs text-slate-600 sm:text-sm">Safety, speed and cleaner site operations</p>
+                  </div>
+                  <div className="rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-4">
+                    <p className="text-base font-semibold text-slate-950 sm:text-xl">Trusted by</p>
+                    <p className="mt-1 text-xs text-slate-600 sm:text-sm">Contractors and developers across the UK</p>
+                  </div>
+                  <div className="rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-4">
+                    <p className="text-base font-semibold text-slate-950 sm:text-xl">Delivered with</p>
+                    <p className="mt-1 text-xs text-slate-600 sm:text-sm">Practical specification and installation support</p>
+                  </div>
                 </div>
-                <div className="rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-4">
-                  <p className="text-base font-semibold text-slate-950 sm:text-xl">Focused on</p>
-                  <p className="mt-1 text-xs text-slate-600 sm:text-sm">Safety, speed and cleaner site operations</p>
-                </div>
-                <div className="rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-4">
-                  <p className="text-base font-semibold text-slate-950 sm:text-xl">Trusted by</p>
-                  <p className="mt-1 text-xs text-slate-600 sm:text-sm">Contractors and developers across the UK</p>
-                </div>
-                <div className="rounded-xl sm:rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-4">
-                  <p className="text-base font-semibold text-slate-950 sm:text-xl">Delivered with</p>
-                  <p className="mt-1 text-xs text-slate-600 sm:text-sm">Practical specification and installation support</p>
-                </div>
-              </div>
-            </article>
+              </article>
+            </ScrollReveal>
           </div>
         </section>
 
         <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-          <div className="mb-8 sm:mb-12 animate-[slideUp_0.8s_ease-out]">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
-              Featured projects
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold text-slate-950 sm:text-3xl">
-              Trusted by leading developments worldwide
-            </h2>
-          </div>
+          <ScrollReveal>
+            <div className="mb-8 sm:mb-12">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
+                Featured projects
+              </p>
+              <h2 className="mt-2 text-2xl font-semibold text-slate-950 sm:text-3xl">
+                Trusted by leading developments worldwide
+              </h2>
+            </div>
+          </ScrollReveal>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {featuredProjects.map((project, idx) => (
-              <article key={project.title} className="group overflow-hidden rounded-2xl border-2 border-slate-200 bg-white shadow-sm hover:shadow-2xl hover:border-sky-300 transition-all duration-500 hover:-translate-y-2 animate-[scaleIn_0.6s_ease-out] cursor-pointer" style={{ animationDelay: `${idx * 100}ms` }}>
-                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-sky-100 to-cyan-100 sm:h-60">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="h-full w-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
-                  />
-                  <div className="absolute inset-0 bg-sky-950/0 group-hover:bg-sky-950/20 transition-all duration-500" />
-                </div>
-                <div className="p-4 sm:p-6 bg-gradient-to-br from-white to-slate-50">
-                  <h3 className="font-bold text-slate-950 text-base sm:text-lg group-hover:text-sky-700 transition-colors duration-300">{project.title}</h3>
-                  <p className="mt-1 text-xs sm:text-sm font-semibold text-sky-600 group-hover:text-sky-700 transition-colors">{project.location}</p>
-                  <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-slate-600 group-hover:text-slate-700 transition-colors duration-300">{project.description}</p>
-                </div>
-              </article>
+              <ScrollReveal key={project.title} variant="scale" delay={idx * 90}>
+                <article className="group overflow-hidden rounded-2xl border-2 border-slate-200 bg-white shadow-sm hover:shadow-2xl hover:border-sky-300 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
+                  <div className="relative h-48 overflow-hidden bg-gradient-to-br from-sky-100 to-cyan-100 sm:h-60">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="h-full w-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
+                    />
+                    <div className="absolute inset-0 bg-sky-950/0 group-hover:bg-sky-950/20 transition-all duration-500" />
+                  </div>
+                  <div className="p-4 sm:p-6 bg-gradient-to-br from-white to-slate-50">
+                    <h3 className="font-bold text-slate-950 text-base sm:text-lg group-hover:text-sky-700 transition-colors duration-300">{project.title}</h3>
+                    <p className="mt-1 text-xs sm:text-sm font-semibold text-sky-600 group-hover:text-sky-700 transition-colors">{project.location}</p>
+                    <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-slate-600 group-hover:text-slate-700 transition-colors duration-300">{project.description}</p>
+                  </div>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </section>
 
-        <section className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20 animate-[slideUp_0.8s_ease-out]">
+        <section className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+          <ScrollReveal>
           <div className="rounded-2xl sm:rounded-[2rem] bg-gradient-to-br from-sky-500 via-cyan-500 to-blue-600 p-6 sm:p-8 shadow-[0_30px_80px_-30px_rgba(14,165,233,0.4)] border border-sky-300/50">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-2xl">
@@ -385,6 +422,7 @@ export default function Home() {
               </a>
             </div>
           </div>
+          </ScrollReveal>
         </section>
       </main>
     </div>
