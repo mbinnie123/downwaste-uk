@@ -215,21 +215,22 @@ export default function Home() {
           })}
         </section>
 
-        <section className="grid gap-6 bg-white lg:grid-cols-[0.95fr_1.05fr]">
-          <article className="rounded-[2rem] bg-slate-950 p-8 text-white shadow-[0_30px_80px_-30px_rgba(2,6,23,0.6)]">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
-              Why UK teams specify Downwaste
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold">
-              Practical systems for projects where performance and presentation matter.
-            </h2>
-            <p className="mt-4 text-base leading-7 text-slate-300">
-              From high-rise residential towers to commercial refurbishments, Downwaste supports efficient waste handling with systems that are robust, easy to use and well suited to modern site demands.
-            </p>
-          </article>
+        <section className="mx-auto w-full max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+            <article className="rounded-[2rem] bg-slate-950 p-8 text-white shadow-[0_30px_80px_-30px_rgba(2,6,23,0.6)]">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
+                Why UK teams specify Downwaste
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold">
+                Practical systems for projects where performance and presentation matter.
+              </h2>
+              <p className="mt-4 text-base leading-7 text-slate-300">
+                From high-rise residential towers to commercial refurbishments, Downwaste supports efficient waste handling with systems that are robust, easy to use and well suited to modern site demands.
+              </p>
+            </article>
 
-          <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.25)]">
-            <div className="grid gap-4 sm:grid-cols-2">
+            <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.25)]">
+              <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                 <p className="text-xl font-semibold text-slate-950">Built for</p>
                 <p className="mt-1 text-sm text-slate-600">Residential, commercial and mixed-use schemes</p>
@@ -248,6 +249,7 @@ export default function Home() {
               </div>
             </div>
           </article>
+          </div>
         </section>
 
         <section className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-6 py-16 lg:px-8 lg:py-20">
