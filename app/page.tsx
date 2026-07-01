@@ -220,64 +220,97 @@ export default function Home() {
             return (
               <div
                 key={solution.section}
-                className={`relative flex min-h-screen w-full items-center overflow-hidden ${gradients[index]} transition-all duration-500 ease-out animate-[fadeIn_0.8s_ease-in-out] group`}
+                className={`relative min-h-screen w-full ${gradients[index]} transition-all duration-500 ease-out animate-[fadeIn_0.8s_ease-in-out] group`}
               >
-                <div className="absolute -inset-40 bg-gradient-to-r opacity-0 group-hover:opacity-5 transition-opacity duration-500 blur-3xl" />
-                <div className="pointer-events-none hidden lg:flex justify-center">
-                  <h2 className="sticky top-[32vh] text-6xl font-black uppercase tracking-[0.35em] text-slate-950/10 leading-tight text-center">
+                {/* Decorative hover glow — clipped so it never breaks sticky */}
+                <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                  <div className="absolute -inset-40 bg-gradient-to-r opacity-0 group-hover:opacity-5 transition-opacity duration-500 blur-3xl" />
+                </div>
+
+                {/* Scroll-driven sticky section heading — pins to viewport top while this section is in view */}
+                <div className="sticky top-0 z-30 flex items-center gap-3 px-6 py-2.5 lg:px-8 bg-white/75 backdrop-blur-md border-b border-slate-200/70 shadow-[0_1px_12px_-4px_rgba(15,23,42,0.08)]">
+                  <span className="text-[10px] font-black uppercase tracking-[0.35em] tabular-nums text-sky-500">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="h-px w-6 shrink-0 bg-sky-300" />
+                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-slate-900">
                     {solution.section}
-                  </h2>
+                  </span>
                 </div>
-                <div className="mx-auto flex w-full max-w-7xl gap-12 px-6 lg:grid lg:grid-cols-2 lg:px-8 relative z-10">
-                  {isEven ? (
-                    <>
-                      <div className="flex flex-col justify-center py-12 lg:py-0">
-                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-                          {solution.section}
-                        </p>
-                        <h3 className="mt-3 text-3xl font-semibold text-slate-950">{solution.title}</h3>
-                        <p className="mt-4 text-lg leading-8 text-slate-600">{solution.description}</p>
-                        <h4 className="mt-8 text-2xl font-semibold text-slate-950">{solution.secondaryTitle}</h4>
-                        <p className="mt-3 text-lg leading-8 text-slate-600">{solution.secondaryDescription}</p>
-                      </div>
-                      <div className="hidden items-center justify-center lg:flex">
-                        <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]">
-                          <Image
-                            src={solution.image}
-                            alt={solution.alt}
-                            width={500}
-                            height={500}
-                            className="h-auto w-full rounded-[1.5rem]"
-                          />
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="hidden items-center justify-center lg:flex">
-                        <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]">
-                          <Image
-                            src={solution.image}
-                            alt={solution.alt}
-                            width={500}
-                            height={500}
-                            className="h-auto w-full rounded-[1.5rem]"
-                          />
-                        </div>
-                      </div>
-                      <div className="flex flex-col justify-center py-12 lg:py-0">
-                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-                          {solution.section}
-                        </p>
-                        <h3 className="mt-3 text-3xl font-semibold text-slate-950">{solution.title}</h3>
-                        <p className="mt-4 text-lg leading-8 text-slate-600">{solution.description}</p>
-                        <h4 className="mt-8 text-2xl font-semibold text-slate-950">{solution.secondaryTitle}</h4>
-                        <p className="mt-3 text-lg leading-8 text-slate-600">{solution.secondaryDescription}</p>
-                      </div>
-                    </>
-                  )}
+
+                {/* Full-height flex row — items-stretch lets the label column span the whole section */}
+                <div className="flex min-h-screen items-stretch">
+                  {/* Sticky section label — vertical text pinned while section is in view */}
+                  <div className="pointer-events-none hidden lg:block relative shrink-0 w-16">
+                    <h2 className="sticky top-[40vh] pl-3 text-5xl font-black uppercase tracking-[0.35em] text-transparent [-webkit-text-stroke:1.5px_rgb(15_23_42_/0.35)] leading-none [writing-mode:vertical-rl] rotate-180 select-none">
+                      {solution.section}
+                    </h2>
+                  </div>
+
+                  {/* Content — flex-1 fills remaining width, items-center vertically centres */}
+                  <div className="flex flex-1 items-center relative z-10">
+                    <div className="mx-auto w-full max-w-7xl gap-12 px-6 py-16 lg:grid lg:grid-cols-2 lg:px-8 lg:py-0">
+                      {isEven ? (
+                        <>
+                          <div className="flex flex-col justify-center">
+                            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+                              {solution.section}
+                            </p>
+                            <div className="mt-3 overflow-hidden">
+                              <h3 className="text-3xl font-semibold text-slate-950 animate-[revealUp_0.7s_cubic-bezier(0.16,1,0.3,1)_both]">{solution.title}</h3>
+                            </div>
+                            <p className="mt-4 text-lg leading-8 text-slate-600">{solution.description}</p>
+                            <div className="mt-8 overflow-hidden">
+                              <h4 className="text-2xl font-semibold text-slate-950 animate-[revealUp_0.7s_cubic-bezier(0.16,1,0.3,1)_0.1s_both]">{solution.secondaryTitle}</h4>
+                            </div>
+                            <p className="mt-3 text-lg leading-8 text-slate-600">{solution.secondaryDescription}</p>
+                          </div>
+                          <div className="hidden items-center justify-center lg:flex">
+                            <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]">
+                              <Image
+                                src={solution.image}
+                                alt={solution.alt}
+                                width={500}
+                                height={500}
+                                className="h-auto w-full rounded-[1.5rem]"
+                              />
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="hidden items-center justify-center lg:flex">
+                            <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]">
+                              <Image
+                                src={solution.image}
+                                alt={solution.alt}
+                                width={500}
+                                height={500}
+                                className="h-auto w-full rounded-[1.5rem]"
+                              />
+                            </div>
+                          </div>
+                          <div className="flex flex-col justify-center">
+                            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+                              {solution.section}
+                            </p>
+                            <div className="mt-3 overflow-hidden">
+                              <h3 className="text-3xl font-semibold text-slate-950 animate-[revealUp_0.7s_cubic-bezier(0.16,1,0.3,1)_both]">{solution.title}</h3>
+                            </div>
+                            <p className="mt-4 text-lg leading-8 text-slate-600">{solution.description}</p>
+                            <div className="mt-8 overflow-hidden">
+                              <h4 className="text-2xl font-semibold text-slate-950 animate-[revealUp_0.7s_cubic-bezier(0.16,1,0.3,1)_0.1s_both]">{solution.secondaryTitle}</h4>
+                            </div>
+                            <p className="mt-3 text-lg leading-8 text-slate-600">{solution.secondaryDescription}</p>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 z-5 h-32 opacity-50 pointer-events-none">
+
+                {/* Bottom stripe — own overflow-hidden so it clips without affecting sticky */}
+                <div className="absolute bottom-0 left-0 right-0 z-[5] h-32 overflow-hidden opacity-50 pointer-events-none">
                   <Image
                     src={headerStripe}
                     alt="Header Stripe"
