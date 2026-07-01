@@ -3,6 +3,12 @@ import downwasteLogo from "../assets/images/downwaste-logo.svg";
 import disposalChute from "../assets/images/downwaste-disposal-chute.svg";
 import pneumaticConstruction from "../assets/images/downwaste-pneumatic-construction-disposal.svg";
 import chuteDisposal3 from "../assets/images/chute-disposal-3.svg";
+import compressionIcon from "../assets/images/downwaste_compression.svg";
+import managementIcon from "../assets/images/downwaste_management_plan_sil.svg";
+import burujApartments from "../assets/images/buruj_apartments_baghdad_iraq_downwaste.jpg";
+import riverPlaza from "../assets/images/river_plaza_residential_mongolia_downwaste.jpg";
+import sheratonHotel from "../assets/images/sheraton_hotel_bahrain_downwaste.jpg";
+import grandTower from "../assets/images/the_grand_residential_tower_dubai_uae_downwaste.jpg";
 
 const solutionGroups = [
   {
@@ -46,18 +52,18 @@ const solutionGroups = [
     secondaryTitle: "Press Containers",
     secondaryDescription:
       "Downwaste press containers are designed for storing bulky waste and recyclables in sealed containers safely and efficiently, with various capacities to support organized waste storage.",
-    image: disposalChute,
+    image: compressionIcon,
     alt: "Downwaste compression equipment",
   },
   {
     section: "Management",
     title: "Installation & Maintenance",
     description:
-      "Our team offers full installation and maintenance services for your building’s waste system, providing safe and reliable solutions tailored to your operational and sustainability goals.",
+      "Our team offers full installation and maintenance services for your building's waste system, providing safe and reliable solutions tailored to your operational and sustainability goals.",
     secondaryTitle: "Custom Solutions",
     secondaryDescription:
-      "Downwaste provides custom waste solutions based on your building’s layout and capacity, using detailed waste profile analysis to deliver long-term systems that enhance efficiency, safety and sustainability.",
-    image: pneumaticConstruction,
+      "Downwaste provides custom waste solutions based on your building's layout and capacity, using detailed waste profile analysis to deliver long-term systems that enhance efficiency, safety and sustainability.",
+    image: managementIcon,
     alt: "Downwaste management services",
   },
 ];
@@ -67,6 +73,33 @@ const benefits = [
   "Designed for high-rise, residential and mixed-use developments",
   "Safer and cleaner waste handling from upper levels to ground level",
   "Practical support for installation, maintenance and long-term operations",
+];
+
+const featuredProjects = [
+  {
+    title: "Buruj Apartments",
+    location: "Baghdad, Iraq",
+    description: "Multi-residential waste management system",
+    image: burujApartments,
+  },
+  {
+    title: "River Plaza",
+    location: "Ulaanbaatar, Mongolia",
+    description: "Comprehensive disposal solution",
+    image: riverPlaza,
+  },
+  {
+    title: "Sheraton Hotel",
+    location: "Bahrain",
+    description: "Hospitality waste handling system",
+    image: sheratonHotel,
+  },
+  {
+    title: "The Grand",
+    location: "Dubai, UAE",
+    description: "Premium residential tower system",
+    image: grandTower,
+  },
 ];
 
 export default function Home() {
@@ -249,6 +282,37 @@ export default function Home() {
               </div>
             </div>
           </article>
+          </div>
+        </section>
+
+        <section className="mx-auto w-full max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+          <div className="mb-12">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
+              Featured projects
+            </p>
+            <h2 className="mt-2 text-3xl font-semibold text-slate-950">
+              Trusted by leading developments worldwide
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {featuredProjects.map((project) => (
+              <article key={project.title} className="group overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm transition hover:shadow-lg">
+                <div className="relative h-64 overflow-hidden bg-slate-100">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="h-full w-full object-cover transition group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-semibold text-slate-950">{project.title}</h3>
+                  <p className="mt-1 text-sm text-sky-700">{project.location}</p>
+                  <p className="mt-2 text-sm text-slate-600">{project.description}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
