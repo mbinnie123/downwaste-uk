@@ -220,7 +220,7 @@ export default function Home() {
             return (
               <div
                 key={solution.section}
-                className={`flex min-h-screen w-full items-center overflow-hidden ${gradients[index]} transition-all duration-500 ease-out animate-[fadeIn_0.8s_ease-in-out] group`}
+                className={`relative flex min-h-screen w-full items-center overflow-hidden ${gradients[index]} transition-all duration-500 ease-out animate-[fadeIn_0.8s_ease-in-out] group`}
               >
                 <div className="absolute -inset-40 bg-gradient-to-r opacity-0 group-hover:opacity-5 transition-opacity duration-500 blur-3xl" />
                 <div className="mx-auto flex w-full max-w-7xl gap-12 px-6 lg:grid lg:grid-cols-2 lg:px-8 relative z-10">
@@ -271,6 +271,14 @@ export default function Home() {
                       </div>
                     </>
                   )}
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 z-5 h-32 opacity-50 pointer-events-none">
+                  <Image
+                    src={headerStripe}
+                    alt="Header Stripe"
+                    fill
+                    className="object-cover object-bottom"
+                  />
                 </div>
               </div>
             );
