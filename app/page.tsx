@@ -1,64 +1,235 @@
 import Image from "next/image";
+import downwasteLogo from "../assets/images/downwaste-logo.svg";
+import disposalChute from "../assets/images/downwaste-disposal-chute.svg";
+import pneumaticConstruction from "../assets/images/downwaste-pneumatic-construction-disposal.svg";
+import chuteDisposal3 from "../assets/images/chute-disposal-3.svg";
+
+const solutionGroups = [
+  {
+    section: "Disposal",
+    title: "Garbage Chutes",
+    description:
+      "Our garbage chutes centralise and simplify waste disposal in multi-floor buildings. We provide all sizes and specifications, delivering cost-effective, safe and innovative systems to architects and contractors.",
+    secondaryTitle: "Laundry Chutes",
+    secondaryDescription:
+      "Laundry chutes are essential in luxury hotels and villas for managing bulky linen. We offer full system design, fabrication, installation and laundry room carts on wheels such as rolltainers and folding tables.",
+    image: disposalChute,
+    alt: "Downwaste disposal chute system",
+  },
+  {
+    section: "Pneumatic",
+    title: "Pneumatic Chutes",
+    description:
+      "Our stationary pneumatic refuse systems use vacuum transport to collect and compact waste. This automated solution reduces odours, pests and visible bins in modern urban settings, while the underground system can handle multiple waste streams from the same pipe network.",
+    secondaryTitle: "Construction Chutes",
+    secondaryDescription:
+      "Our metal debris chutes provide a durable and sound-insulated solution for high-rise construction sites. We also offer soft-case nylon chutes for flexible setup and HDPE dumpsters with pulley systems for safe discharge.",
+    image: pneumaticConstruction,
+    alt: "Downwaste pneumatic construction disposal",
+  },
+  {
+    section: "Sorting",
+    title: "Recycling Chutes",
+    description:
+      "Our automatic recycling chutes allow easy separation of plastics, metal and cardboard via push-button selector panels on every floor, streamlining waste sorting at the source.",
+    secondaryTitle: "Carousels & Conveyors",
+    secondaryDescription:
+      "Bin carousels and conveyors reduce staff workload by rotating full bins with empty ones, and can be integrated with automatic bin press conveyors for maximum compaction and space efficiency.",
+    image: chuteDisposal3,
+    alt: "Downwaste sorting equipment",
+  },
+  {
+    section: "Compression",
+    title: "Chute Fed Compactors",
+    description:
+      "Our chute-fed compactors offer compact, hygienic and powerful solutions for garbage rooms, ideal for reducing waste volume directly at the point of collection.",
+    secondaryTitle: "Press Containers",
+    secondaryDescription:
+      "Downwaste press containers are designed for storing bulky waste and recyclables in sealed containers safely and efficiently, with various capacities to support organized waste storage.",
+    image: disposalChute,
+    alt: "Downwaste compression equipment",
+  },
+  {
+    section: "Management",
+    title: "Installation & Maintenance",
+    description:
+      "Our team offers full installation and maintenance services for your building’s waste system, providing safe and reliable solutions tailored to your operational and sustainability goals.",
+    secondaryTitle: "Custom Solutions",
+    secondaryDescription:
+      "Downwaste provides custom waste solutions based on your building’s layout and capacity, using detailed waste profile analysis to deliver long-term systems that enhance efficiency, safety and sustainability.",
+    image: pneumaticConstruction,
+    alt: "Downwaste management services",
+  },
+];
+
+const benefits = [
+  "Smart, sustainable solutions for modern buildings",
+  "Designed for high-rise, residential and mixed-use developments",
+  "Safer and cleaner waste handling from upper levels to ground level",
+  "Practical support for installation, maintenance and long-term operations",
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(31,195,243,0.16),_transparent_35%),linear-gradient(135deg,_#f8fafc_0%,_#eef7ff_100%)] text-slate-900">
+      <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
+        <a href="/" className="inline-flex items-center" aria-label="Downwaste home">
+          <Image
+            src={downwasteLogo}
+            alt="Downwaste logo"
+            width={180}
+            height={44}
+            priority
+          />
+        </a>
+        <div className="flex flex-wrap items-center gap-3 text-sm font-medium text-slate-700">
+          <a href="tel:+902362142590" className="hover:text-sky-700">+90 236 214 2590</a>
+          <a href="mailto:info@downwaste.com" className="hover:text-sky-700">info@downwaste.com</a>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      </header>
+
+      <main className="mx-auto flex max-w-7xl flex-col gap-16 px-6 pb-20 lg:px-8">
+        <section className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="space-y-6">
+            <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-sm font-semibold text-sky-700">
+              Urban disposal solutions for modern buildings
+            </span>
+            <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+              We design and manufacture chutes for waste, recycling and laundry.
+            </h1>
+            <p className="max-w-2xl text-lg leading-8 text-slate-600">
+              Downwaste UK delivers smart and sustainable waste handling solutions for residential, commercial and mixed-use developments, combining robust equipment with practical systems that support cleaner, more efficient buildings.
+            </p>
+
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href="mailto:info@downwaste.com"
+                className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                Discuss your project
+              </a>
+              <a
+                href="#solutions"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-400 hover:text-sky-700"
+              >
+                View solutions
+              </a>
+            </div>
+
+            <ul className="grid gap-3 pt-2 sm:grid-cols-2">
+              {benefits.map((benefit) => (
+                <li
+                  key={benefit}
+                  className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm font-medium text-slate-700 shadow-sm"
+                >
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-[2rem] border border-slate-200 bg-white/90 p-4 shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)] backdrop-blur sm:p-6">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src={disposalChute}
+              alt="Downwaste disposal chute system"
+              width={760}
+              height={760}
+              priority
+              className="h-auto w-full rounded-[1.5rem]"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          </div>
+        </section>
+
+        <section id="solutions" className="rounded-[2rem] border border-slate-200 bg-white/90 p-8 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.2)]">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
+              Our solutions
+            </p>
+            <h2 className="mt-2 text-3xl font-semibold text-slate-950">
+              From disposal to management, every element is designed to support cleaner, more efficient buildings.
+            </h2>
+          </div>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            {solutionGroups.map((solution) => (
+              <article key={solution.section} className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-50">
+                <div className="border-b border-slate-200 bg-white p-4">
+                  <Image
+                    src={solution.image}
+                    alt={solution.alt}
+                    width={640}
+                    height={320}
+                    className="h-48 w-full rounded-[1rem] object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">{solution.section}</p>
+                  <h3 className="mt-2 text-xl font-semibold text-slate-950">{solution.title}</h3>
+                  <p className="mt-3 text-base leading-7 text-slate-600">{solution.description}</p>
+                  <h4 className="mt-5 text-lg font-semibold text-slate-950">{solution.secondaryTitle}</h4>
+                  <p className="mt-2 text-base leading-7 text-slate-600">{solution.secondaryDescription}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <article className="rounded-[2rem] bg-slate-950 p-8 text-white shadow-[0_30px_80px_-30px_rgba(2,6,23,0.6)]">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
+              Why UK teams specify Downwaste
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold">
+              Practical systems for projects where performance and presentation matter.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-slate-300">
+              From high-rise residential towers to commercial refurbishments, Downwaste supports efficient waste handling with systems that are robust, easy to use and well suited to modern site demands.
+            </p>
+          </article>
+
+          <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.25)]">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <p className="text-xl font-semibold text-slate-950">Built for</p>
+                <p className="mt-1 text-sm text-slate-600">Residential, commercial and mixed-use schemes</p>
+              </div>
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <p className="text-xl font-semibold text-slate-950">Focused on</p>
+                <p className="mt-1 text-sm text-slate-600">Safety, speed and cleaner site operations</p>
+              </div>
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <p className="text-xl font-semibold text-slate-950">Trusted by</p>
+                <p className="mt-1 text-sm text-slate-600">Contractors and developers across the UK</p>
+              </div>
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <p className="text-xl font-semibold text-slate-950">Delivered with</p>
+                <p className="mt-1 text-sm text-slate-600">Practical specification and installation support</p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section className="rounded-[2rem] border border-slate-200 bg-white/90 p-8 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.2)]">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
+                Downwaste UK
+              </p>
+              <h2 className="mt-2 text-3xl font-semibold text-slate-950">
+                Ready to improve waste handling on your next project?
+              </h2>
+              <p className="mt-3 text-lg leading-8 text-slate-600">
+                Contact the team to discuss a solution for your building, programme and site requirements.
+              </p>
+            </div>
+            <a
+              href="mailto:info@downwaste.com"
+              className="inline-flex items-center justify-center rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-700"
+            >
+              Get in touch
+            </a>
+          </div>
+        </section>
       </main>
     </div>
   );
