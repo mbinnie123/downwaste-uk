@@ -71,8 +71,8 @@ const benefits = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(31,195,243,0.16),_transparent_35%),linear-gradient(135deg,_#f8fafc_0%,_#eef7ff_100%)] text-slate-900">
-      <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
+    <div className="text-slate-900">
+      <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
         <a href="/" className="inline-flex items-center" aria-label="Downwaste home">
           <Image
             src={downwasteLogo}
@@ -88,7 +88,9 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="mx-auto flex max-w-7xl flex-col gap-16 px-6 pb-20 lg:px-8">
+      <main className="flex flex-col">
+        <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(31,195,243,0.16),_transparent_35%),linear-gradient(135deg,_#f8fafc_0%,_#eef7ff_100%)]">
+          <div className="mx-auto flex max-w-7xl flex-col gap-16 px-6 pb-20 pt-12 lg:px-8 lg:pb-32">
         <section className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-6">
             <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-sm font-semibold text-sky-700">
@@ -139,42 +141,81 @@ export default function Home() {
             />
           </div>
         </section>
+          </div>
+        </div>
 
-        <section id="solutions" className="rounded-[2rem] border border-slate-200 bg-white/90 p-8 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.2)]">
-          <div className="max-w-2xl">
+        <section id="solutions" className="flex flex-col">
+          <div className="mx-auto flex w-full max-w-7xl flex-col px-6 py-16 lg:px-8">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
               Our solutions
             </p>
-            <h2 className="mt-2 text-3xl font-semibold text-slate-950">
+            <h2 className="mt-2 max-w-2xl text-3xl font-semibold text-slate-950">
               From disposal to management, every element is designed to support cleaner, more efficient buildings.
             </h2>
           </div>
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            {solutionGroups.map((solution) => (
-              <article key={solution.section} className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-50">
-                <div className="border-b border-slate-200 bg-white p-4">
-                  <Image
-                    src={solution.image}
-                    alt={solution.alt}
-                    width={640}
-                    height={320}
-                    className="h-48 w-full rounded-[1rem] object-cover"
-                  />
+          {solutionGroups.map((solution, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div
+                key={solution.section}
+                className="flex min-h-screen w-full items-center bg-gradient-to-br from-slate-50 to-white"
+              >
+                <div className="mx-auto flex w-full max-w-7xl gap-12 px-6 lg:grid lg:grid-cols-2 lg:px-8">
+                  {isEven ? (
+                    <>
+                      <div className="flex flex-col justify-center py-12 lg:py-0">
+                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+                          {solution.section}
+                        </p>
+                        <h3 className="mt-3 text-3xl font-semibold text-slate-950">{solution.title}</h3>
+                        <p className="mt-4 text-lg leading-8 text-slate-600">{solution.description}</p>
+                        <h4 className="mt-8 text-2xl font-semibold text-slate-950">{solution.secondaryTitle}</h4>
+                        <p className="mt-3 text-lg leading-8 text-slate-600">{solution.secondaryDescription}</p>
+                      </div>
+                      <div className="hidden items-center justify-center lg:flex">
+                        <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]">
+                          <Image
+                            src={solution.image}
+                            alt={solution.alt}
+                            width={500}
+                            height={500}
+                            className="h-auto w-full rounded-[1.5rem]"
+                          />
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="hidden items-center justify-center lg:flex">
+                        <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]">
+                          <Image
+                            src={solution.image}
+                            alt={solution.alt}
+                            width={500}
+                            height={500}
+                            className="h-auto w-full rounded-[1.5rem]"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex flex-col justify-center py-12 lg:py-0">
+                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+                          {solution.section}
+                        </p>
+                        <h3 className="mt-3 text-3xl font-semibold text-slate-950">{solution.title}</h3>
+                        <p className="mt-4 text-lg leading-8 text-slate-600">{solution.description}</p>
+                        <h4 className="mt-8 text-2xl font-semibold text-slate-950">{solution.secondaryTitle}</h4>
+                        <p className="mt-3 text-lg leading-8 text-slate-600">{solution.secondaryDescription}</p>
+                      </div>
+                    </>
+                  )}
                 </div>
-                <div className="p-6">
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">{solution.section}</p>
-                  <h3 className="mt-2 text-xl font-semibold text-slate-950">{solution.title}</h3>
-                  <p className="mt-3 text-base leading-7 text-slate-600">{solution.description}</p>
-                  <h4 className="mt-5 text-lg font-semibold text-slate-950">{solution.secondaryTitle}</h4>
-                  <p className="mt-2 text-base leading-7 text-slate-600">{solution.secondaryDescription}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+              </div>
+            );
+          })}
         </section>
 
-        <section className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+        <section className="grid gap-6 bg-white lg:grid-cols-[0.95fr_1.05fr]">
           <article className="rounded-[2rem] bg-slate-950 p-8 text-white shadow-[0_30px_80px_-30px_rgba(2,6,23,0.6)]">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
               Why UK teams specify Downwaste
@@ -209,25 +250,27 @@ export default function Home() {
           </article>
         </section>
 
-        <section className="rounded-[2rem] border border-slate-200 bg-white/90 p-8 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.2)]">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
-                Downwaste UK
-              </p>
-              <h2 className="mt-2 text-3xl font-semibold text-slate-950">
-                Ready to improve waste handling on your next project?
-              </h2>
-              <p className="mt-3 text-lg leading-8 text-slate-600">
-                Contact the team to discuss a solution for your building, programme and site requirements.
-              </p>
+        <section className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-6 py-16 lg:px-8 lg:py-20">
+          <div className="rounded-[2rem] border border-slate-200 bg-white/90 p-8 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.2)]">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-2xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
+                  Downwaste UK
+                </p>
+                <h2 className="mt-2 text-3xl font-semibold text-slate-950">
+                  Ready to improve waste handling on your next project?
+                </h2>
+                <p className="mt-3 text-lg leading-8 text-slate-600">
+                  Contact the team to discuss a solution for your building, programme and site requirements.
+                </p>
+              </div>
+              <a
+                href="mailto:info@downwaste.com"
+                className="inline-flex items-center justify-center rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-700"
+              >
+                Get in touch
+              </a>
             </div>
-            <a
-              href="mailto:info@downwaste.com"
-              className="inline-flex items-center justify-center rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-700"
-            >
-              Get in touch
-            </a>
           </div>
         </section>
       </main>
