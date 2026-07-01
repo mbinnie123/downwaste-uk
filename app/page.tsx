@@ -223,6 +223,11 @@ export default function Home() {
                 className={`relative flex min-h-screen w-full items-center overflow-hidden ${gradients[index]} transition-all duration-500 ease-out animate-[fadeIn_0.8s_ease-in-out] group`}
               >
                 <div className="absolute -inset-40 bg-gradient-to-r opacity-0 group-hover:opacity-5 transition-opacity duration-500 blur-3xl" />
+                <div className="pointer-events-none hidden lg:flex justify-center">
+                  <h2 className="sticky top-[32vh] text-6xl font-black uppercase tracking-[0.35em] text-slate-950/10 leading-tight text-center">
+                    {solution.section}
+                  </h2>
+                </div>
                 <div className="mx-auto flex w-full max-w-7xl gap-12 px-6 lg:grid lg:grid-cols-2 lg:px-8 relative z-10">
                   {isEven ? (
                     <>
