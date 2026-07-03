@@ -202,7 +202,7 @@ export default function Home() {
                     alt="Downwaste base management"
                     width={480}
                     height={320}
-                    className="h-auto w-full"
+                    className="h-auto w-full brightness-0"
                   />
                 </div>
                 <div className="mx-auto w-full max-w-[18rem] sm:max-w-none rounded-2xl sm:rounded-[2rem] border-2 border-sky-300 bg-white/95 p-3 sm:p-6 shadow-[0_20px_60px_-15px_rgba(14,165,233,0.4)] backdrop-blur hover:shadow-2xl transition-shadow duration-500 group">
