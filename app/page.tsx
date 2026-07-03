@@ -127,7 +127,8 @@ export default function Home() {
 
       <main className="flex flex-col">
         <div className="relative min-h-[90dvh] sm:min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(31,195,243,0.16),_transparent_35%),linear-gradient(135deg,_#f8fafc_0%,_#eef7ff_100%)]">
-          <div className="absolute inset-0 z-0 opacity-40 sm:opacity-100">
+          {/* Background image — desktop only */}
+          <div className="absolute inset-0 z-0 hidden sm:block">
             <Image
               src={baseManagement}
               alt="Downwaste base management background"
@@ -194,6 +195,16 @@ export default function Home() {
               </div>
               {/* Hero image: constrained on mobile, full beside text on desktop */}
               <ScrollReveal variant="scale" delay={200}>
+                {/* Base management SVG — inline above card on mobile only */}
+                <div className="mb-4 block sm:hidden">
+                  <Image
+                    src={baseManagement}
+                    alt="Downwaste base management"
+                    width={480}
+                    height={320}
+                    className="h-auto w-full"
+                  />
+                </div>
                 <div className="mx-auto w-full max-w-[18rem] sm:max-w-none rounded-2xl sm:rounded-[2rem] border-2 border-sky-300 bg-white/95 p-3 sm:p-6 shadow-[0_20px_60px_-15px_rgba(14,165,233,0.4)] backdrop-blur hover:shadow-2xl transition-shadow duration-500 group">
                   <Image
                     src={chuteDisposal3}
