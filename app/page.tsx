@@ -236,7 +236,7 @@ export default function Home() {
                 </div>
 
                 {/* Scroll-driven sticky heading strip */}
-                <div className="sticky top-[57px] z-30 flex items-center gap-3 px-4 py-2.5 sm:px-6 lg:px-8 bg-white/75 backdrop-blur-md border-b border-slate-200/70 shadow-[0_1px_12px_-4px_rgba(15,23,42,0.08)]">
+                <div className="sticky top-[57px] sm:top-[73px] z-30 flex items-center gap-3 px-4 py-2.5 sm:px-6 lg:px-8 bg-white/75 backdrop-blur-md border-b border-slate-200/70 shadow-[0_1px_12px_-4px_rgba(15,23,42,0.08)]">
                   <span className="text-[10px] font-black uppercase tracking-[0.35em] tabular-nums text-sky-500">
                     {String(index + 1).padStart(2, "0")}
                   </span>

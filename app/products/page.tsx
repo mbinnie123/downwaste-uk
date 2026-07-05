@@ -54,7 +54,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Category nav */}
-      <div className="sticky top-[57px] z-20 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
+      <div className="sticky top-[57px] sm:top-[73px] z-20 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl overflow-x-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex gap-1 py-2" aria-label="Product categories">
             {categories.map((cat) => (
