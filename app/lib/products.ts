@@ -31,12 +31,14 @@ export const categories: Category[] = [
         name: "Press Container",
         description:
           "Heavy-duty press containers that compress waste fractions to 1/6 of their original volume, significantly reducing required storage space and optimising garbage container capacity.",
+        href: "/products/press-compactors",
       },
       {
         id: "hooklift-bins",
         name: "Hooklift Bins",
         description:
           "Roll on/off containers, compactor containers, rubble containers, gravel containers and tailored container solutions for demanding site requirements.",
+        href: "/products/hooklift-bins",
       },
       {
         id: "underground-bin-lift",

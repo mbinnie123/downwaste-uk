@@ -11,6 +11,8 @@ import { categories } from "../lib/products";
 // Products with dedicated pages — shown as links in the dropdown
 const featuredProducts = [
   { href: "/products/skip-bins", label: "Skip Bins", category: "Containers" },
+  { href: "/products/hooklift-bins", label: "Hooklift Bins", category: "Containers" },
+  { href: "/products/press-compactors", label: "Press Container", category: "Containers" },
 ];
 
 export function SiteHeader() {
