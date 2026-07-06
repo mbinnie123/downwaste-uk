@@ -5,6 +5,7 @@ export type Product = {
   category: string;
   categorySlug: string;
   comingSoon?: boolean;
+  href?: string;
 };
 
 export type Category = {
@@ -21,9 +22,7 @@ export const categories: Category[] = [
     description:
       "Heavy-duty waste containment solutions for residential and industrial buildings. Our containers significantly reduce required waste storage space and optimise garbage capacity across all site types.",
     products: [
-      {
-        id: "skip-bins",
-        name: "Skip Bins",
+      { id: "skip-bins", name: "Skip Bins", href: "/products/skip-bins",
         description:
           "Versatile waste containers designed for efficient transport and storage of municipal and industrial waste. An essential part of waste management across a wide range of industries.",
       },

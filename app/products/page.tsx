@@ -111,7 +111,13 @@ export default function ProductsPage() {
                             )}
                           </div>
                           <h3 className="mt-1 text-base font-bold text-slate-950 sm:text-lg">
-                            {product.name}
+                            {product.href ? (
+                              <Link href={product.href} className="hover:text-sky-700 transition-colors">
+                                {product.name} →
+                              </Link>
+                            ) : (
+                              product.name
+                            )}
                           </h3>
                           <p className="mt-2 text-xs leading-5 text-slate-500 sm:text-sm sm:leading-6">
                             {product.description}
