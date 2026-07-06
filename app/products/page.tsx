@@ -2,6 +2,8 @@ import { categories } from "../lib/products";
 import { AddToQuoteButton } from "../components/add-to-quote-button";
 import { ScrollReveal } from "../components/scroll-reveal";
 import Link from "next/link";
+import Image from "next/image";
+import downwasteLogo from "../../assets/images/downwaste-logo.svg";
 
 export const metadata = {
   title: "Products | Downwaste UK",
@@ -24,8 +26,8 @@ export default function ProductsPage() {
     <div className="text-slate-900">
       {/* Hero banner */}
       <div className="bg-gradient-to-br from-slate-950 to-blue-900 px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <ScrollReveal>
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-10">
+          <ScrollReveal className="min-w-0 flex-1">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
               Full equipment range
             </p>
@@ -50,6 +52,17 @@ export default function ProductsPage() {
               </a>
             </div>
           </ScrollReveal>
+
+          {/* Logo — right side, hidden on small screens */}
+          <div className="hidden shrink-0 lg:block">
+            <Image
+              src={downwasteLogo}
+              alt="Downwaste"
+              width={220}
+              height={54}
+              className="brightness-0 invert opacity-20"
+            />
+          </div>
         </div>
       </div>
 
@@ -76,7 +89,7 @@ export default function ProductsPage() {
           {categories.map((cat, idx) => {
             const colors = categoryColors[cat.slug] ?? "from-slate-50 to-white border-slate-200";
             return (
-              <section key={cat.slug} id={cat.slug} aria-labelledby={`cat-${cat.slug}`}>
+              <section key={cat.slug} id={cat.slug} aria-labelledby={`cat-${cat.slug}`} className="scroll-mt-[117px] sm:scroll-mt-[133px]">
                 <ScrollReveal delay={idx * 40}>
                   <div className="mb-6">
                     <span className="text-[10px] font-black uppercase tracking-[0.35em] text-sky-500">

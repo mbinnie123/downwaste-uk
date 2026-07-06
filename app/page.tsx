@@ -202,7 +202,7 @@ export default function Home() {
           </div>
         </div>
 
-        <section id="solutions" className="flex flex-col">
+        <section id="solutions" className="flex flex-col scroll-mt-[57px] sm:scroll-mt-[73px]">
           <div className="mx-auto flex w-full max-w-7xl flex-col px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
             <ScrollReveal>
               <div>

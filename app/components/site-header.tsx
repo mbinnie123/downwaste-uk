@@ -45,6 +45,13 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-1 text-sm font-medium text-slate-700 sm:flex">
+          <Link
+            href="/"
+            className={`rounded-lg px-3 py-2 transition-colors hover:text-sky-700 ${pathname === "/" ? "text-sky-700" : ""}`}
+          >
+            Home
+          </Link>
+
           {/* Products dropdown */}
           <div ref={dropdownRef} className="relative">
             <button
