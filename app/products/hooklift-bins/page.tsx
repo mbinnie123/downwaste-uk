@@ -133,7 +133,7 @@ export default function HookliftBinsPage() {
       {/* Breadcrumb */}
       <div className="border-b border-slate-200 bg-slate-50 px-4 py-3 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <nav className="flex items-center gap-2 text-xs font-medium text-slate-500">
+          <nav className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
             <Link href="/" className="hover:text-sky-700 transition-colors">Home</Link>
             <span>/</span>
             <Link href="/products" className="hover:text-sky-700 transition-colors">Products</Link>
@@ -173,7 +173,7 @@ export default function HookliftBinsPage() {
             <Image
               src={heroImg}
               alt="Downwaste hooklift bins — row of compactor containers in a UK distribution warehouse"
-              className="rounded-2xl shadow-2xl"
+              className="w-full h-auto rounded-2xl shadow-2xl"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
@@ -208,7 +208,7 @@ export default function HookliftBinsPage() {
           <div className="mx-auto max-w-7xl">
             <div className={`grid gap-10 lg:grid-cols-2 lg:items-start ${vi % 2 !== 0 ? "lg:[&>*:first-child]:order-2" : ""}`}>
               {/* Text + specs */}
-              <ScrollReveal>
+              <ScrollReveal className="min-w-0">
                 <p className="text-sm font-semibold uppercase tracking-widest text-sky-600">
                   {String(vi + 1).padStart(2, "0")}
                 </p>

@@ -79,7 +79,7 @@ export default function SkipBinsPage() {
     <div className="text-slate-900">
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-7xl items-center gap-2">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">
           <Link href="/" className="hover:text-sky-700 transition-colors">Home</Link>
           <span>/</span>
           <Link href="/products" className="hover:text-sky-700 transition-colors">Products</Link>
@@ -181,33 +181,31 @@ export default function SkipBinsPage() {
             <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">Available sizes</h2>
           </ScrollReveal>
 
-          <ScrollReveal delay={100}>
-            <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <table className="min-w-full text-sm">
-                <thead>
-                  <tr className="border-b border-slate-100 bg-slate-50 text-left text-xs font-black uppercase tracking-[0.15em] text-slate-500">
-                    <th className="px-5 py-3.5">Capacity</th>
-                    <th className="px-5 py-3.5">Width</th>
-                    <th className="px-5 py-3.5">Length</th>
-                    <th className="px-5 py-3.5">Height</th>
-                    <th className="px-5 py-3.5">Weight</th>
+          <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <table className="min-w-[460px] w-full text-sm">
+              <thead>
+                <tr className="border-b border-slate-100 bg-slate-50 text-left text-xs font-black uppercase tracking-[0.15em] text-slate-500">
+                  <th className="px-5 py-3.5">Capacity</th>
+                  <th className="px-5 py-3.5">Width</th>
+                  <th className="px-5 py-3.5">Length</th>
+                  <th className="px-5 py-3.5">Height</th>
+                  <th className="px-5 py-3.5">Weight</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {specs.map((s) => (
+                  <tr key={s.capacity} className="hover:bg-sky-50/50 transition-colors">
+                    <td className="px-5 py-4 font-bold text-slate-950">{s.capacity}</td>
+                    <td className="px-5 py-4 text-slate-600">{s.width}</td>
+                    <td className="px-5 py-4 text-slate-600">{s.length}</td>
+                    <td className="px-5 py-4 text-slate-600">{s.height}</td>
+                    <td className="px-5 py-4 text-slate-600">{s.weight}</td>
                   </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {specs.map((s) => (
-                    <tr key={s.capacity} className="hover:bg-sky-50/50 transition-colors">
-                      <td className="px-5 py-4 font-bold text-slate-950">{s.capacity}</td>
-                      <td className="px-5 py-4 text-slate-600">{s.width}</td>
-                      <td className="px-5 py-4 text-slate-600">{s.length}</td>
-                      <td className="px-5 py-4 text-slate-600">{s.height}</td>
-                      <td className="px-5 py-4 text-slate-600">{s.weight}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="mt-3 text-xs text-slate-400">Custom dimensions available on request. Contact our UK team to discuss project-specific requirements.</p>
-          </ScrollReveal>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-3 text-xs text-slate-400">Custom dimensions available on request. Contact our UK team to discuss project-specific requirements.</p>
         </div>
       </div>
 
@@ -265,7 +263,7 @@ export default function SkipBinsPage() {
                   Talk to our UK team about sizes, finishes, crane-lift requirements and delivery to your site.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <AddToQuoteButton id="skip-bins" name="Skip Bins" category="Containers" />
                 <a
                   href="mailto:info@downwaste.com"

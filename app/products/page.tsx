@@ -26,7 +26,7 @@ export default function ProductsPage() {
     <div className="text-slate-900">
       {/* Hero banner */}
       <div className="bg-gradient-to-br from-slate-950 to-blue-900 px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-10">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 lg:gap-10">
           <ScrollReveal className="min-w-0 flex-1">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
               Full equipment range

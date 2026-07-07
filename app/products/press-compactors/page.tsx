@@ -98,7 +98,7 @@ export default function PressCompactorsPage() {
       {/* Breadcrumb */}
       <div className="border-b border-slate-200 bg-slate-50 px-4 py-3 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <nav className="flex items-center gap-2 text-xs font-medium text-slate-500">
+          <nav className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-slate-500">
             <Link href="/" className="hover:text-sky-700 transition-colors">Home</Link>
             <span>/</span>
             <Link href="/products" className="hover:text-sky-700 transition-colors">Products</Link>
@@ -134,11 +134,11 @@ export default function PressCompactorsPage() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal variant="scale" className="relative">
+          <ScrollReveal variant="scale">
             <Image
               src={render}
               alt="Downwaste DWPC press compactor — product render with recycling livery"
-              className="rounded-2xl shadow-2xl"
+              className="w-full h-auto rounded-2xl shadow-2xl"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
@@ -217,10 +217,10 @@ export default function PressCompactorsPage() {
           <ScrollReveal>
             <p className="text-sm font-semibold uppercase tracking-widest text-sky-600">Specifications</p>
             <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">DWPC model range</h2>
-            <p className="mt-2 text-sm text-slate-500">All models: 3 × 400 V PE / 50 Hz · Hydraulic oil tank 28 L · Feed-opening 1,057 × 1,714 mm · Compaction force 4:1</p>
+            <p className="mt-2 text-xs leading-5 text-slate-500 sm:text-sm">All models: 3 × 400 V PE / 50 Hz &nbsp;·&nbsp; Hydraulic oil tank 28 L &nbsp;·&nbsp; Feed-opening 1,057 × 1,714 mm &nbsp;·&nbsp; Compaction force 4:1</p>
           </ScrollReveal>
 
-          <ScrollReveal className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+          <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
             <table className="w-full min-w-[640px] text-sm">
               <thead className="bg-gradient-to-r from-slate-950 to-blue-900 text-white">
                 <tr>
@@ -243,7 +243,7 @@ export default function PressCompactorsPage() {
                 ))}
               </tbody>
             </table>
-          </ScrollReveal>
+          </div>
         </div>
       </div>
 
