@@ -236,14 +236,14 @@ export default function Home() {
                 </div>
 
                 {/* Scroll-driven sticky heading strip */}
-                <div className="sticky top-[57px] sm:top-[73px] z-30 flex items-center gap-3 px-4 py-2.5 sm:px-6 lg:px-8 bg-white/75 backdrop-blur-md border-b border-slate-200/70 shadow-[0_1px_12px_-4px_rgba(15,23,42,0.08)]">
-                  <span className="text-[10px] font-black uppercase tracking-[0.35em] tabular-nums text-sky-500">
+                <div className="sticky top-[57px] sm:top-[73px] z-30 flex items-center gap-3 px-4 py-3 sm:px-6 lg:px-8 bg-white/90 backdrop-blur-md border-b border-slate-200/70 shadow-[0_1px_12px_-4px_rgba(15,23,42,0.08)]">
+                  <span className="text-xs font-black uppercase tracking-[0.35em] tabular-nums text-sky-500">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="h-px w-6 shrink-0 bg-sky-300" />
-                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-slate-900">
+                  <span className="h-4 w-px shrink-0 bg-sky-300" />
+                  <h2 className="text-2xl font-black uppercase tracking-[0.15em] text-slate-900 sm:text-3xl">
                     {solution.section}
-                  </span>
+                  </h2>
                 </div>
 
                 {/* Body */}
@@ -261,9 +261,9 @@ export default function Home() {
                       {/* Text col — always first on mobile, order swaps on desktop for odd panels */}
                       <div className={`flex flex-col justify-center ${!isEven ? 'lg:order-2' : ''}`}>
                         <ScrollReveal>
-                          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+                          <h2 className="text-4xl font-black uppercase tracking-[0.15em] text-sky-700 sm:text-5xl">
                             {solution.section}
-                          </p>
+                          </h2>
                         </ScrollReveal>
                         <div className="mt-3 overflow-hidden">
                           <ScrollReveal variant="clip" delay={80}>
