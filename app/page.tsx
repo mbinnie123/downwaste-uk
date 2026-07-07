@@ -187,7 +187,7 @@ export default function Home() {
                     className="h-auto w-full brightness-0"
                   />
                 </div>
-                <div className="mx-auto w-full max-w-[18rem] sm:max-w-none rounded-2xl sm:rounded-[2rem] border-2 border-sky-300 bg-white/95 p-3 sm:p-6 shadow-[0_20px_60px_-15px_rgba(14,165,233,0.4)] backdrop-blur hover:shadow-2xl transition-shadow duration-500 group">
+                <div className="mx-auto w-full max-w-[22rem] sm:max-w-none rounded-2xl sm:rounded-[2rem] border-2 border-sky-300 bg-white/95 p-3 sm:p-6 shadow-[0_20px_60px_-15px_rgba(14,165,233,0.4)] backdrop-blur hover:shadow-2xl transition-shadow duration-500 group">
                   <Image
                     src={chuteDisposal3}
                     alt="Downwaste disposal chute system"
@@ -285,7 +285,7 @@ export default function Home() {
                       {/* Image col — centred below text on mobile, beside on desktop */}
                       <div className={`mt-10 flex items-center justify-center sm:mt-12 lg:mt-0 ${!isEven ? 'lg:order-1' : ''}`}>
                         <ScrollReveal variant="scale" delay={120}>
-                          <div className="w-full max-w-[14rem] sm:max-w-sm rounded-2xl border border-slate-200 bg-white p-4 shadow-lg sm:p-6 lg:max-w-none lg:rounded-[2rem] lg:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]">
+                          <div className="w-full max-w-[18rem] sm:max-w-md rounded-2xl border border-slate-200 bg-white p-4 shadow-lg sm:p-6 lg:max-w-none lg:rounded-[2rem] lg:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]">
                             <Image
                               src={solution.image}
                               alt={solution.alt}
@@ -371,7 +371,7 @@ export default function Home() {
             {featuredProjects.map((project, idx) => (
               <ScrollReveal key={project.title} variant="scale" delay={idx * 90}>
                 <article className="group overflow-hidden rounded-2xl border-2 border-slate-200 bg-white shadow-sm hover:shadow-2xl hover:border-sky-300 transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                  <div className="relative h-48 overflow-hidden bg-gradient-to-br from-sky-100 to-cyan-100 sm:h-60">
+                  <div className="relative h-56 overflow-hidden bg-gradient-to-br from-sky-100 to-cyan-100 sm:h-72">
                     <Image
                       src={project.image}
                       alt={project.title}
