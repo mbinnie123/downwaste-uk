@@ -13,44 +13,31 @@ export default function QuotePage() {
   const [phone, setPhone] = useState("");
   const [projectDetails, setProjectDetails] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  function buildMailtoBody() {
-    const lines: string[] = [
-      "QUOTE REQUEST — DOWNWASTE UK",
-      "================================",
-      "",
-      "CONTACT DETAILS",
-      `Name:    ${name}`,
-      `Company: ${company}`,
-      `Email:   ${email}`,
-      `Phone:   ${phone}`,
-      "",
-      "PROJECT DETAILS",
-      projectDetails || "(none provided)",
-      "",
-      "REQUESTED EQUIPMENT",
-      "--------------------------------",
-      ...items.map(
-        (item) =>
-          `• ${item.name} (${item.category})  — Qty: ${item.quantity}${item.notes ? `\n  Notes: ${item.notes}` : ""}`
-      ),
-      "",
-      "================================",
-      "Sent via downwaste.com/quote",
-    ];
-    return encodeURIComponent(lines.join("\n"));
-  }
-
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (items.length === 0) return;
-    const subject = encodeURIComponent(
-      `Quote Request from ${name || "Website visitor"}${company ? ` — ${company}` : ""}`
-    );
-    const body = buildMailtoBody();
-    window.location.href = `mailto:info@downwaste.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    clear();
+    setSending(true);
+    setError("");
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, company, email, phone, projectDetails, items }),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Something went wrong.");
+      }
+      setSubmitted(true);
+      clear();
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Failed to send. Please try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
   if (submitted) {
@@ -60,7 +47,7 @@ export default function QuotePage() {
           <p className="text-4xl">✓</p>
           <h1 className="mt-4 text-2xl font-bold text-slate-950">Quote sent!</h1>
           <p className="mt-2 text-slate-600">
-            Your email client has opened with your quote pre-filled. We&apos;ll be in touch shortly.
+            Your quote has been sent to the Downwaste UK team. We&apos;ll be in touch shortly.
           </p>
           <Link
             href="/products"
@@ -233,15 +220,22 @@ export default function QuotePage() {
                   />
                 </div>
 
+                {error && (
+                  <p className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+                    {error}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="mt-2 w-full rounded-full bg-gradient-to-r from-slate-950 to-blue-900 py-3 text-sm font-bold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
+                  disabled={sending}
+                  className="mt-2 w-full rounded-full bg-gradient-to-r from-slate-950 to-blue-900 py-3 text-sm font-bold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  Send quote request
+                  {sending ? "Sending…" : "Send quote request"}
                 </button>
 
                 <p className="text-center text-[11px] text-slate-400">
-                  This opens your email client with your quote pre-filled and sends it to{" "}
+                  Sent directly to{" "}
                   <span className="font-medium">info@downwaste.com</span>
                 </p>
               </div>
