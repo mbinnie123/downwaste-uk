@@ -241,7 +241,7 @@ export default function Home() {
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span className="h-4 w-px shrink-0 bg-sky-300" />
-                  <h2 className="text-2xl font-black uppercase tracking-[0.15em] text-slate-900 sm:text-3xl">
+                  <h2 className="text-xl font-black uppercase tracking-[0.15em] text-slate-900 sm:text-2xl">
                     {solution.section}
                   </h2>
                 </div>
