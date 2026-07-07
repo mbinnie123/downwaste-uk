@@ -282,18 +282,16 @@ export default function Home() {
                           <p className="mt-3 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">{solution.secondaryDescription}</p>
                         </ScrollReveal>
                       </div>
-                      {/* Image col — centred below text on mobile, beside on desktop */}
-                      <div className={`mt-10 flex items-center justify-center sm:mt-12 lg:mt-0 ${!isEven ? 'lg:order-1' : ''}`}>
-                        <ScrollReveal variant="scale" delay={120}>
-                          <div className="w-full max-w-[18rem] sm:max-w-md rounded-2xl border border-slate-200 bg-white p-4 shadow-lg sm:p-6 lg:max-w-none lg:rounded-[2rem] lg:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.35)]">
-                            <Image
-                              src={solution.image}
-                              alt={solution.alt}
-                              width={500}
-                              height={500}
-                              className="h-auto w-full rounded-xl lg:rounded-[1.5rem]"
-                            />
-                          </div>
+                      {/* Image col — fills full column, no background */}
+                      <div className={`mt-10 flex items-center justify-center sm:mt-12 lg:relative lg:mt-0 lg:self-stretch ${!isEven ? 'lg:order-1' : ''}`}>
+                        <ScrollReveal variant="scale" delay={120} className="w-full max-w-[22rem] sm:max-w-lg lg:absolute lg:-inset-8 lg:max-w-none">
+                          <Image
+                            src={solution.image}
+                            alt={solution.alt}
+                            width={500}
+                            height={500}
+                            className="h-auto w-full lg:h-full lg:w-full lg:object-contain lg:scale-110"
+                          />
                         </ScrollReveal>
                       </div>
                     </div>
