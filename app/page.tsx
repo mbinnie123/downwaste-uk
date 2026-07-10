@@ -43,7 +43,7 @@ const solutionGroups = [
     secondaryTitle: "Carousels & Conveyors",
     secondaryDescription:
       "Bin carousels and conveyors reduce caretaker and facilities staff workload by rotating full bins with empty ones. They can be integrated with automatic bin press conveyors for maximum compaction, freeing up valuable bin store space in UK residential and mixed-use schemes.",
-    image: chuteDisposal3,
+    image: managementIcon,
     alt: "Downwaste sorting equipment",
   },
   {
@@ -65,7 +65,7 @@ const solutionGroups = [
     secondaryTitle: "Custom Solutions",
     secondaryDescription:
       "Downwaste provides bespoke waste solutions designed around your building's layout, occupancy profile and local authority collection requirements. We carry out detailed waste profile analysis to deliver long-term systems that enhance efficiency, safety and sustainability across the life of the building.",
-    image: managementIcon,
+    image: chuteDisposal3,
     alt: "Downwaste management services",
   },
 ];
