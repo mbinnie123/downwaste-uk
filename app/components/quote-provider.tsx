@@ -15,12 +15,14 @@ export type QuoteItem = {
   category: string;
   quantity: number;
   notes: string;
+  estimateLow?: number;
+  estimateHigh?: number;
 };
 
 type State = { items: QuoteItem[] };
 
 type Action =
-  | { type: "ADD"; id: string; name: string; category: string }
+  | { type: "ADD"; id: string; name: string; category: string; estimateLow?: number; estimateHigh?: number }
   | { type: "REMOVE"; id: string }
   | { type: "SET_QTY"; id: string; quantity: number }
   | { type: "SET_NOTES"; id: string; notes: string }
@@ -35,7 +37,7 @@ function reducer(state: State, action: Action): State {
       return {
         items: [
           ...state.items,
-          { id: action.id, name: action.name, category: action.category, quantity: 1, notes: "" },
+          { id: action.id, name: action.name, category: action.category, quantity: 1, notes: "", estimateLow: action.estimateLow, estimateHigh: action.estimateHigh },
         ],
       };
     }
@@ -67,7 +69,7 @@ type QuoteContextValue = {
   items: QuoteItem[];
   count: number;
   has: (id: string) => boolean;
-  add: (id: string, name: string, category: string) => void;
+  add: (id: string, name: string, category: string, estimateLow?: number, estimateHigh?: number) => void;
   remove: (id: string) => void;
   setQty: (id: string, quantity: number) => void;
   setNotes: (id: string, notes: string) => void;
@@ -98,8 +100,8 @@ export function QuoteProvider({ children }: { children: React.ReactNode }) {
   }, [state.items]);
 
   const add = useCallback(
-    (id: string, name: string, category: string) =>
-      dispatch({ type: "ADD", id, name, category }),
+    (id: string, name: string, category: string, estimateLow?: number, estimateHigh?: number) =>
+      dispatch({ type: "ADD", id, name, category, estimateLow, estimateHigh }),
     []
   );
   const remove = useCallback(

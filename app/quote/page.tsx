@@ -4,6 +4,37 @@ import Link from "next/link";
 import { useState } from "react";
 import { useQuote } from "../components/quote-provider";
 
+// Guide prices (supply only, ex-VAT) for items added without going through the estimator
+const GUIDE_PRICES: Record<string, { low: number; high: number; unit: string }> = {
+  "skip-bins":              { low: 800,    high: 1800,  unit: "per unit" },
+  "press-container":        { low: 12000,  high: 25000, unit: "per unit" },
+  "hooklift-bins":          { low: 1500,   high: 4000,  unit: "per unit" },
+  "vertical-baler":         { low: 6000,   high: 15000, unit: "per unit" },
+  "auger-compactor":        { low: 8000,   high: 18000, unit: "per unit" },
+  "static-compactor":       { low: 8000,   high: 18000, unit: "per unit" },
+  "self-tipping-skips":     { low: 1200,   high: 3000,  unit: "per unit" },
+  "bin-tipper":             { low: 2500,   high: 6000,  unit: "per unit" },
+  "trash-containers":       { low: 300,    high: 800,   unit: "per unit" },
+  "garbage-chute":          { low: 400,    high: 1200,  unit: "per floor (use estimator for full spec)" },
+  "laundry-chute":          { low: 400,    high: 800,   unit: "per floor (use estimator for full spec)" },
+  "recycling-chute":        { low: 450,    high: 950,   unit: "per floor" },
+  "pneumatic-chute":        { low: 1200,   high: 3000,  unit: "per floor" },
+  "construction-chute":     { low: 200,    high: 600,   unit: "per floor" },
+  "chute-fed-compactor":    { low: 8000,   high: 18000, unit: "per unit" },
+  "press-compactor":        { low: 12000,  high: 25000, unit: "per unit" },
+  "carousel":               { low: 3000,   high: 8000,  unit: "per unit" },
+  "conveyor":               { low: 2500,   high: 7000,  unit: "per unit" },
+  "odour-control":          { low: 1500,   high: 5000,  unit: "per unit" },
+  "bin-store":              { low: 5000,   high: 20000, unit: "per installation" },
+};
+
+function getGuidePrice(id: string) {
+  // exact match first, then prefix match for estimator-generated IDs
+  if (GUIDE_PRICES[id]) return GUIDE_PRICES[id];
+  const key = Object.keys(GUIDE_PRICES).find(k => id.startsWith(k));
+  return key ? GUIDE_PRICES[key] : null;
+}
+
 export default function QuotePage() {
   const { items, remove, setQty, setNotes, clear } = useQuote();
 
@@ -113,6 +144,11 @@ export default function QuotePage() {
                           {item.category}
                         </p>
                         <p className="mt-0.5 font-bold text-slate-950">{item.name}</p>
+                        {item.estimateLow != null && item.estimateHigh != null && (
+                          <p className="mt-1 text-xs font-semibold text-sky-700">
+                            Guide: £{item.estimateLow.toLocaleString("en-GB")} – £{item.estimateHigh.toLocaleString("en-GB")} <span className="font-normal text-slate-400">supply only · ex-VAT</span>
+                          </p>
+                        )}
                       </div>
                       <button
                         type="button"
@@ -154,8 +190,71 @@ export default function QuotePage() {
               </div>
             </div>
 
-            {/* Right: contact + submit */}
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm sm:p-8 lg:self-start lg:sticky lg:top-24">
+            {/* Right: estimate + contact + submit */}
+            <div className="flex flex-col gap-6 lg:self-start lg:sticky lg:top-24">
+
+              {/* Estimate summary */}
+              {(() => {
+                const withEstimates = items.map(i => {
+                  const low  = i.estimateLow  ?? (getGuidePrice(i.id)?.low  ?? null);
+                  const high = i.estimateHigh ?? (getGuidePrice(i.id)?.high ?? null);
+                  const unit = i.estimateLow != null ? null : getGuidePrice(i.id)?.unit ?? null;
+                  return { ...i, resolvedLow: low, resolvedHigh: high, unit };
+                });
+                const estimated   = withEstimates.filter(i => i.resolvedLow != null);
+                const unestimated = withEstimates.filter(i => i.resolvedLow == null);
+                const totalLow    = estimated.reduce((s, i) => s + i.resolvedLow!  * i.quantity, 0);
+                const totalHigh   = estimated.reduce((s, i) => s + i.resolvedHigh! * i.quantity, 0);
+                return (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <h2 className="text-base font-bold text-slate-950">Cost Estimate</h2>
+                    {estimated.length === 0 ? (
+                      <div className="mt-3">
+                        <p className="text-sm text-slate-500">No estimates available. Use the estimator to get guide prices.</p>
+                        <Link href="/estimator" className="mt-3 inline-flex items-center gap-1.5 rounded-full border-2 border-sky-400 px-4 py-2 text-xs font-bold text-sky-700 hover:bg-sky-50 transition-colors">
+                          Open Estimator →
+                        </Link>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="mt-3 flex flex-col gap-2">
+                          {estimated.map(i => (
+                            <div key={i.id} className="flex items-start justify-between gap-2 text-xs">
+                              <div className="min-w-0">
+                                <span className="text-slate-700 font-medium leading-5">{i.name}{i.quantity > 1 ? ` ×${i.quantity}` : ""}</span>
+                                {i.unit && <p className="text-[10px] text-slate-400">{i.unit}</p>}
+                              </div>
+                              <span className="shrink-0 font-semibold text-sky-700 tabular-nums">
+                                £{(i.resolvedLow! * i.quantity).toLocaleString("en-GB")}–£{(i.resolvedHigh! * i.quantity).toLocaleString("en-GB")}
+                              </span>
+                            </div>
+                          ))}
+                          {unestimated.length > 0 && (
+                            <p className="text-[11px] text-slate-400 mt-1 border-t border-slate-100 pt-2">
+                              {unestimated.map(i => i.name).join(", ")} — no guide price available
+                            </p>
+                          )}
+                        </div>
+                        <div className="mt-4 border-t border-slate-100 pt-4">
+                          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Total guide price</p>
+                          <p className="mt-1 text-2xl font-black text-slate-950">
+                            £{totalLow.toLocaleString("en-GB")}
+                            <span className="text-base font-bold text-slate-400"> – </span>
+                            £{totalHigh.toLocaleString("en-GB")}
+                          </p>
+                          <p className="mt-1 text-[11px] text-slate-400 leading-4">Supply only · ex-VAT · installation adds ~20–40%</p>
+                          <Link href="/estimator" className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-sky-600 hover:text-sky-800 transition-colors">
+                            Refine with Estimator →
+                          </Link>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                );
+              })()}
+
+              {/* Contact form */}
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm sm:p-8">
               <h2 className="mb-5 text-lg font-bold text-slate-950">Your details</h2>
 
               <div className="flex flex-col gap-4">
@@ -238,6 +337,7 @@ export default function QuotePage() {
                   Sent directly to{" "}
                   <span className="font-medium">info@downwaste.com</span>
                 </p>
+              </div>
               </div>
             </div>
           </form>

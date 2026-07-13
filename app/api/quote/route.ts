@@ -22,15 +22,25 @@ export async function POST(req: NextRequest) {
 
     const itemRows = items
       .map(
-        (item: { name: string; category: string; quantity: number; notes?: string }) =>
-          `<tr>
+        (item: { name: string; category: string; quantity: number; notes?: string; estimateLow?: number; estimateHigh?: number }) => {
+          const hasEstimate = item.estimateLow != null && item.estimateHigh != null;
+          const estimateStr = hasEstimate
+            ? `£${item.estimateLow!.toLocaleString("en-GB")} – £${item.estimateHigh!.toLocaleString("en-GB")}`
+            : "—";
+          return `<tr>
             <td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">${item.name}</td>
             <td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">${item.category}</td>
             <td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;text-align:center;">${item.quantity}</td>
+            <td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;color:${hasEstimate ? "#0369a1" : "#64748b"};font-weight:${hasEstimate ? "600" : "400"}">${estimateStr}</td>
             <td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;color:#64748b;">${item.notes || "—"}</td>
-          </tr>`
+          </tr>`;
+        }
       )
       .join("");
+
+    const totalLow  = items.reduce((s: number, i: { estimateLow?:  number; quantity: number }) => s + (i.estimateLow  ?? 0) * i.quantity, 0);
+    const totalHigh = items.reduce((s: number, i: { estimateHigh?: number; quantity: number }) => s + (i.estimateHigh ?? 0) * i.quantity, 0);
+    const hasAnyEstimate = totalLow > 0;
 
     const html = `
 <!DOCTYPE html>
@@ -69,11 +79,20 @@ export async function POST(req: NextRequest) {
               <th style="padding:8px 12px;text-align:left;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:#64748b;">Product</th>
               <th style="padding:8px 12px;text-align:left;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:#64748b;">Category</th>
               <th style="padding:8px 12px;text-align:center;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:#64748b;">Qty</th>
+              <th style="padding:8px 12px;text-align:left;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:#64748b;">Guide Price</th>
               <th style="padding:8px 12px;text-align:left;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:#64748b;">Notes</th>
             </tr>
           </thead>
           <tbody>${itemRows}</tbody>
         </table>
+        ${hasAnyEstimate ? `
+        <div style="margin-top:12px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:12px 16px;">
+          <p style="margin:0;font-size:13px;color:#1e40af;">
+            <strong>Total guide price (supply only, ex-VAT):</strong>
+            £${totalLow.toLocaleString("en-GB")} – £${totalHigh.toLocaleString("en-GB")}
+          </p>
+          <p style="margin:4px 0 0;font-size:11px;color:#64748b;">Indicative only. Installation adds approx. 20–40%. Prices to be confirmed following project review.</p>
+        </div>` : ""}
       </div>
     </div>
 

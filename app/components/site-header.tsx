@@ -108,6 +108,7 @@ export function SiteHeader() {
           </div>
 
           <Link href="/#solutions" className="rounded-lg px-3 py-2 transition-colors hover:text-sky-700">Solutions</Link>
+          <Link href="/estimator" className={`rounded-lg px-3 py-2 transition-colors hover:text-sky-700 ${pathname === "/estimator" ? "text-sky-700" : ""}`}>Estimator</Link>
         </nav>
 
         {/* Right side */}
@@ -226,6 +227,13 @@ export function SiteHeader() {
               className="mt-1 flex items-center rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 transition-colors hover:bg-sky-50 hover:text-sky-700"
             >
               Solutions
+            </Link>
+            <Link
+              href="/estimator"
+              onClick={closeMobile}
+              className={`mt-1 flex items-center rounded-xl px-4 py-3 text-sm font-semibold transition-colors hover:bg-sky-50 hover:text-sky-700 ${pathname === "/estimator" ? "bg-sky-50 text-sky-700" : "text-slate-800"}`}
+            >
+              Estimator
             </Link>
           </nav>
 
