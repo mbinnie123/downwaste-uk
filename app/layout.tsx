@@ -15,10 +15,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title = "Downwaste UK | Waste Chutes & Handling Equipment";
+const description =
+  "Downwaste UK supplies and installs waste chutes, compactors, balers and bin handling systems for residential towers, BTR schemes, hotels and commercial developments across the UK.";
+
 export const metadata: Metadata = {
-  title: "Downwaste UK | Waste Chutes & Handling Equipment",
-  description:
-    "Downwaste UK supplies and installs waste chutes, compactors, balers and bin handling systems for residential towers, BTR schemes, hotels and commercial developments across the UK.",
+  metadataBase: new URL("https://downwaste.co.uk"),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    siteName: "Downwaste UK",
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({
