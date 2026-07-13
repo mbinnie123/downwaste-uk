@@ -30,11 +30,20 @@ export const metadata: Metadata = {
     siteName: "Downwaste UK",
     locale: "en_GB",
     type: "website",
+    images: [
+      {
+        url: "https://downwaste.co.uk/og-image.png",
+        width: 512,
+        height: 512,
+        alt: "Downwaste UK",
+      },
+    ],
   },
   twitter: {
     card: "summary",
     title,
     description,
+    images: ["https://downwaste.co.uk/og-image.png"],
   },
 };
 
