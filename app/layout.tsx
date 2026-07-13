@@ -15,12 +15,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "https://downwaste.co.uk";
+
 const title = "Downwaste UK | Waste Chutes & Handling Equipment";
 const description =
   "Downwaste UK supplies and installs waste chutes, compactors, balers and bin handling systems for residential towers, BTR schemes, hotels and commercial developments across the UK.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://downwaste.co.uk"),
+  metadataBase: new URL(siteUrl),
   title,
   description,
   openGraph: {
@@ -32,7 +38,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://downwaste.co.uk/og-image.png",
+        url: `${siteUrl}/og-image.png`,
         width: 512,
         height: 512,
         alt: "Downwaste UK",
@@ -43,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary",
     title,
     description,
-    images: ["https://downwaste.co.uk/og-image.png"],
+    images: [`${siteUrl}/og-image.png`],
   },
 };
 
