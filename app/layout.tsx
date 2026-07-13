@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
+    url: "/",
     siteName: "Downwaste UK",
     locale: "en_GB",
     type: "website",
