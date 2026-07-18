@@ -86,7 +86,7 @@ function chuteEstimate(cfg: ChuteConfig): { low: number; high: number } {
     CHUTE_STANDARD_UPLIFT[cfg.standard] +
     DIAMETER_UPLIFT[cfg.diameter];
   const perFloor = base;
-  const total = perFloor * cfg.floors;
+  const total = perFloor * cfg.floors * 5;
   // ±20% range
   return { low: Math.round(total * 0.85), high: Math.round(total * 1.2) };
 }
