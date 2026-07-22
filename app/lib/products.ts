@@ -152,6 +152,7 @@ export const categories: Category[] = [
       {
         id: "recycling-chute",
         name: "Recycling Chute",
+        href: "/products/recycling-chute",
         description:
           "Apartment and building recycling chutes that optimise waste management by saving space and reducing handling costs. Waste is efficiently sorted and processed at source.",
       },
