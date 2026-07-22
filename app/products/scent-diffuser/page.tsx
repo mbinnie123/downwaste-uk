@@ -123,55 +123,50 @@ export default function ScentDiffuserPage() {
         <div className="absolute bottom-0 left-0 right-0 h-20 opacity-30 pointer-events-none">
           <Image src={headerStripe} alt="" fill className="object-cover object-bottom" />
         </div>
-        <div className="absolute right-0 top-0 bottom-0 hidden lg:block w-[50%] pointer-events-none select-none">
-          <Image
-            src={diffuserHero}
-            alt="Prolitec commercial scent diffuser units"
-            fill
-            priority
-            className="object-cover object-left opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-900/30 to-transparent" />
-        </div>
         <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-          <ScrollReveal>
-            <div className="max-w-xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
-                Odour Solutions — Scent Diffuser
-              </p>
-              <h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-                Prolitec Scent Diffusers
-              </h1>
-              <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-                Advanced commercial scent diffusers for superior waste room odour control. Our systems diffuse fragrance and odour-neutralising agents into the air — as chute doors open, airflow carries the scent upwards, providing effective garbage room odour control for every floor.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <AddToQuoteButton id="scent-diffuser" name="Prolitec Scent Diffuser" category="Odour Solutions" />
-                <Link
-                  href="/quote"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-6 py-2.5 text-sm font-bold text-slate-300 transition-all hover:border-sky-400 hover:text-sky-400"
-                >
-                  View quote
-                </Link>
-                <Link
-                  href="/estimator"
-                  className="inline-flex items-center gap-2 rounded-full border border-sky-400/60 px-6 py-2.5 text-sm font-bold text-sky-400 transition-all hover:border-sky-400 hover:bg-sky-400/10"
-                >
-                  Estimate cost →
-                </Link>
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <ScrollReveal>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
+                  Odour Solutions — Scent Diffuser
+                </p>
+                <h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+                  Prolitec Scent Diffusers
+                </h1>
+                <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
+                  Advanced commercial scent diffusers for superior waste room odour control. Our systems diffuse fragrance and odour-neutralising agents into the air — as chute doors open, airflow carries the scent upwards, providing effective garbage room odour control for every floor.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <AddToQuoteButton id="scent-diffuser" name="Prolitec Scent Diffuser" category="Odour Solutions" />
+                  <Link
+                    href="/quote"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-6 py-2.5 text-sm font-bold text-slate-300 transition-all hover:border-sky-400 hover:text-sky-400"
+                  >
+                    View quote
+                  </Link>
+                  <Link
+                    href="/estimator"
+                    className="inline-flex items-center gap-2 rounded-full border border-sky-400/60 px-6 py-2.5 text-sm font-bold text-sky-400 transition-all hover:border-sky-400 hover:bg-sky-400/10"
+                  >
+                    Estimate cost →
+                  </Link>
+                </div>
               </div>
-              <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 lg:hidden">
+            </ScrollReveal>
+
+            <ScrollReveal variant="scale" delay={150}>
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl">
                 <Image
                   src={diffuserHero}
                   alt="Prolitec commercial scent diffuser units"
                   width={800}
                   height={800}
                   priority
-                  className="h-auto w-full"
+                  className="h-auto w-full object-contain"
                 />
               </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
         </div>
       </div>
 
