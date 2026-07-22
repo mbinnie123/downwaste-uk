@@ -138,6 +138,7 @@ export const categories: Category[] = [
       {
         id: "garbage-chute",
         name: "Garbage Chute",
+        href: "/products/garbage-chute",
         description:
           "Building and apartment garbage chute systems that ensure seamless disposal. Smell-proof chutes enhance efficiency, safety and hygiene across residential and commercial developments.",
       },
