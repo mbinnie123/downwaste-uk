@@ -145,6 +145,7 @@ export const categories: Category[] = [
       {
         id: "laundry-chute",
         name: "Laundry Chute",
+        href: "/products/laundry-chute",
         description:
           "Clothes chute and laundry chute systems for efficient linen disposal in luxury hotels and private villas. Custom laundry chute solutions with tailored designs available.",
       },
