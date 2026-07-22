@@ -159,6 +159,7 @@ export const categories: Category[] = [
       {
         id: "pneumatic-chute",
         name: "Pneumatic Chute",
+        href: "/products/pneumatic-chute",
         description:
           "Pneumatic waste systems using air pressure to transport segregated waste horizontally into closed containers. Automated, hygienic and ideal for high-density urban developments.",
       },
