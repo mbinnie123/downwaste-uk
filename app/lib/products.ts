@@ -188,6 +188,7 @@ export const categories: Category[] = [
       {
         id: "bin-carousel",
         name: "Bin Carousel",
+        href: "/products/bin-carousel",
         description:
           "Automatic bin carousel that simplifies waste bin rotation and minimises manual labour. Allows staff to focus on more critical tasks while maintaining a cleaner, safer garbage room.",
       },
