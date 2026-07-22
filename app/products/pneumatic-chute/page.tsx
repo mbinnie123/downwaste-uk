@@ -148,52 +148,56 @@ export default function PneumaticChutePage() {
         <div className="absolute bottom-0 left-0 right-0 h-20 opacity-30 pointer-events-none">
           <Image src={headerStripe} alt="" fill className="object-cover object-bottom" />
         </div>
+        {/* Absolute hero image — right side, full hero height */}
+        <div className="absolute right-0 top-0 bottom-0 hidden lg:block w-[56%] pointer-events-none select-none">
+          <Image
+            src={pneumaticChute}
+            alt="Downwaste pneumatic waste collection system diagram"
+            fill
+            priority
+            className="object-contain object-center p-6 opacity-90"
+          />
+        </div>
         <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <ScrollReveal>
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
-                  Chutes — Pneumatic Waste Systems
-                </p>
-                <h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-                  Pneumatic Waste Collection Systems
-                </h1>
-                <p className="mt-4 max-w-lg text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-                  Fully automated, vacuum-powered waste transport for hospitals, high-rise buildings and urban developments. Waste travels from floor inlet to central collection plant through sealed pipelines — hygienic, odour-free and without any manual handling.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <AddToQuoteButton id="pneumatic-chute" name="Pneumatic Waste System" category="Chutes" />
-                  <Link
-                    href="/quote"
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-6 py-2.5 text-sm font-bold text-slate-300 transition-all hover:border-sky-400 hover:text-sky-400"
-                  >
-                    View quote
-                  </Link>
-                  <Link
-                    href="/estimator"
-                    className="inline-flex items-center gap-2 rounded-full border border-sky-400/60 px-6 py-2.5 text-sm font-bold text-sky-400 transition-all hover:border-sky-400 hover:bg-sky-400/10"
-                  >
-                    Estimate cost →
-                  </Link>
-                </div>
+          <ScrollReveal>
+            <div className="max-w-xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
+                Chutes — Pneumatic Waste Systems
+              </p>
+              <h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+                Pneumatic Waste Collection Systems
+              </h1>
+              <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
+                Fully automated, vacuum-powered waste transport for hospitals, high-rise buildings and urban developments. Waste travels from floor inlet to central collection plant through sealed pipelines — hygienic, odour-free and without any manual handling.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <AddToQuoteButton id="pneumatic-chute" name="Pneumatic Waste System" category="Chutes" />
+                <Link
+                  href="/quote"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-6 py-2.5 text-sm font-bold text-slate-300 transition-all hover:border-sky-400 hover:text-sky-400"
+                >
+                  View quote
+                </Link>
+                <Link
+                  href="/estimator"
+                  className="inline-flex items-center gap-2 rounded-full border border-sky-400/60 px-6 py-2.5 text-sm font-bold text-sky-400 transition-all hover:border-sky-400 hover:bg-sky-400/10"
+                >
+                  Estimate cost →
+                </Link>
               </div>
-            </ScrollReveal>
-
-            <ScrollReveal variant="scale" delay={150}>
-              <div className="flex justify-center">
-                <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 shadow-2xl max-w-sm w-full">
-                  <Image
-                    src={pneumaticChute}
-                    alt="Downwaste pneumatic waste collection system diagram"
-                    width={480}
-                    height={480}
-                    priority
-                    className="h-auto w-full"
-                  />
-                </div>
+              {/* Mobile image — shown below buttons, hidden on desktop where absolute version shows */}
+              <div className="mt-10 flex justify-center lg:hidden">
+                <Image
+                  src={pneumaticChute}
+                  alt="Downwaste pneumatic waste collection system diagram"
+                  width={560}
+                  height={560}
+                  priority
+                  className="h-auto w-full max-w-sm opacity-90"
+                />
               </div>
-            </ScrollReveal>
-          </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
 

@@ -166,6 +166,7 @@ export const categories: Category[] = [
       {
         id: "construction-chute",
         name: "Construction Chute",
+        href: "/products/construction-chute",
         description:
           "Metal debris chutes that set the new standard for construction waste disposal, offering enhanced durability far beyond typical plastic chutes for high-rise building sites.",
       },
@@ -180,6 +181,7 @@ export const categories: Category[] = [
       {
         id: "bin-feed-press",
         name: "Bin Feed Press",
+        href: "/products/bin-feed-press",
         description:
           "The ultimate solution for reducing frequent bin replacements. Automatic waste bin cycling means staff only intervene once all bins are fully pressed — optimising space and minimising labour.",
       },
