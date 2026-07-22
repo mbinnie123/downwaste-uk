@@ -4,6 +4,10 @@ import { AddToQuoteButton } from "../../components/add-to-quote-button";
 import { ScrollReveal } from "../../components/scroll-reveal";
 import carouselHero from "../../../assets/images/downwaste_chute_fed_carousels.jpg";
 import carouselSystem from "../../../assets/images/bin_carousel_system.jpg";
+import carouselRender1 from "../../../assets/images/downwaste_carousels_render_1.jpg";
+import carouselRender2 from "../../../assets/images/downwaste_carousels_render_2.jpg";
+import carouselTechData from "../../../assets/images/chute_fed_carousels_technical_data.jpg";
+import carouselTechDrawing from "../../../assets/images/downwaste_rc_001_tech_drawing.jpg";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
@@ -217,14 +221,36 @@ export default function BinCarouselPage() {
           </ScrollReveal>
 
           <ScrollReveal variant="scale" delay={100}>
-            <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg">
-              <Image
-                src={carouselSystem}
-                alt="Downwaste bin carousel system — full unit view"
-                width={840}
-                height={1500}
-                className="h-auto w-full object-cover"
-              />
+            <div className="flex flex-col gap-4">
+              <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg">
+                <Image
+                  src={carouselSystem}
+                  alt="Downwaste bin carousel system — full unit view"
+                  width={840}
+                  height={1500}
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                  <Image
+                    src={carouselRender1}
+                    alt="Downwaste bin carousel render — view 1"
+                    width={800}
+                    height={700}
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                  <Image
+                    src={carouselRender2}
+                    alt="Downwaste bin carousel render — view 2"
+                    width={800}
+                    height={700}
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </div>
@@ -294,6 +320,38 @@ export default function BinCarouselPage() {
               </div>
             </ScrollReveal>
           ))}
+        </div>
+      </div>
+
+      {/* Technical diagrams */}
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <ScrollReveal>
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">Technical data</p>
+          <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">System diagrams</h2>
+        </ScrollReveal>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          <ScrollReveal delay={60}>
+            <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+              <Image
+                src={carouselTechData}
+                alt="Downwaste bin carousel — chute fed technical data diagram"
+                width={1200}
+                height={1013}
+                className="h-auto w-full object-cover"
+              />
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={120}>
+            <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm flex items-center justify-center bg-slate-50 p-6">
+              <Image
+                src={carouselTechDrawing}
+                alt="Downwaste RC.001 technical drawing"
+                width={550}
+                height={700}
+                className="h-auto w-full max-w-xs object-contain"
+              />
+            </div>
+          </ScrollReveal>
         </div>
       </div>
 

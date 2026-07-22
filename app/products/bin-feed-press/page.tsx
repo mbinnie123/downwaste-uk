@@ -131,15 +131,28 @@ export default function BinFeedPressPage() {
         <div className="absolute bottom-0 left-0 right-0 h-20 opacity-30 pointer-events-none">
           <Image src={headerStripe} alt="" fill className="object-cover object-bottom" />
         </div>
-        {/* Absolute hero image — right side, desktop only */}
-        <div className="absolute right-0 top-0 bottom-0 hidden lg:block w-[38%] pointer-events-none select-none">
-          <Image
-            src={binFeedRender}
-            alt="Downwaste bin feed press system render"
-            fill
-            priority
-            className="object-contain object-center py-4 pr-6 opacity-90"
-          />
+        {/* Absolute hero images — right side, desktop only (two slides side by side) */}
+        <div className="absolute right-0 top-0 bottom-0 hidden lg:flex w-[54%] flex-row gap-4 pointer-events-none select-none px-8 py-10 items-center">
+          <div className="overflow-hidden rounded-xl border border-white/10 shadow-xl flex-1">
+            <Image
+              src={binFeedSlide1}
+              alt="Downwaste bin feed press — installed view"
+              width={800}
+              height={550}
+              priority
+              className="h-auto w-full object-cover"
+            />
+          </div>
+          <div className="overflow-hidden rounded-xl border border-white/10 shadow-xl flex-1">
+            <Image
+              src={binFeedSlide2}
+              alt="Downwaste bin feed press — operational view"
+              width={800}
+              height={550}
+              priority
+              className="h-auto w-full object-cover"
+            />
+          </div>
         </div>
         <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
           <ScrollReveal>
@@ -168,16 +181,28 @@ export default function BinFeedPressPage() {
                   Estimate cost →
                 </Link>
               </div>
-              {/* Mobile render image */}
-              <div className="mt-10 flex justify-center lg:hidden">
-                <Image
-                  src={binFeedRender}
-                  alt="Downwaste bin feed press system"
-                  width={260}
-                  height={620}
-                  priority
-                  className="h-auto w-44 opacity-90"
-                />
+              {/* Mobile slide images — side by side */}
+              <div className="mt-8 flex flex-row gap-4 lg:hidden">
+                <div className="overflow-hidden rounded-xl border border-white/10 flex-1">
+                  <Image
+                    src={binFeedSlide1}
+                    alt="Downwaste bin feed press — installed view"
+                    width={800}
+                    height={550}
+                    priority
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-xl border border-white/10 flex-1">
+                  <Image
+                    src={binFeedSlide2}
+                    alt="Downwaste bin feed press — operational view"
+                    width={800}
+                    height={550}
+                    priority
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </ScrollReveal>
@@ -207,30 +232,17 @@ export default function BinFeedPressPage() {
             </div>
           </ScrollReveal>
 
-          <div className="flex flex-col gap-4">
-            <ScrollReveal variant="scale" delay={80}>
-              <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-                <Image
-                  src={binFeedSlide1}
-                  alt="Downwaste bin feed press — installed view"
-                  width={800}
-                  height={550}
-                  className="h-auto w-full object-cover"
-                />
-              </div>
-            </ScrollReveal>
-            <ScrollReveal variant="scale" delay={140}>
-              <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-                <Image
-                  src={binFeedSlide2}
-                  alt="Downwaste bin feed press — operational view"
-                  width={800}
-                  height={550}
-                  className="h-auto w-full object-cover"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
+          <ScrollReveal variant="scale" delay={100}>
+            <div className="flex justify-center">
+              <Image
+                src={binFeedRender}
+                alt="Downwaste bin feed press system render"
+                width={360}
+                height={860}
+                className="h-auto w-full max-w-xs object-contain drop-shadow-xl"
+              />
+            </div>
+          </ScrollReveal>
         </div>
       </div>
 

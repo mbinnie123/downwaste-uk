@@ -195,6 +195,7 @@ export const categories: Category[] = [
       {
         id: "chute-compactor",
         name: "Chute Compactor",
+        href: "/products/chute-compactor",
         description:
           "Leakproof chute-fed compactor with a 10:1 compaction ratio. Minimises storage space for household waste and reduces the need for extra trolleys and operators — delivering significant time and cost savings.",
       },
@@ -209,18 +210,21 @@ export const categories: Category[] = [
       {
         id: "trash-bin-washer",
         name: "Trash Bin Washer",
+        href: "/products/trash-bin-washer",
         description:
           "Automatic trash bin washer designed to enhance waste room odour control and garbage room hygiene. Delivers a pristine clean that transforms waste containers and the environment they reside in.",
       },
       {
         id: "scent-diffuser",
         name: "Scent Diffuser",
+        href: "/products/scent-diffuser",
         description:
           "Innovative scent diffusers that release odour solutions into the air via chute door airflow. Provides a consistent and refreshing fragrance for a more pleasant waste room experience.",
       },
       {
         id: "uv-ozone-plasma",
         name: "UV-C / Ozone / Plasma",
+        href: "/products/uv-ozone-plasma",
         description:
           "Advanced UV ozone odour control and plasma purification technology that neutralises odours and airborne contaminants, ensuring a safer and healthier waste disposal environment.",
       },
