@@ -100,10 +100,14 @@ export default function RolltainersPage() {
         <div className="absolute bottom-0 left-0 right-0 h-20 opacity-30 pointer-events-none">
           <Image src={headerStripe} alt="" fill className="object-cover object-bottom" />
         </div>
-        <div className="absolute right-0 top-0 bottom-0 hidden lg:flex w-[45%] items-center justify-center pointer-events-none select-none px-8 py-10">
-          <div className="overflow-hidden rounded-2xl border border-white/10 shadow-xl w-full">
-            <Image src={rolltainer} alt="Downwaste stainless steel rolltainer laundry trolley" width={800} height={600} priority className="h-auto w-full object-cover" />
-          </div>
+        <div className="absolute right-0 top-0 bottom-0 hidden lg:block w-[52%] pointer-events-none select-none">
+          <Image
+            src={rolltainer}
+            alt="Downwaste stainless steel rolltainer laundry trolley"
+            fill
+            priority
+            className="object-contain object-center p-8 opacity-90"
+          />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
           <ScrollReveal>
