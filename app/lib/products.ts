@@ -108,24 +108,28 @@ export const categories: Category[] = [
     products: [
       {
         id: "self-tipping-skips",
+        href: "/products/self-tipping-skips",
         name: "Self-Tipping Skips",
         description:
           "Engineered for versatility and safety, ideal for heavy metal waste, press burrs and abrasive materials such as marble, granite and ceramics. Provides seamless tipping functionality.",
       },
       {
         id: "bin-tipper",
+        href: "/products/bin-tipper",
         name: "Bin Tipper",
         description:
           "Compatible with both standard and custom bins, bin tippers integrate effortlessly with mobile or static compactors or function as standalone units for efficient waste bin emptying.",
       },
       {
         id: "trash-containers",
+        href: "/products/trash-containers",
         name: "Trash Containers",
         description:
           "Built for easy maneuverability with ergonomic handlebars and heavy-duty caster wheels. Facilitates source segregation of tins, glass, paper, cardboard and organic waste.",
       },
       {
         id: "rolltainers",
+        href: "/products/rolltainers",
         name: "Rolltainers",
         description:
           "Heavy-duty stainless steel rolltainers for seamless laundry collection from laundry chutes. Prevents manual strain on staff and maximises efficiency in waste and linen handling.",
