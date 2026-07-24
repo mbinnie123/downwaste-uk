@@ -57,6 +57,7 @@ export const categories: Category[] = [
     products: [
       {
         id: "vertical-baler",
+        href: "/products/vertical-baler",
         name: "Vertical Baler",
         description:
           "Vertical balers enhance waste recycling systems by optimising waste compression. Baled recyclables save space, reduce handling time and can generate revenue from recovered materials.",
@@ -78,12 +79,14 @@ export const categories: Category[] = [
     products: [
       {
         id: "auger-compactor",
+        href: "/products/auger-compactor",
         name: "Auger Compactor",
         description:
           "The latest innovation in waste compactors. This chute-fed model features an advanced screw drive system that efficiently shreds waste while breaking down solid objects for high-capacity waste handling.",
       },
       {
         id: "static-compactor",
+        href: "/products/static-compactor",
         name: "Static Compactor",
         description:
           "Hydraulic garbage compactors engineered to maximise waste volume reduction. Compress waste and recyclables more efficiently to lower disposal costs and enhance sustainability.",
