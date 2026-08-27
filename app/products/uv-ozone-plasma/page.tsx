@@ -9,9 +9,25 @@ import freshairUnits from "../../../assets/images/downwaste_freshair_units_top.j
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "UV-C / Ozone / Plasma Air Purification | Odour Solutions | Downwaste UK",
+  title: "UV-C Ozone & Plasma Air Purification | Odour Control UK",
   description:
-    "Downwaste UK supplies UV-C, ozone and plasma air purification systems for waste rooms, chutes and garbage areas. Cleanair Sky units, Freshair units and Plasma Mini — eliminating odours, bacteria and airborne contaminants.",
+    "Downwaste UK supplies UV-C, ozone and plasma air purification systems for waste rooms, chutes and garbage areas. Cleanair Sky, Freshair and Plasma Mini units — eliminating odours, bacteria and airborne contaminants.",
+  alternates: {
+    canonical: "/products/uv-ozone-plasma",
+  },
+  openGraph: {
+    title: "UV-C Ozone & Plasma Air Purification | Odour Control UK | Downwaste",
+    description:
+      "UV-C, ozone and plasma air purifiers for UK waste rooms and garbage areas. Cleanair Sky, Freshair and Plasma Mini — neutralise odours, bacteria and airborne contaminants.",
+    url: "/products/uv-ozone-plasma",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste UV-C Ozone Plasma Purifier" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "UV-C Ozone & Plasma Air Purification | Odour Control UK | Downwaste",
+    description:
+      "UV-C, ozone and plasma air purifiers for UK waste rooms. Cleanair Sky, Freshair and Plasma Mini — eliminate odours and airborne contaminants.",
+  },
 };
 
 const units = [
@@ -129,8 +145,46 @@ const faqs = [
 ];
 
 export default function UvOzonePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Odour Solutions", item: "https://downwaste.co.uk/products#odour-solutions" },
+          { "@type": "ListItem", position: 4, name: "UV-C Ozone & Plasma Purification", item: "https://downwaste.co.uk/products/uv-ozone-plasma" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste UV-C Ozone & Plasma Air Purification System",
+        description: "UV-C, ozone and plasma air purification systems for UK waste rooms, chutes and garbage areas. Cleanair Sky, Freshair and Plasma Mini units — neutralise odours, bacteria and airborne contaminants.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">

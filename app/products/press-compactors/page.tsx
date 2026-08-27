@@ -10,9 +10,25 @@ import drawing2 from "../../../assets/images/DWPC-tech-drawing2.jpg";
 import drawing3 from "../../../assets/images/DWPC-tech-drawing3.jpg";
 
 export const metadata = {
-  title: "Press Compactors (DWPC) | Downwaste UK",
+  title: "Press Compactors | Hydraulic Waste Compaction UK",
   description:
-    "High-capacity hydraulic press compactors for UK commercial and residential buildings. Compress waste to 1/6th of original volume — reducing collection frequency, storage footprint, and disposal costs.",
+    "High-capacity hydraulic press compactors for UK commercial and residential buildings. Compress waste to 1/6th of original volume — reducing collection frequency, storage footprint and disposal costs.",
+  alternates: {
+    canonical: "/products/press-compactors",
+  },
+  openGraph: {
+    title: "Press Compactors | Hydraulic Waste Compaction UK | Downwaste",
+    description:
+      "Hydraulic press compactors for UK buildings. Compress waste to 1/6th of original volume — cut collection frequency, storage footprint and disposal costs.",
+    url: "/products/press-compactors",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Press Compactor" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Press Compactors | Hydraulic Waste Compaction UK | Downwaste",
+    description:
+      "Hydraulic press compactors for UK buildings. Compress waste to 1/6th of its volume — reduce collection costs and storage footprint.",
+  },
 };
 
 // Legend data extracted from press-compactors-number-text.svg
@@ -93,8 +109,46 @@ const faqs = [
 ];
 
 export default function PressCompactorsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Compactors", item: "https://downwaste.co.uk/products#compactors" },
+          { "@type": "ListItem", position: 4, name: "Press Compactors", item: "https://downwaste.co.uk/products/press-compactors" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Press Compactor (DWPC)",
+        description: "High-capacity hydraulic press compactors for UK commercial and residential buildings. Compress waste to 1/6th of original volume — reducing collection frequency, storage footprint and disposal costs.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-200 bg-slate-50 px-4 py-3 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">

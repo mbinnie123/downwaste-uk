@@ -6,9 +6,25 @@ import trolleysBinsArt from "../../../assets/images/downwaste_hdpe_trolleys_bins
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Trash Containers & Trolleys | Handling | Downwaste UK",
+  title: "Waste Trolleys & Trash Containers | 80–2500L UK",
   description:
     "Downwaste HDPE trash containers, bins and trolleys for commercial, municipal and industrial waste handling. Available in 80–2500L capacities with ergonomic handlebars and heavy-duty caster wheels.",
+  alternates: {
+    canonical: "/products/trash-containers",
+  },
+  openGraph: {
+    title: "Waste Trolleys & Trash Containers | 80–2500L | Downwaste UK",
+    description:
+      "HDPE trash containers, bins and trolleys for UK commercial, municipal and industrial waste handling. Available in 80–2500L capacities.",
+    url: "/products/trash-containers",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Waste Trolleys and Containers" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Waste Trolleys & Trash Containers | 80–2500L | Downwaste UK",
+    description:
+      "HDPE trash containers and trolleys for UK commercial and industrial use. Available in 80–2500L with ergonomic handles and heavy-duty casters.",
+  },
 };
 
 const binSizes = [
@@ -116,8 +132,46 @@ const faqs = [
 ];
 
 export default function TrashContainersPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Handling", item: "https://downwaste.co.uk/products#handling" },
+          { "@type": "ListItem", position: 4, name: "Waste Trolleys & Trash Containers", item: "https://downwaste.co.uk/products/trash-containers" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Trash Containers & Waste Trolleys",
+        description: "HDPE trash containers, bins and trolleys for UK commercial, municipal and industrial waste handling. Available in 80–2500L capacities with ergonomic handlebars and heavy-duty caster wheels.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">

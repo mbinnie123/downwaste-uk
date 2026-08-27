@@ -7,9 +7,25 @@ import beforeAfter from "../../../assets/images/downwaste_balers_before_after.jp
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Vertical Baler | Balers | Downwaste UK",
+  title: "Vertical Baler | Cardboard & Recyclables Baling UK",
   description:
     "Downwaste UK supplies vertical balers for cardboard, plastic, paper and cans. Available in 6 models from 5 to 50 tonnes compaction force — turn recyclable waste into a valuable, revenue-generating asset.",
+  alternates: {
+    canonical: "/products/vertical-baler",
+  },
+  openGraph: {
+    title: "Vertical Baler | Cardboard & Recyclables Baling UK | Downwaste",
+    description:
+      "Vertical balers for cardboard, plastic, paper and cans. 6 models from 5 to 50 tonnes compaction force — turn recyclable waste into a revenue-generating asset.",
+    url: "/products/vertical-baler",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Vertical Baler" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vertical Baler | Cardboard & Recyclables Baling UK | Downwaste",
+    description:
+      "Vertical balers for cardboard, plastic, paper and cans. 6 models from 5–50 tonnes. Turn recyclable waste into a revenue-generating asset.",
+  },
 };
 
 const models = [
@@ -90,8 +106,46 @@ const faqs = [
 ];
 
 export default function VerticalBalerPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Balers", item: "https://downwaste.co.uk/products#balers" },
+          { "@type": "ListItem", position: 4, name: "Vertical Baler", item: "https://downwaste.co.uk/products/vertical-baler" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Vertical Baler",
+        description: "Vertical balers for cardboard, plastic, paper and cans. 6 models from 5 to 50 tonnes compaction force — turn recyclable waste into a valuable, revenue-generating asset.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">

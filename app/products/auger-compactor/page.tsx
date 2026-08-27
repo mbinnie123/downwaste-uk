@@ -7,9 +7,25 @@ import beforeAfter from "../../../assets/images/downwaste_compactors_before_afte
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Auger (Screw) Compactor | Compactors | Downwaste UK",
+  title: "Auger Compactor | Chute-Fed Screw Compactor UK",
   description:
-    "Downwaste UK supplies auger screw compactors for industrial and commercial waste management. Advanced screw-driven design continuously shreds and compacts waste — reducing volume, lowering disposal costs and handling cardboard, plastic, timber and more.",
+    "Downwaste UK supplies auger screw compactors for commercial buildings. Advanced chute-fed screw drive continuously shreds and compacts waste — cardboard, plastic, timber — reducing disposal costs and collection frequency.",
+  alternates: {
+    canonical: "/products/auger-compactor",
+  },
+  openGraph: {
+    title: "Auger Compactor | Chute-Fed Screw Compactor UK | Downwaste",
+    description:
+      "Chute-fed auger screw compactor for UK commercial buildings. Continuously shreds and compacts waste — reduces disposal costs and collection frequency.",
+    url: "/products/auger-compactor",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Auger Compactor" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Auger Compactor | Chute-Fed Screw Compactor UK | Downwaste",
+    description:
+      "Chute-fed auger screw compactor for UK commercial buildings. Continuously shreds and compacts — reduces disposal costs.",
+  },
 };
 
 const staticModels = [
@@ -85,8 +101,46 @@ const faqs = [
 ];
 
 export default function AugerCompactorPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Compactors", item: "https://downwaste.co.uk/products#compactors" },
+          { "@type": "ListItem", position: 4, name: "Auger Compactor", item: "https://downwaste.co.uk/products/auger-compactor" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Auger Compactor",
+        description: "Chute-fed auger screw compactor for UK commercial buildings. Advanced screw drive continuously shreds and compacts waste — handling cardboard, plastic and timber.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">

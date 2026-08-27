@@ -8,9 +8,25 @@ import techDrawing2 from "../../../assets/images/downwaste_bin_lifter_tech_drawi
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Bin Tipper | Handling | Downwaste UK",
+  title: "Bin Tipper | Waste Bin Emptying Equipment UK",
   description:
     "Downwaste bin tippers provide ergonomic, efficient bin emptying for 120L–1100L bins. Compatible with standard and custom bins; integrates with mobile or static compactors. Manual, electric and battery models available.",
+  alternates: {
+    canonical: "/products/bin-tipper",
+  },
+  openGraph: {
+    title: "Bin Tipper | Waste Bin Emptying Equipment UK | Downwaste",
+    description:
+      "Ergonomic bin tippers for 120L–1100L bins. Integrates with mobile or static compactors. Manual, electric and battery models — available across the UK from Downwaste.",
+    url: "/products/bin-tipper",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Bin Tipper" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bin Tipper | Waste Bin Emptying Equipment UK | Downwaste",
+    description:
+      "Ergonomic bin tippers for 120L–1100L bins. Manual, electric and battery models. Compatible with static or mobile compactors.",
+  },
 };
 
 const models = [
@@ -126,8 +142,46 @@ const faqs = [
 ];
 
 export default function BinTipperPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Handling", item: "https://downwaste.co.uk/products#handling" },
+          { "@type": "ListItem", position: 4, name: "Bin Tipper", item: "https://downwaste.co.uk/products/bin-tipper" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Bin Tipper",
+        description: "Ergonomic bin tippers for 120L–1100L bins. Compatible with standard and custom bins; integrates with mobile or static compactors. Manual, electric and battery models available.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">

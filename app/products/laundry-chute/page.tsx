@@ -17,9 +17,25 @@ import strikeLock from "../../../assets/images/downwaste_strike_lock.jpg";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Laundry Chute Systems | Chutes | Downwaste UK",
+  title: "Laundry Chute Systems | Hotels & BTR Schemes UK",
   description:
-    "Downwaste UK supplies and installs electric, mechanical and password-access laundry chute systems for luxury hotels, BTR schemes, private villas and residential towers. Quiet, fire-rated and built to EN/UL standards.",
+    "Downwaste UK supplies and installs electric, mechanical and password-access laundry chute systems for luxury hotels, BTR schemes and residential towers. Quiet, fire-rated and built to EN/UL standards.",
+  alternates: {
+    canonical: "/products/laundry-chute",
+  },
+  openGraph: {
+    title: "Laundry Chute Systems | Hotels & BTR Schemes UK | Downwaste",
+    description:
+      "Electric, mechanical and password-access laundry chute systems for UK hotels, BTR schemes and residential towers. Quiet, fire-rated, EN/UL compliant.",
+    url: "/products/laundry-chute",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Laundry Chute System" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Laundry Chute Systems | Hotels & BTR Schemes UK | Downwaste",
+    description:
+      "Electric, mechanical and password-access laundry chutes for UK hotels, BTR schemes and residential towers. Quiet, fire-rated and EN/UL compliant.",
+  },
 };
 
 const sizes = [
@@ -119,8 +135,46 @@ const faqs = [
 ];
 
 export default function LaundryChutePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Chutes", item: "https://downwaste.co.uk/products#chutes" },
+          { "@type": "ListItem", position: 4, name: "Laundry Chute Systems", item: "https://downwaste.co.uk/products/laundry-chute" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Laundry Chute System",
+        description: "Electric, mechanical and password-access laundry chute systems for UK hotels, BTR schemes and residential towers. Quiet, fire-rated and built to EN/UL standards.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">

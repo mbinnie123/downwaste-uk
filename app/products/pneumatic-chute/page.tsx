@@ -7,9 +7,25 @@ import pneumaticDescription from "../../../assets/images/downwaste_pneumatic_des
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Pneumatic Waste Collection Systems | Chutes | Downwaste UK",
+  title: "Pneumatic Waste Collection Systems | Vacuum Refuse UK",
   description:
-    "Downwaste UK supplies and installs pneumatic waste systems for hospitals, high-rise buildings and urban developments. Fully automated, vacuum-powered and hygienic — transforming waste collection across the UK.",
+    "Downwaste UK supplies and installs pneumatic waste systems for high-rise buildings, hospitals and urban developments. Fully automated, vacuum-powered and hygienic — transforming waste collection across the UK.",
+  alternates: {
+    canonical: "/products/pneumatic-chute",
+  },
+  openGraph: {
+    title: "Pneumatic Waste Collection Systems | Vacuum Refuse UK | Downwaste",
+    description:
+      "Pneumatic waste systems for UK high-rise buildings and hospitals. Fully automated, vacuum-powered and hygienic — handles multiple waste streams from one pipe network.",
+    url: "/products/pneumatic-chute",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Pneumatic Waste System" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pneumatic Waste Collection Systems | Vacuum Refuse UK | Downwaste",
+    description:
+      "Pneumatic waste systems for UK high-rise buildings and hospitals. Fully automated and vacuum-powered — handles multiple waste streams.",
+  },
 };
 
 const steps = [
@@ -128,8 +144,46 @@ const faqs = [
 ];
 
 export default function PneumaticChutePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Chutes", item: "https://downwaste.co.uk/products#chutes" },
+          { "@type": "ListItem", position: 4, name: "Pneumatic Waste Systems", item: "https://downwaste.co.uk/products/pneumatic-chute" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Pneumatic Waste Collection System",
+        description: "Pneumatic vacuum waste collection systems for UK high-rise buildings, hospitals and urban developments. Fully automated and hygienic — handles multiple waste streams from a single pipe network.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">

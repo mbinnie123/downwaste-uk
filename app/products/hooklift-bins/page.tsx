@@ -14,9 +14,25 @@ import tailored from "../../../assets/images/downwaste_tailored_containers.jpg";
 import tailoredSingle from "../../../assets/images/downwaste_tailored_container.jpg";
 
 export const metadata = {
-  title: "Hooklift Bins | Downwaste UK",
+  title: "Hooklift Bins | Roll-On Roll-Off Containers UK",
   description:
-    "Roll on/off containers, compactor containers, rubble bins and tailored hooklift solutions for UK construction, commercial and industrial sites. Compatible with all standard hook-lift lorry fleets.",
+    "Roll-on/off containers, compactor containers, rubble bins and tailored hooklift solutions for UK construction, commercial and industrial sites. Compatible with all standard hook-lift lorry fleets.",
+  alternates: {
+    canonical: "/products/hooklift-bins",
+  },
+  openGraph: {
+    title: "Hooklift Bins | Roll-On Roll-Off Containers UK | Downwaste",
+    description:
+      "Roll-on/off containers, compactor containers and rubble bins for UK construction and industrial sites. Compatible with all standard hook-lift lorry fleets.",
+    url: "/products/hooklift-bins",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Hooklift Bins" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hooklift Bins | Roll-On Roll-Off Containers UK | Downwaste",
+    description:
+      "Roll-on/off containers, compactor containers and rubble bins for UK construction and industrial sites.",
+  },
 };
 
 const rollOnOffSpecs = [
@@ -128,8 +144,46 @@ const faqs = [
 ];
 
 export default function HookliftBinsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Containers", item: "https://downwaste.co.uk/products#containers" },
+          { "@type": "ListItem", position: 4, name: "Hooklift Bins", item: "https://downwaste.co.uk/products/hooklift-bins" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Hooklift Bins",
+        description: "Roll-on/off containers, compactor containers, rubble bins and tailored hooklift solutions for UK construction, commercial and industrial sites.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-200 bg-slate-50 px-4 py-3 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">

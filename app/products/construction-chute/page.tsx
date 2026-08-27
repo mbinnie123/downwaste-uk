@@ -7,9 +7,25 @@ import chuteProduct from "../../../assets/images/construction_debris_chute.png";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Construction Debris Chutes | Chutes | Downwaste UK",
+  title: "Construction Debris Chutes | High-Rise Building Sites UK",
   description:
-    "Downwaste UK supplies high-strength steel construction debris chutes for building sites across the UK. Safer, more durable and more efficient than traditional plastic chutes — for multi-storey demolition, refurbishment and new-build projects.",
+    "Downwaste UK supplies high-strength steel construction debris chutes for UK building sites. Safer, more durable and more efficient than plastic chutes — for multi-storey demolition, refurbishment and new-build projects.",
+  alternates: {
+    canonical: "/products/construction-chute",
+  },
+  openGraph: {
+    title: "Construction Debris Chutes | High-Rise Sites UK | Downwaste",
+    description:
+      "High-strength steel debris chutes for UK multi-storey construction sites. Safer and more durable than plastic — for demolition, refurbishment and new-build projects.",
+    url: "/products/construction-chute",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Construction Debris Chute" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Construction Debris Chutes | High-Rise Sites UK | Downwaste",
+    description:
+      "High-strength steel debris chutes for UK multi-storey construction sites. Safer and more durable than plastic chutes.",
+  },
 };
 
 const features = [
@@ -87,8 +103,46 @@ const faqs = [
 ];
 
 export default function ConstructionChutePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Chutes", item: "https://downwaste.co.uk/products#chutes" },
+          { "@type": "ListItem", position: 4, name: "Construction Debris Chutes", item: "https://downwaste.co.uk/products/construction-chute" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Construction Debris Chutes",
+        description: "High-strength steel construction debris chutes for UK multi-storey building sites. Safer and more durable than plastic chutes — for demolition, refurbishment and new-build projects.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">

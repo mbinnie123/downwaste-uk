@@ -10,9 +10,25 @@ import pendant from "../../../assets/images/downwaste_power_switch-1.png";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Garbage Chute Systems | Chutes | Downwaste UK",
+  title: "Garbage Chute Systems | UK Multi-Storey Buildings",
   description:
-    "Downwaste UK supplies and installs fire-rated garbage chute systems for residential towers, BTR schemes, hotels and mixed-use developments. Hygienic, odour-free waste disposal from every floor.",
+    "Downwaste UK supplies and installs fire-rated garbage chute systems for residential towers, BTR schemes, hotels and mixed-use developments. Hygienic, smell-proof waste disposal from every floor.",
+  alternates: {
+    canonical: "/products/garbage-chute",
+  },
+  openGraph: {
+    title: "Garbage Chute Systems | UK Multi-Storey Buildings | Downwaste",
+    description:
+      "Fire-rated garbage chute systems for UK residential towers, BTR schemes, hotels and mixed-use developments. Hygienic, odour-free disposal from every floor.",
+    url: "/products/garbage-chute",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Garbage Chute System" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Garbage Chute Systems | UK Multi-Storey Buildings | Downwaste",
+    description:
+      "Fire-rated garbage chutes for UK residential towers, BTR schemes and hotels. Hygienic, odour-free waste disposal from every floor.",
+  },
 };
 
 const sizes = [
@@ -119,8 +135,46 @@ const faqs = [
 ];
 
 export default function GarbageChutePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Chutes", item: "https://downwaste.co.uk/products#chutes" },
+          { "@type": "ListItem", position: 4, name: "Garbage Chute Systems", item: "https://downwaste.co.uk/products/garbage-chute" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Garbage Chute System",
+        description: "Fire-rated garbage chute systems for UK residential towers, BTR schemes, hotels and mixed-use developments. Hygienic, odour-free waste disposal from every floor.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">

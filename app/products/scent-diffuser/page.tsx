@@ -7,9 +7,25 @@ import prolitecGraph from "../../../assets/images/downwaste_prolitec_graph.svg";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Prolitec Scent Diffuser | Odour Solutions | Downwaste UK",
+  title: "Commercial Scent Diffuser | Waste Room Odour Control UK",
   description:
     "Downwaste UK supplies Prolitec commercial scent diffusers for waste rooms, garbage rooms and chute areas. Neutralise odours and create a fresher environment — available in AQ580, AQ1280 and AQ1570 models.",
+  alternates: {
+    canonical: "/products/scent-diffuser",
+  },
+  openGraph: {
+    title: "Commercial Scent Diffuser | Waste Room Odour Control | Downwaste UK",
+    description:
+      "Prolitec commercial scent diffusers for waste rooms, garbage rooms and chute areas. Neutralise odours effectively — AQ580, AQ1280 and AQ1570 models.",
+    url: "/products/scent-diffuser",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Commercial Scent Diffuser" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Commercial Scent Diffuser | Waste Room Odour Control | Downwaste UK",
+    description:
+      "Prolitec scent diffusers for UK waste rooms and garbage rooms. Neutralise odours — available in AQ580, AQ1280 and AQ1570 models.",
+  },
 };
 
 const models = [
@@ -103,8 +119,46 @@ const faqs = [
 ];
 
 export default function ScentDiffuserPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Odour Solutions", item: "https://downwaste.co.uk/products#odour-solutions" },
+          { "@type": "ListItem", position: 4, name: "Commercial Scent Diffuser", item: "https://downwaste.co.uk/products/scent-diffuser" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Prolitec Commercial Scent Diffuser",
+        description: "Commercial scent diffusers for UK waste rooms, garbage rooms and chute areas. Neutralise odours and create a fresher environment — available in AQ580, AQ1280 and AQ1570 models.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">

@@ -6,9 +6,25 @@ import selfTippingSkip from "../../../assets/images/self_tipping_skip.jpg";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Self-Tipping Skips | Handling | Downwaste UK",
+  title: "Self-Tipping Skips | Industrial Waste Handling UK",
   description:
-    "Downwaste self-tipping skips engineered for safe, controlled waste disposal. Ideal for heavy metal waste, press burrs and abrasive materials including marble, granite and ceramics.",
+    "Downwaste self-tipping skips engineered for safe, controlled waste disposal in UK industrial settings. Ideal for heavy metal waste, press burrs and abrasive materials including marble, granite and ceramics.",
+  alternates: {
+    canonical: "/products/self-tipping-skips",
+  },
+  openGraph: {
+    title: "Self-Tipping Skips | Industrial Waste Handling UK | Downwaste",
+    description:
+      "Self-tipping skips for UK industrial use. Engineered for safe, controlled disposal of heavy metal waste, press burrs and abrasive materials including marble, granite and ceramics.",
+    url: "/products/self-tipping-skips",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Self-Tipping Skips" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Self-Tipping Skips | Industrial Waste Handling UK | Downwaste",
+    description:
+      "Self-tipping skips for UK industrial use. Safe, controlled disposal of heavy metal waste, press burrs and abrasive materials.",
+  },
 };
 
 const models = [
@@ -89,8 +105,46 @@ const faqs = [
 ];
 
 export default function SelfTippingSkipsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Handling", item: "https://downwaste.co.uk/products#handling" },
+          { "@type": "ListItem", position: 4, name: "Self-Tipping Skips", item: "https://downwaste.co.uk/products/self-tipping-skips" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Self-Tipping Skips",
+        description: "Self-tipping skips for UK industrial use. Engineered for safe, controlled disposal of heavy metal waste, press burrs and abrasive materials including marble, granite and ceramics.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">

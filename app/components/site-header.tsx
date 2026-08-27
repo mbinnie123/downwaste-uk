@@ -10,9 +10,14 @@ import { categories } from "../lib/products";
 
 // Products with dedicated pages — shown as links in the dropdown
 const featuredProducts = [
+  { href: "/products/garbage-chute", label: "Garbage Chute", category: "Chutes" },
+  { href: "/products/laundry-chute", label: "Laundry Chute", category: "Chutes" },
+  { href: "/products/recycling-chute", label: "Recycling Chute", category: "Chutes" },
   { href: "/products/skip-bins", label: "Skip Bins", category: "Containers" },
   { href: "/products/hooklift-bins", label: "Hooklift Bins", category: "Containers" },
-  { href: "/products/press-compactors", label: "Press Container", category: "Containers" },
+  { href: "/products/press-compactors", label: "Press Compactor", category: "Compactors" },
+  { href: "/products/vertical-baler", label: "Vertical Baler", category: "Balers" },
+  { href: "/products/construction-chute", label: "Construction Chute", category: "Chutes" },
 ];
 
 export function SiteHeader() {

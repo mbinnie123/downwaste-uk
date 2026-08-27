@@ -12,9 +12,25 @@ import pendant from "../../../assets/images/downwaste_power_switch-1.png";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Recycling Chute Systems | Chutes | Downwaste UK",
+  title: "Recycling Chute Systems | Waste Sorting at Source UK",
   description:
-    "Downwaste UK supplies and installs recycling chute systems that sort metals, cardboard and plastic at source — saving space, reducing costs and supporting green building initiatives in UK residential and commercial developments.",
+    "Downwaste UK supplies and installs recycling chute systems that sort metals, cardboard and plastic at source — saving space, reducing handling costs and supporting sustainability in UK residential and commercial developments.",
+  alternates: {
+    canonical: "/products/recycling-chute",
+  },
+  openGraph: {
+    title: "Recycling Chute Systems | Waste Sorting at Source UK | Downwaste",
+    description:
+      "Recycling chutes that sort metals, cardboard and plastic at source. Saves space, reduces costs and supports sustainability credentials in UK developments.",
+    url: "/products/recycling-chute",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Recycling Chute System" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Recycling Chute Systems | Waste Sorting at Source UK | Downwaste",
+    description:
+      "Recycling chutes that sort metals, cardboard and plastic at source in UK buildings. Reduces costs and supports sustainability targets.",
+  },
 };
 
 const features = [
@@ -108,8 +124,46 @@ const faqs = [
 ];
 
 export default function RecyclingChutePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Chutes", item: "https://downwaste.co.uk/products#chutes" },
+          { "@type": "ListItem", position: 4, name: "Recycling Chute Systems", item: "https://downwaste.co.uk/products/recycling-chute" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Recycling Chute System",
+        description: "Recycling chute systems for UK residential and commercial developments that sort metals, cardboard and plastic at source — saving space, reducing handling costs and supporting sustainability targets.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">

@@ -7,9 +7,25 @@ import beforeAfter from "../../../assets/images/downwaste_compactors_before_afte
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Chute Fed Compactor | Garbage Room | Downwaste UK",
+  title: "Chute-Fed Compactor | 10:1 Bin Store Compaction UK",
   description:
-    "Downwaste UK supplies and installs chute fed compactors with a 10:1 compaction ratio. Leakproof, fully automatic and ideal for multi-storey residential and commercial buildings — reducing bin changes and labour costs.",
+    "Downwaste UK supplies chute-fed compactors with a 10:1 compaction ratio. Leakproof, fully automatic and ideal for multi-storey residential and commercial buildings — drastically reducing bin changes and labour costs.",
+  alternates: {
+    canonical: "/products/chute-compactor",
+  },
+  openGraph: {
+    title: "Chute-Fed Compactor | 10:1 Bin Store Compaction | Downwaste UK",
+    description:
+      "Chute-fed compactors with a 10:1 compaction ratio. Leakproof, fully automatic, ideal for UK multi-storey buildings — reduces bin changes and labour costs.",
+    url: "/products/chute-compactor",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Chute-Fed Compactor" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chute-Fed Compactor | 10:1 Bin Store Compaction | Downwaste UK",
+    description:
+      "Chute-fed compactors with a 10:1 compaction ratio for UK multi-storey buildings. Leakproof and fully automatic.",
+  },
 };
 
 const features = [
@@ -77,8 +93,46 @@ const faqs = [
 ];
 
 export default function ChuteCompactorPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Garbage Room", item: "https://downwaste.co.uk/products#garbage-room" },
+          { "@type": "ListItem", position: 4, name: "Chute-Fed Compactor", item: "https://downwaste.co.uk/products/chute-compactor" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Chute-Fed Compactor",
+        description: "Chute-fed compactor with a 10:1 compaction ratio. Leakproof and fully automatic — ideal for UK multi-storey residential and commercial buildings.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">

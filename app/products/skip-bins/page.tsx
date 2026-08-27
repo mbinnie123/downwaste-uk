@@ -7,9 +7,25 @@ import skipRender from "../../../assets/images/skip_container_10cbm_3.png";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Skip Bins | Containers | Downwaste UK",
+  title: "Skip Bins & Containers | 5, 7 & 10 m³ for UK Sites",
   description:
-    "Heavy-duty skip containers for construction sites, industrial estates and residential developments across the UK. Available in 5 m³, 7 m³ and 10 m³. Crane-liftable, stackable and built to last.",
+    "Heavy-duty skip containers for UK construction sites, industrial estates and residential developments. Available in 5, 7 & 10 m³ — crane-liftable, stackable, skip-truck compatible and built to last.",
+  alternates: {
+    canonical: "/products/skip-bins",
+  },
+  openGraph: {
+    title: "Skip Bins & Containers | 5, 7 & 10 m³ | Downwaste UK",
+    description:
+      "Heavy-duty skip containers for UK construction sites. Available in 5, 7 & 10 m³ — crane-liftable, stackable and skip-truck compatible.",
+    url: "/products/skip-bins",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Skip Containers" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Skip Bins & Containers | 5, 7 & 10 m³ | Downwaste UK",
+    description:
+      "Heavy-duty skip containers for UK construction sites. 5, 7 & 10 m³ — crane-liftable, stackable, skip-truck compatible.",
+  },
 };
 
 const specs = [
@@ -75,8 +91,48 @@ const faqs = [
 ];
 
 export default function SkipBinsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Containers", item: "https://downwaste.co.uk/products#containers" },
+          { "@type": "ListItem", position: 4, name: "Skip Bins", item: "https://downwaste.co.uk/products/skip-bins" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Skip Containers",
+        description:
+          "Heavy-duty skip containers for UK construction sites, industrial estates and residential developments. Available in 5, 7 & 10 m³ — crane-liftable, stackable and skip-truck compatible.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">
@@ -124,7 +180,7 @@ export default function SkipBinsPage() {
               <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-2 shadow-2xl sm:rounded-3xl sm:p-3">
                 <Image
                   src={skipRender}
-                  alt="Downwaste 10 m³ skip container"
+                  alt="Downwaste 10 m³ skip container — crane-liftable and skip-truck compatible"
                   width={800}
                   height={600}
                   priority
@@ -163,9 +219,10 @@ export default function SkipBinsPage() {
             <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg sm:rounded-3xl">
               <Image
                 src={skipPhoto}
-                alt="Downwaste skip container on site"
+                alt="Downwaste skip container in use on a UK construction site"
                 width={800}
                 height={600}
+                loading="lazy"
                 className="h-auto w-full object-cover"
               />
             </div>
@@ -245,6 +302,33 @@ export default function SkipBinsPage() {
                 </div>
               </ScrollReveal>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Related products */}
+      <div className="border-t border-slate-100 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+          <ScrollReveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">Related products</p>
+            <h2 className="mt-2 text-xl font-bold text-slate-950 sm:text-2xl">Also from Downwaste UK</h2>
+          </ScrollReveal>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            <Link href="/products/hooklift-bins" className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-sky-300 transition-all">
+              <p className="text-xs font-semibold uppercase tracking-widest text-sky-600">Containers</p>
+              <p className="mt-1 font-bold text-slate-950 group-hover:text-sky-700 transition-colors">Hooklift Bins</p>
+              <p className="mt-1 text-sm text-slate-500">Roll-on/off containers for UK construction and industrial sites.</p>
+            </Link>
+            <Link href="/products/press-compactors" className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-sky-300 transition-all">
+              <p className="text-xs font-semibold uppercase tracking-widest text-sky-600">Compactors</p>
+              <p className="mt-1 font-bold text-slate-950 group-hover:text-sky-700 transition-colors">Press Compactors</p>
+              <p className="mt-1 text-sm text-slate-500">Hydraulic compactors that reduce waste to 1/6th of its volume.</p>
+            </Link>
+            <Link href="/products/self-tipping-skips" className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-sky-300 transition-all">
+              <p className="text-xs font-semibold uppercase tracking-widest text-sky-600">Handling</p>
+              <p className="mt-1 font-bold text-slate-950 group-hover:text-sky-700 transition-colors">Self-Tipping Skips</p>
+              <p className="mt-1 text-sm text-slate-500">Engineered for safe, controlled tipping of heavy industrial waste.</p>
+            </Link>
           </div>
         </div>
       </div>

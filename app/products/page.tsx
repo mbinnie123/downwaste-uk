@@ -6,9 +6,25 @@ import Image from "next/image";
 import downwasteLogo from "../../assets/images/downwaste-logo.svg";
 
 export const metadata = {
-  title: "Products | Downwaste UK",
+  title: "Waste Handling Equipment | Browse Our Full Range",
   description:
-    "Browse Downwaste UK's full range of waste handling equipment — chutes, compactors, containers, balers and more. Add items to your quote.",
+    "Browse Downwaste UK's full range of waste handling equipment — chutes, compactors, containers, balers and more for UK residential towers, BTR schemes and commercial developments. Add items to your quote.",
+  alternates: {
+    canonical: "/products",
+  },
+  openGraph: {
+    title: "Waste Handling Equipment | Browse Our Full Range | Downwaste UK",
+    description:
+      "Browse our full range of waste chutes, compactors, containers, balers and bin handling systems for UK buildings. Add items to your specification quote.",
+    url: "/products",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste UK Products" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Waste Handling Equipment | Browse Our Full Range | Downwaste UK",
+    description:
+      "Waste chutes, compactors, containers, balers and bin handling systems for UK buildings. Build your specification quote.",
+  },
 };
 
 const categoryColors: Record<string, string> = {

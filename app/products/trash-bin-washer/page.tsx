@@ -7,9 +7,25 @@ import washingDiagram from "../../../assets/images/downwaste_bin_washing_diagram
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata = {
-  title: "Automatic Trash Bin Washer | Odour Solutions | Downwaste UK",
+  title: "Automatic Bin Washer | Bin Cleaning & Odour Control UK",
   description:
-    "Downwaste UK supplies automatic trash bin washers for commercial and residential waste rooms. A deep clean that eliminates odours at source — restoring waste containers and enhancing garbage room hygiene.",
+    "Downwaste UK supplies automatic trash bin washers for commercial and residential waste rooms. A deep clean that eliminates odours at source — restoring containers and enhancing garbage room hygiene.",
+  alternates: {
+    canonical: "/products/trash-bin-washer",
+  },
+  openGraph: {
+    title: "Automatic Bin Washer | Bin Cleaning & Odour Control UK | Downwaste",
+    description:
+      "Automatic trash bin washers for UK commercial and residential waste rooms. Eliminates odours at source — restores containers and enhances garbage room hygiene.",
+    url: "/products/trash-bin-washer",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste Automatic Bin Washer" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Automatic Bin Washer | Bin Cleaning & Odour Control UK | Downwaste",
+    description:
+      "Automatic bin washers for UK commercial and residential waste rooms. Eliminates odours at source and enhances garbage room hygiene.",
+  },
 };
 
 const features = [
@@ -77,8 +93,46 @@ const faqs = [
 ];
 
 export default function TrashBinWasherPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://downwaste.co.uk" },
+          { "@type": "ListItem", position: 2, name: "Products", item: "https://downwaste.co.uk/products" },
+          { "@type": "ListItem", position: 3, name: "Odour Solutions", item: "https://downwaste.co.uk/products#odour-solutions" },
+          { "@type": "ListItem", position: 4, name: "Automatic Bin Washer", item: "https://downwaste.co.uk/products/trash-bin-washer" },
+        ],
+      },
+      {
+        "@type": "Product",
+        name: "Downwaste Automatic Trash Bin Washer",
+        description: "Automatic trash bin washers for UK commercial and residential waste rooms. Deep cleans that eliminate odours at source — restoring containers and enhancing garbage room hygiene.",
+        brand: { "@type": "Brand", name: "Downwaste UK" },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "Downwaste UK", url: "https://downwaste.co.uk" },
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+    ],
+  };
   return (
     <div className="text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-slate-100 bg-slate-50 px-4 py-2.5 text-xs text-slate-500 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5">
