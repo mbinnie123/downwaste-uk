@@ -18,7 +18,7 @@ export function SiteFooter() {
               className="w-36 brightness-0 invert"
             />
             <p className="mt-4 text-sm leading-6 text-slate-400">
-              Waste chutes, compactors and bin handling equipment for UK residential towers, BTR schemes, hotels and mixed-use developments. Manufactured to exacting standards. UK-based specification and installation support.
+            Waste chutes, garbage room systems and odour control solutions for UK residential towers, BTR schemes, hotels and mixed-use developments. Manufactured to exacting standards. UK-based specification and installation support.
             </p>
             <div className="mt-4 space-y-1 text-sm">
               <a href="tel:+902362142590" className="block hover:text-white transition-colors">+90 236 214 2590</a>

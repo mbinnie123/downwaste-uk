@@ -15,7 +15,10 @@ export type Category = {
   products: Omit<Product, "category" | "categorySlug">[];
 };
 
-export const categories: Category[] = [
+// All product categories — only Chutes, Garbage Room and Odour Solutions are currently active.
+// To re-enable keyed-out categories (Containers, Balers, Compactors, Handling),
+// add their slugs back to the filter in the `categories` export below.
+const _allCategories: Category[] = [
   {
     name: "Containers",
     slug: "containers",
@@ -238,6 +241,12 @@ export const categories: Category[] = [
     ],
   },
 ];
+
+// Active categories only — Chutes, Garbage Room, Odour Solutions.
+// To re-enable a keyed-out category, add its slug back to the array below.
+export const categories: Category[] = _allCategories.filter(
+  (cat) => ["chutes", "garbage-room", "odour-solutions"].includes(cat.slug)
+);
 
 /** Flat list of all products with category metadata attached */
 export const allProducts: Product[] = categories.flatMap((cat) =>

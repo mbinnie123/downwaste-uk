@@ -3,21 +3,10 @@ import { cities } from "./lib/cities";
 
 const BASE_URL = "https://downwaste.co.uk";
 
+// Active product pages only — Chutes, Garbage Room, Odour Solutions.
+// Inactive pages (Containers, Balers, Compactors, Handling) are noindexed
+// and excluded from the sitemap. Re-add slugs here when re-enabled.
 const productPages = [
-  // Containers
-  "skip-bins",
-  "press-compactors",
-  "hooklift-bins",
-  // Balers
-  "vertical-baler",
-  // Compactors
-  "auger-compactor",
-  "static-compactor",
-  // Handling
-  "self-tipping-skips",
-  "bin-tipper",
-  "trash-containers",
-  "rolltainers",
   // Chutes
   "garbage-chute",
   "laundry-chute",

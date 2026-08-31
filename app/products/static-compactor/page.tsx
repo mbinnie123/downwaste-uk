@@ -14,6 +14,7 @@ export const metadata = {
   alternates: {
     canonical: "/products/static-compactor",
   },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Static Compactor | Hydraulic Waste Compaction UK | Downwaste",
     description:

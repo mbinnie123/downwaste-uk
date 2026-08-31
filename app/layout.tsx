@@ -22,9 +22,9 @@ const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_URL}`
   : "https://downwaste.co.uk";
 
-const title = "Waste Chutes & Handling Equipment for UK Buildings | Downwaste";
+const title = "Waste Chutes & Garbage Room Systems for UK Buildings | Downwaste";
 const description =
-  "Downwaste UK supplies and installs waste chutes, compactors, balers and bin handling systems for residential towers, BTR schemes, hotels and commercial developments across the UK.";
+  "Downwaste UK supplies and installs waste chutes, garbage room systems and odour control solutions for residential towers, BTR schemes, hotels and commercial developments across the UK.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -87,7 +87,7 @@ const websiteJsonLd = {
   url: "https://downwaste.co.uk",
   name: "Downwaste UK",
   description:
-    "Waste chutes, compactors, balers and bin handling equipment for UK buildings.",
+    "Waste chutes, garbage room systems and odour control solutions for UK buildings.",
   publisher: {
     "@id": "https://downwaste.co.uk/#organization",
   },

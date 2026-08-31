@@ -20,6 +20,7 @@ export const metadata = {
   alternates: {
     canonical: "/products/hooklift-bins",
   },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Hooklift Bins | Roll-On Roll-Off Containers UK | Downwaste",
     description:

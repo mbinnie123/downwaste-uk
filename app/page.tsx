@@ -20,7 +20,7 @@ const solutionGroups = [
       "Our garbage chutes centralise and simplify waste disposal in multi-floor buildings across the UK. We supply all sizes and specifications to meet building regulations, delivering cost-effective, safe and compliant systems to architects, principal contractors and main contractors.",
     secondaryTitle: "Laundry Chutes",
     secondaryDescription:
-      "Laundry chutes are essential in luxury hotels, BTR developments and private residences for managing bulky linen. We offer full system design, fabrication, installation and laundry room carts on wheels — including rolltainers and folding tables.",
+      "Laundry chutes are essential in luxury hotels, BTR developments and private residences for managing bulky linen. We offer full system design, fabrication and installation — quiet, fire-rated and built to EN/UL standards.",
     image: disposalChute,
     alt: "Downwaste disposal chute system",
   },
@@ -39,32 +39,32 @@ const solutionGroups = [
     section: "Sorting",
     title: "Recycling Chutes",
     description:
-      "Our automatic recycling chutes support compliance with UK waste segregation requirements, enabling easy separation of plastics, metal and cardboard via push-button selector panels on every floor — streamlining waste sorting at the source and supporting your building's sustainability credentials.",
-    secondaryTitle: "Carousels & Conveyors",
+      "Our automatic recycling chutes support compliance with UK waste segregation requirements, enabling easy separation of plastics, metal and cardboard via push-button selector panels on every floor — streamlining waste sorting at the source and supporting your building’s sustainability credentials.",
+    secondaryTitle: "Garbage Room Systems",
     secondaryDescription:
-      "Bin carousels and conveyors reduce caretaker and facilities staff workload by rotating full bins with empty ones. They can be integrated with automatic bin press conveyors for maximum compaction, freeing up valuable bin store space in UK residential and mixed-use schemes.",
+      "Bin carousels, bin feed press systems and chute-fed compactors reduce caretaker and facilities staff workload by rotating full bins with empty ones and compacting waste at the point of collection — freeing up bin store space and cutting labour in UK residential and mixed-use buildings.",
     image: managementIcon,
-    alt: "Downwaste sorting equipment",
+    alt: "Downwaste garbage room systems",
   },
   {
-    section: "Compression",
-    title: "Chute Fed Compactors",
+    section: "Odour",
+    title: "Odour Control Systems",
     description:
-      "Our chute-fed compactors offer compact, hygienic and powerful solutions for bin stores and waste rooms in UK buildings — ideal for reducing waste volume directly at the point of collection and cutting collection costs on tight urban sites.",
-    secondaryTitle: "Press Containers",
+      "Our range of professional-grade odour control and air purification systems keeps waste areas clean, hygienic and odour-free — essential for high-end residential and hospitality environments across the UK. From Prolitec scent diffusers to UV-C ozone and plasma purifiers, we have a solution for every bin store and waste room.",
+    secondaryTitle: "Automatic Bin Washers",
     secondaryDescription:
-      "Downwaste press containers compress waste fractions to as little as one sixth of their original volume, significantly reducing the footprint of bin stores in UK residential towers, hotels and commercial buildings. Available in a range of capacities.",
+      "Our automatic bin washers eliminate odours at source, providing a deep clean that restores containers and enhances garbage room hygiene in UK residential towers, hotels and commercial developments.",
     image: compressionIcon,
-    alt: "Downwaste compression equipment",
+    alt: "Downwaste odour control equipment",
   },
   {
     section: "Management",
     title: "Installation & Maintenance",
     description:
-      "Our UK team offers full installation and ongoing maintenance services for your building's waste system. We work alongside principal contractors, M&E engineers and facilities managers to deliver compliant, reliable installations that meet programme and handover requirements.",
+      "Our UK team offers full installation and ongoing maintenance services for your building’s waste system. We work alongside principal contractors, M&E engineers and facilities managers to deliver compliant, reliable installations that meet programme and handover requirements.",
     secondaryTitle: "Custom Solutions",
     secondaryDescription:
-      "Downwaste provides bespoke waste solutions designed around your building's layout, occupancy profile and local authority collection requirements. We carry out detailed waste profile analysis to deliver long-term systems that enhance efficiency, safety and sustainability across the life of the building.",
+      "Downwaste provides bespoke waste solutions designed around your building’s layout, occupancy profile and local authority collection requirements. We carry out detailed waste profile analysis to deliver long-term systems that enhance efficiency, safety and sustainability across the life of the building.",
     image: chuteDisposal3,
     alt: "Downwaste management services",
   },
@@ -141,7 +141,7 @@ export default function Home() {
                 </ScrollReveal>
                 <ScrollReveal delay={240}>
                   <p className="max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-                    Downwaste UK supplies and installs waste chutes, compactors, balers and bin handling systems for residential towers, BTR schemes, hotels and commercial developments across the UK. Manufactured to exacting standards, specified by architects and installed alongside principal contractors.
+                    Downwaste UK supplies and installs waste chutes, garbage room systems and odour control solutions for residential towers, BTR schemes, hotels and commercial developments across the UK. Manufactured to exacting standards, specified by architects and installed alongside principal contractors.
                   </p>
                 </ScrollReveal>
                 <ScrollReveal delay={360}>

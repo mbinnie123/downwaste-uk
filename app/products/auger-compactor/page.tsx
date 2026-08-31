@@ -13,6 +13,7 @@ export const metadata = {
   alternates: {
     canonical: "/products/auger-compactor",
   },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Auger Compactor | Chute-Fed Screw Compactor UK | Downwaste",
     description:

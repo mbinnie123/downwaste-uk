@@ -12,6 +12,7 @@ export const metadata = {
   alternates: {
     canonical: "/products/self-tipping-skips",
   },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Self-Tipping Skips | Industrial Waste Handling UK | Downwaste",
     description:

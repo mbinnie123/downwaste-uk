@@ -13,6 +13,7 @@ export const metadata = {
   alternates: {
     canonical: "/products/vertical-baler",
   },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Vertical Baler | Cardboard & Recyclables Baling UK | Downwaste",
     description:

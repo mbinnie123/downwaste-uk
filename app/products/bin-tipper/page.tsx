@@ -14,6 +14,7 @@ export const metadata = {
   alternates: {
     canonical: "/products/bin-tipper",
   },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Bin Tipper | Waste Bin Emptying Equipment UK | Downwaste",
     description:

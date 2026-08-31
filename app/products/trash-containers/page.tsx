@@ -12,6 +12,7 @@ export const metadata = {
   alternates: {
     canonical: "/products/trash-containers",
   },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Waste Trolleys & Trash Containers | 80–2500L | Downwaste UK",
     description:

@@ -13,6 +13,7 @@ export const metadata = {
   alternates: {
     canonical: "/products/skip-bins",
   },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Skip Bins & Containers | 5, 7 & 10 m³ | Downwaste UK",
     description:

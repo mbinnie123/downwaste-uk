@@ -16,6 +16,7 @@ export const metadata = {
   alternates: {
     canonical: "/products/press-compactors",
   },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Press Compactors | Hydraulic Waste Compaction UK | Downwaste",
     description:

@@ -12,6 +12,7 @@ export const metadata = {
   alternates: {
     canonical: "/products/rolltainers",
   },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Rolltainers | Hotel & BTR Laundry Trolleys UK | Downwaste",
     description:
