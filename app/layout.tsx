@@ -43,20 +43,11 @@ export const metadata: Metadata = {
     siteName: "Downwaste UK",
     locale: "en_GB",
     type: "website",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Downwaste UK — Waste Chutes & Handling Equipment",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og-image.png"],
   },
 };
 
@@ -66,7 +57,7 @@ const organizationJsonLd = {
   "@id": "https://downwaste.co.uk/#organization",
   name: "Downwaste UK",
   url: "https://downwaste.co.uk",
-  logo: "https://downwaste.co.uk/og-image.png",
+  logo: "https://downwaste.co.uk/opengraph-image.png",
   contactPoint: [
     {
       "@type": "ContactPoint",
