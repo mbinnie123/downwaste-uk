@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/quote", "/estimator", "/api/"],
+        disallow: ["/quote", "/api/"],
       },
     ],
     sitemap: "https://downwaste.co.uk/sitemap.xml",
