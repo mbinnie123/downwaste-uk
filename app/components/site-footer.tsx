@@ -78,8 +78,11 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-slate-800 pt-8 text-xs text-slate-500">
-          © {new Date().getFullYear()} Downwaste UK. All rights reserved.
+        <div className="mt-10 border-t border-slate-800 pt-6 text-xs text-slate-500 flex flex-wrap items-center justify-between gap-4">
+          <span>© {new Date().getFullYear()} Downwaste UK. All rights reserved.</span>
+          <Link href="/locations" className="hover:text-white transition-colors">
+            UK Locations
+          </Link>
         </div>
       </div>
     </footer>

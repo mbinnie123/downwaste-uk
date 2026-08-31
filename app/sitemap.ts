@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { cities } from "./lib/cities";
 
 const BASE_URL = "https://downwaste.co.uk";
 
@@ -41,6 +42,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const locationEntries: MetadataRoute.Sitemap = cities.map((city) => ({
+    url: `${BASE_URL}/locations/${city.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
   return [
     {
       url: BASE_URL,
@@ -54,6 +62,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/locations`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
     ...productEntries,
+    ...locationEntries,
   ];
 }

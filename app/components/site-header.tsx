@@ -65,6 +65,10 @@ export function SiteHeader() {
             Home
           </Link>
 
+          <Link href="/locations" className={`rounded-lg px-3 py-2 transition-colors hover:text-sky-700 ${pathname.startsWith("/locations") ? "text-sky-700" : ""}`}>
+            Locations
+          </Link>
+
           <div ref={dropdownRef} className="relative">
             <button
               onClick={() => setProductsOpen((o) => !o)}
