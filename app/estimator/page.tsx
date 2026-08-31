@@ -36,15 +36,16 @@ const DIAMETER_UPLIFT: Record<string, number> = {
   "630":  140, // £/floor
 };
 
-const COMPACTOR_PRICES: Record<string, { low: number; high: number }> = {
-  "chute-fed-compactor": { low: 8000,  high: 18000 },
-  "press-compactor":     { low: 12000, high: 25000 },
+const GARBAGE_ROOM_PRICES: Record<string, { low: number; high: number }> = {
+  "bin-feed-press":  { low: 8000,  high: 20000 },
+  "bin-carousel":    { low: 5000,  high: 14000 },
+  "chute-compactor": { low: 8000,  high: 18000 },
 };
 
-const CONTAINER_PRICES: Record<string, { low: number; high: number }> = {
-  "skip-bins":           { low: 800,   high: 1800 },
-  "hooklift-bins":       { low: 1500,  high: 4000 },
-  "baler":               { low: 6000,  high: 15000 },
+const ODOUR_PRICES: Record<string, { low: number; high: number }> = {
+  "trash-bin-washer": { low: 3000, high: 8000 },
+  "scent-diffuser":   { low: 400,  high: 1500 },
+  "uv-ozone-plasma":  { low: 1500, high: 5000 },
 };
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
@@ -62,6 +63,7 @@ type ChuteConfig = {
 type OtherItem = {
   id: string;
   label: string;
+  category: string;
   qty: number;
   prices: { low: number; high: number };
 };
@@ -106,11 +108,12 @@ export default function EstimatorPage() {
   const [chute, setChute] = useState<ChuteConfig>(DEFAULT_CHUTE);
 
   const [otherItems, setOtherItems] = useState<OtherItem[]>([
-    { id: "press-compactor",     label: "Press Compactor (DWPC)", qty: 0, prices: COMPACTOR_PRICES["press-compactor"] },
-    { id: "chute-fed-compactor", label: "Chute-Fed Compactor",    qty: 0, prices: COMPACTOR_PRICES["chute-fed-compactor"] },
-    { id: "skip-bins",           label: "Skip Bins",              qty: 0, prices: CONTAINER_PRICES["skip-bins"] },
-    { id: "hooklift-bins",       label: "Hooklift Bins",          qty: 0, prices: CONTAINER_PRICES["hooklift-bins"] },
-    { id: "baler",               label: "Baler",                  qty: 0, prices: CONTAINER_PRICES["baler"] },
+    { id: "bin-feed-press",  label: "Bin Feed Press",        category: "Garbage Room",    qty: 0, prices: GARBAGE_ROOM_PRICES["bin-feed-press"] },
+    { id: "bin-carousel",    label: "Bin Carousel",          category: "Garbage Room",    qty: 0, prices: GARBAGE_ROOM_PRICES["bin-carousel"] },
+    { id: "chute-compactor", label: "Chute Compactor",       category: "Garbage Room",    qty: 0, prices: GARBAGE_ROOM_PRICES["chute-compactor"] },
+    { id: "trash-bin-washer",label: "Trash Bin Washer",      category: "Odour Solutions", qty: 0, prices: ODOUR_PRICES["trash-bin-washer"] },
+    { id: "scent-diffuser",  label: "Scent Diffuser",        category: "Odour Solutions", qty: 0, prices: ODOUR_PRICES["scent-diffuser"] },
+    { id: "uv-ozone-plasma", label: "UV-C / Ozone / Plasma", category: "Odour Solutions", qty: 0, prices: ODOUR_PRICES["uv-ozone-plasma"] },
   ]);
 
   const [addedToQuote, setAddedToQuote] = useState(false);
@@ -183,7 +186,7 @@ export default function EstimatorPage() {
       add(
         `${i.id}-x${i.qty}`,
         `${i.label}${i.qty > 1 ? ` ×${i.qty}` : ""}`,
-        i.label.includes("Compactor") ? "Compactors" : "Containers",
+        i.category,
         i.qty * i.prices.low,
         i.qty * i.prices.high
       );
@@ -367,33 +370,40 @@ export default function EstimatorPage() {
               <h2 className="text-lg font-bold text-slate-950">Other Equipment</h2>
               <p className="mt-0.5 text-sm text-slate-500">Set quantities for any additional items</p>
 
-              <div className="mt-5 flex flex-col divide-y divide-slate-100">
-                {otherItems.map((item) => (
-                  <div key={item.id} className="flex items-center justify-between gap-4 py-4">
-                    <div className="min-w-0">
-                      <p className="font-semibold text-slate-950">{item.label}</p>
-                      <p className="text-xs text-slate-400">
-                        {fmt(item.prices.low)} – {fmt(item.prices.high)} per unit
-                      </p>
-                    </div>
-                    <div className="flex shrink-0 items-center gap-2">
-                      <button
-                        type="button"
-                        onClick={() => setQty(item.id, item.qty - 1)}
-                        className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:border-sky-300 hover:text-sky-600 transition-colors"
-                        aria-label="Decrease"
-                      >
-                        −
-                      </button>
-                      <span className="w-6 text-center text-sm font-bold text-slate-950">{item.qty}</span>
-                      <button
-                        type="button"
-                        onClick={() => setQty(item.id, item.qty + 1)}
-                        className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:border-sky-300 hover:text-sky-600 transition-colors"
-                        aria-label="Increase"
-                      >
-                        +
-                      </button>
+              <div className="mt-5 flex flex-col gap-6">
+                {["Garbage Room", "Odour Solutions"].map((cat) => (
+                  <div key={cat}>
+                    <p className="mb-2 text-xs font-bold uppercase tracking-widest text-slate-400">{cat}</p>
+                    <div className="flex flex-col divide-y divide-slate-100">
+                      {otherItems.filter((i) => i.category === cat).map((item) => (
+                        <div key={item.id} className="flex items-center justify-between gap-4 py-4">
+                          <div className="min-w-0">
+                            <p className="font-semibold text-slate-950">{item.label}</p>
+                            <p className="text-xs text-slate-400">
+                              {fmt(item.prices.low)} – {fmt(item.prices.high)} per unit
+                            </p>
+                          </div>
+                          <div className="flex shrink-0 items-center gap-2">
+                            <button
+                              type="button"
+                              onClick={() => setQty(item.id, item.qty - 1)}
+                              className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:border-sky-300 hover:text-sky-600 transition-colors"
+                              aria-label="Decrease"
+                            >
+                              −
+                            </button>
+                            <span className="w-6 text-center text-sm font-bold text-slate-950">{item.qty}</span>
+                            <button
+                              type="button"
+                              onClick={() => setQty(item.id, item.qty + 1)}
+                              className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:border-sky-300 hover:text-sky-600 transition-colors"
+                              aria-label="Increase"
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ))}
