@@ -10,14 +10,17 @@ import { categories } from "../lib/products";
 
 // Products with dedicated pages — shown as links in the dropdown
 const featuredProducts = [
-  { href: "/products/garbage-chute", label: "Garbage Chute", category: "Chutes" },
-  { href: "/products/laundry-chute", label: "Laundry Chute", category: "Chutes" },
-  { href: "/products/recycling-chute", label: "Recycling Chute", category: "Chutes" },
-  { href: "/products/skip-bins", label: "Skip Bins", category: "Containers" },
-  { href: "/products/hooklift-bins", label: "Hooklift Bins", category: "Containers" },
-  { href: "/products/press-compactors", label: "Press Compactor", category: "Compactors" },
-  { href: "/products/vertical-baler", label: "Vertical Baler", category: "Balers" },
-  { href: "/products/construction-chute", label: "Construction Chute", category: "Chutes" },
+  { href: "/products/garbage-chute",      label: "Garbage Chute",        category: "Chutes" },
+  { href: "/products/laundry-chute",      label: "Laundry Chute",        category: "Chutes" },
+  { href: "/products/recycling-chute",    label: "Recycling Chute",      category: "Chutes" },
+  { href: "/products/pneumatic-chute",    label: "Pneumatic Chute",      category: "Chutes" },
+  { href: "/products/construction-chute", label: "Construction Chute",   category: "Chutes" },
+  { href: "/products/bin-feed-press",     label: "Bin Feed Press",       category: "Garbage Room" },
+  { href: "/products/bin-carousel",       label: "Bin Carousel",         category: "Garbage Room" },
+  { href: "/products/chute-compactor",    label: "Chute Compactor",      category: "Garbage Room" },
+  { href: "/products/trash-bin-washer",   label: "Trash Bin Washer",     category: "Odour Solutions" },
+  { href: "/products/scent-diffuser",     label: "Scent Diffuser",       category: "Odour Solutions" },
+  { href: "/products/uv-ozone-plasma",    label: "UV-C / Ozone / Plasma",category: "Odour Solutions" },
 ];
 
 export function SiteHeader() {
