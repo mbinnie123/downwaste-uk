@@ -4,24 +4,24 @@ import { ScrollReveal } from "../components/scroll-reveal";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Locations | Waste Chutes & Handling Equipment Across the UK",
+  title: "Locations | Waste and Laundry Chute Systems Across the UK",
   description:
-    "Downwaste UK supplies and installs waste chutes, compactors, balers and bin handling systems for buildings across England, Scotland, Wales and Northern Ireland. Find your city.",
+    "Downwaste UK supplies and installs waste and laundry chute systems, plus garbage room equipment and odour control solutions, for buildings across England, Scotland, Wales and Northern Ireland. Find your city.",
   alternates: {
     canonical: "/locations",
   },
   openGraph: {
-    title: "Locations | Waste Chutes & Handling Equipment Across the UK | Downwaste",
+    title: "Locations | Waste and Laundry Chute Systems Across the UK | Downwaste",
     description:
-      "Downwaste UK supplies waste chutes, compactors, balers and bin handling systems for buildings across the UK. Find your city.",
+      "Downwaste UK supplies waste and laundry chute systems, garbage room equipment and odour control solutions for buildings across the UK. Find your city.",
     url: "/locations",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Downwaste UK Locations" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Locations | Waste Chutes & Handling Equipment Across the UK | Downwaste",
+    title: "Locations | Waste and Laundry Chute Systems Across the UK | Downwaste",
     description:
-      "Waste chutes, compactors, balers and bin handling systems for UK buildings. Find your city.",
+      "Waste and laundry chute systems, garbage room equipment and odour control solutions for UK buildings. Find your city.",
   },
 };
 
@@ -68,10 +68,10 @@ export default function LocationsPage() {
               UK-wide supply & installation
             </p>
             <h1 className="mt-2 max-w-3xl text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-              Waste chutes and handling equipment across the UK
+              Waste and laundry chute systems across the UK
             </h1>
             <p className="mt-4 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">
-              Downwaste UK supplies and installs waste chutes, compactors, balers and bin handling systems for residential towers, BTR schemes, hotels and commercial developments in cities across England, Scotland, Wales and Northern Ireland.
+              Downwaste UK supplies and installs waste and laundry chute systems, plus garbage room equipment and odour control solutions, for residential towers, BTR schemes, hotels, private villas and commercial developments in cities across England, Scotland, Wales and Northern Ireland.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
@@ -165,7 +165,7 @@ export default function LocationsPage() {
               We supply across the whole of the UK
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
-              If your city isn&apos;t listed, contact our team directly. We supply and install waste management systems for projects throughout the United Kingdom.
+              If your city isn&apos;t listed, contact our team directly. We supply and install waste and laundry chute systems, garbage room equipment and odour control solutions for projects throughout the United Kingdom.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a
