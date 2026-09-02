@@ -10,6 +10,7 @@ import {
 } from "../../lib/cities";
 import { AddToQuoteButton } from "../../components/add-to-quote-button";
 import { ScrollReveal } from "../../components/scroll-reveal";
+import { LightboxImageCard } from "../../components/lightbox-image-card";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 import disposalChuteGraphic from "../../../assets/images/downwaste-disposal-chute.svg";
 import laundryChutePhoto from "../../../assets/images/downwaste_electric_laundry_chute-open.jpg";
@@ -221,54 +222,30 @@ export default async function CityPage({
 
         <div className="mt-8 grid gap-5 sm:grid-cols-3">
           <ScrollReveal>
-            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <div className="relative aspect-[4/3] bg-slate-100">
-                <Image
-                  src={disposalChuteGraphic}
-                  alt={`Waste chute flow graphic for projects in ${city.name}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <p className="text-sm font-bold text-slate-900">Waste chute flow</p>
-                <p className="mt-1 text-xs leading-5 text-slate-500">Visual overview of how floor-level loading connects to base-level discharge and collection.</p>
-              </div>
-            </div>
+            <LightboxImageCard
+              src={disposalChuteGraphic.src}
+              alt={`Waste chute flow graphic for projects in ${city.name}`}
+              title="Waste chute flow"
+              description="Visual overview of how floor-level loading connects to base-level discharge and collection."
+            />
           </ScrollReveal>
 
           <ScrollReveal delay={80}>
-            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <div className="relative aspect-[4/3] bg-slate-100">
-                <Image
-                  src={laundryChutePhoto}
-                  alt={`Laundry chute access door detail for hotels and private villas in ${city.name}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <p className="text-sm font-bold text-slate-900">Laundry chute access</p>
-                <p className="mt-1 text-xs leading-5 text-slate-500">Electric, mechanical and controlled-access options for hotel and private-villa laundry handling.</p>
-              </div>
-            </div>
+            <LightboxImageCard
+              src={laundryChutePhoto.src}
+              alt={`Laundry chute access door detail for hotels and private villas in ${city.name}`}
+              title="Laundry chute access"
+              description="Electric, mechanical and controlled-access options for hotel and private-villa laundry handling."
+            />
           </ScrollReveal>
 
           <ScrollReveal delay={160}>
-            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <div className="relative aspect-[4/3] bg-slate-100">
-                <Image
-                  src={technicalDiagram}
-                  alt={`Chute technical reference drawing for specification teams in ${city.name}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <p className="text-sm font-bold text-slate-900">Technical reference drawing</p>
-                <p className="mt-1 text-xs leading-5 text-slate-500">Concept diagram to support early-stage planning with consultants, architects and contractors.</p>
-              </div>
-            </div>
+            <LightboxImageCard
+              src={technicalDiagram.src}
+              alt={`Chute technical reference drawing for specification teams in ${city.name}`}
+              title="Technical reference drawing"
+              description="Concept diagram to support early-stage planning with consultants, architects and contractors."
+            />
           </ScrollReveal>
         </div>
       </div>
