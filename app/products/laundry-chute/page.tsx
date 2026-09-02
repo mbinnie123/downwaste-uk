@@ -201,7 +201,7 @@ export default function LaundryChutePage() {
                   Chutes — Laundry Chute Systems
                 </p>
                 <h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-                  Laundry Chute Systems
+                  Laundry Chute Systems for hotels and private villas in the UK
                 </h1>
                 <p className="mt-4 max-w-lg text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
                   Luxury hotels and private villas choose Downwaste laundry chutes over service lifts for handling bulky linen from individual floors. Electric, mechanical and password-access models — all fire-rated, quiet and built to EN and UL standards.
