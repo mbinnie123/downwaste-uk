@@ -11,6 +11,9 @@ import {
 import { AddToQuoteButton } from "../../components/add-to-quote-button";
 import { ScrollReveal } from "../../components/scroll-reveal";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
+import disposalChuteGraphic from "../../../assets/images/downwaste-disposal-chute.svg";
+import laundryChutePhoto from "../../../assets/images/downwaste_electric_laundry_chute-open.jpg";
+import technicalDiagram from "../../../assets/images/downwaste_rc_001_tech_drawing.jpg";
 
 export function generateStaticParams() {
   return cities.map((city) => ({ slug: city.slug }));
@@ -25,8 +28,8 @@ export async function generateMetadata({
   const city = getCityBySlug(slug);
   if (!city) return {};
 
-  const title = `Waste Chutes & Handling Equipment in ${city.name} | Downwaste UK`;
-  const description = `Downwaste UK supplies and installs waste chutes, compactors, balers and bin handling systems for ${city.buildingContext} in ${city.name}. UK-based specification and installation support.`;
+  const title = `Waste and Laundry Chute Systems in ${city.name} | Downwaste UK`;
+  const description = `Downwaste UK supplies and installs waste and laundry chute systems, garbage room equipment and odour control solutions for ${city.buildingContext} in ${city.name}. UK-based specification and installation support.`;
 
   return {
     title,
@@ -79,7 +82,7 @@ export default async function CityPage({
       {
         "@type": "Service",
         "@id": `https://downwaste.co.uk/locations/${city.slug}#service`,
-        name: `Waste Chute & Handling Equipment Supply in ${city.name}`,
+        name: `Waste and Laundry Chute Systems in ${city.name}`,
         provider: {
           "@id": "https://downwaste.co.uk/#organization",
         },
@@ -88,8 +91,8 @@ export default async function CityPage({
           name: city.name,
           addressCountry: "GB",
         },
-        description: `Downwaste UK supplies and installs waste chutes, compactors, balers and bin handling systems for ${city.buildingContext} in ${city.name}, ${city.country}.`,
-        serviceType: "Waste Handling Equipment Supply and Installation",
+        description: `Downwaste UK supplies and installs waste and laundry chute systems, garbage room equipment and odour control solutions for ${city.buildingContext} in ${city.name}, ${city.country}.`,
+        serviceType: "Waste and Laundry Chute System Supply and Installation",
       },
     ],
   };
@@ -125,10 +128,10 @@ export default async function CityPage({
               {city.country} — {city.region}
             </p>
             <h1 className="mt-2 max-w-3xl text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-              Waste chutes &amp; handling equipment in {city.name}
+              Waste and laundry chute systems in {city.name}
             </h1>
             <p className="mt-4 max-w-xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-              Downwaste UK supplies and installs waste chutes, compactors, balers and bin handling systems for {city.buildingContext} in {city.name}. UK-based specification, supply and installation support.
+              Downwaste UK supplies and installs waste and laundry chute systems, plus garbage room and odour-control equipment, for {city.buildingContext} in {city.name}. UK-based specification, supply and installation support.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
@@ -154,15 +157,15 @@ export default async function CityPage({
           <ScrollReveal>
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
-                Waste management in {city.name}
+                Waste and laundry planning in {city.name}
               </p>
               <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">
-                Serving {city.name}&apos;s {city.buildingContext}
+                Serving {city.name}&apos;s hotels, residential towers and mixed-use schemes
               </h2>
               <div className="mt-4 space-y-4 text-base leading-7 text-slate-600">
                 <p>{city.description}</p>
                 <p>
-                  Downwaste UK works with architects, principal contractors, M&amp;E engineers and facilities managers to specify and install waste handling systems that fit the exact demands of each project. From initial specification through to commissioning and maintenance, our UK team supports projects in {city.name} and across {city.country}.
+                  Downwaste UK works with architects, principal contractors, M&amp;E engineers and facilities managers to specify and install waste and laundry chute systems that fit the exact demands of each project. From initial specification through to commissioning and maintenance, our UK team supports projects in {city.name} and across {city.country}.
                 </p>
               </div>
             </div>
@@ -199,6 +202,71 @@ export default async function CityPage({
                   </svg>
                   +90 236 214 2590
                 </a>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </div>
+
+      {/* Supporting graphics and diagrams */}
+      <div className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 sm:pb-20 lg:px-8">
+        <ScrollReveal>
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
+            Supporting graphics and diagrams
+          </p>
+          <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">
+            Waste and laundry chute visuals for {city.name} projects
+          </h2>
+        </ScrollReveal>
+
+        <div className="mt-8 grid gap-5 sm:grid-cols-3">
+          <ScrollReveal>
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div className="relative aspect-[4/3] bg-slate-100">
+                <Image
+                  src={disposalChuteGraphic}
+                  alt={`Waste chute flow graphic for projects in ${city.name}`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <p className="text-sm font-bold text-slate-900">Waste chute flow</p>
+                <p className="mt-1 text-xs leading-5 text-slate-500">Visual overview of how floor-level loading connects to base-level discharge and collection.</p>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={80}>
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div className="relative aspect-[4/3] bg-slate-100">
+                <Image
+                  src={laundryChutePhoto}
+                  alt={`Laundry chute access door detail for hotels and private villas in ${city.name}`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <p className="text-sm font-bold text-slate-900">Laundry chute access</p>
+                <p className="mt-1 text-xs leading-5 text-slate-500">Electric, mechanical and controlled-access options for hotel and private-villa laundry handling.</p>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={160}>
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div className="relative aspect-[4/3] bg-slate-100">
+                <Image
+                  src={technicalDiagram}
+                  alt={`Chute technical reference drawing for specification teams in ${city.name}`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <p className="text-sm font-bold text-slate-900">Technical reference drawing</p>
+                <p className="mt-1 text-xs leading-5 text-slate-500">Concept diagram to support early-stage planning with consultants, architects and contractors.</p>
               </div>
             </div>
           </ScrollReveal>
