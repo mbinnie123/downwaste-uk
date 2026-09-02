@@ -485,7 +485,7 @@ export default function EstimatorPage() {
                 Our UK team can provide detailed project-specific pricing, installation drawings and programme coordination.
               </p>
               <a
-                href="mailto:info@downwaste.co.uk"
+                href="mailto:info@downwaste.co.uk?cc=marcus@promodesigns.co.uk"
                 className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-sky-700 hover:text-sky-900 transition-colors"
               >
                 Email our team →

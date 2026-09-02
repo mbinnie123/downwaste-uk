@@ -105,7 +105,7 @@ export async function POST(req: NextRequest) {
 
     await transporter.sendMail({
       from: process.env.SMTP_FROM ?? `Downwaste UK <${process.env.SMTP_USER}>`,
-      to: "info@downwaste.co.uk",
+      to: "info@downwaste.co.uk, marcus@promodesigns.co.uk",
       replyTo: email,
       subject: `Quote Request — ${name}${company ? ` (${company})` : ""}`,
       html,
