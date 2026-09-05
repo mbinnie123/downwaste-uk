@@ -1,7 +1,12 @@
+import Image from "next/image";
 import Link from "next/link";
 import { citiesByCountry, cities } from "../lib/cities";
 import { ScrollReveal } from "../components/scroll-reveal";
+import { LightboxImageCard } from "../components/lightbox-image-card";
 import type { Metadata } from "next";
+import managementPlan from "../../assets/images/downwaste_management_plan_sil.svg";
+import disposalChute from "../../assets/images/downwaste-disposal-chute.svg";
+import baseManagement from "../../assets/images/downwaste-base-management.svg";
 
 export const metadata: Metadata = {
   title: "Locations | Waste and Laundry Chute Systems Across the UK",
@@ -91,6 +96,137 @@ export default function LocationsPage() {
         </div>
       </div>
 
+      {/* About Downwaste */}
+      <div className="border-b border-slate-100 bg-slate-50 px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <ScrollReveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
+              About Downwaste UK
+            </p>
+            <h2 className="mt-2 max-w-3xl text-2xl font-bold text-slate-950 sm:text-3xl">
+              What we do across UK projects
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
+              Downwaste UK is a specialist supplier and installer of waste chutes, laundry chutes, garbage room systems and odour control solutions. We help architects, contractors, engineers and facilities teams plan the full waste route for a building, from floor-level disposal to base-level collection and ongoing maintenance.
+            </p>
+          </ScrollReveal>
+
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Waste and refuse chutes",
+                body: "Fire-rated chute systems for apartments, BTR schemes, hotels, private villas and mixed-use developments.",
+              },
+              {
+                title: "Laundry chutes",
+                body: "Quiet, fire-rated linen chute systems for hospitality and serviced residential projects.",
+              },
+              {
+                title: "Garbage room equipment",
+                body: "Bin carousels, chute-fed compactors and bin feed press systems for efficient waste collection rooms.",
+              },
+              {
+                title: "Odour control",
+                body: "Bin washing, scent diffusion and purification solutions that keep waste areas cleaner and more pleasant.",
+              },
+            ].map((item, i) => (
+              <ScrollReveal key={item.title} delay={i * 60}>
+                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+                  <h3 className="font-bold text-slate-950">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-500">{item.body}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Visual overview */}
+      <div className="border-b border-slate-100 bg-white px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <ScrollReveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
+              Visual overview
+            </p>
+            <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">
+              What Downwaste looks like in practice
+            </h2>
+          </ScrollReveal>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            <ScrollReveal>
+              <LightboxImageCard
+                src={disposalChute.src}
+                alt="Downwaste chute system illustration"
+                title="Chute systems"
+                description="A visual reference for the chute systems we specify into residential, hospitality and mixed-use buildings."
+              />
+            </ScrollReveal>
+            <ScrollReveal delay={80}>
+              <LightboxImageCard
+                src={baseManagement.src}
+                alt="Downwaste base management visual"
+                title="Base management"
+                description="How waste handling, bin collection and back-of-house flow come together at ground level."
+              />
+            </ScrollReveal>
+            <ScrollReveal delay={160}>
+              <LightboxImageCard
+                src={managementPlan.src}
+                alt="Downwaste management plan visual"
+                title="Management planning"
+                description="Support for the wider waste strategy, from specification through to ongoing operation."
+              />
+            </ScrollReveal>
+          </div>
+        </div>
+      </div>
+
+      {/* What Downwaste covers */}
+      <div className="border-b border-slate-100 bg-slate-50 px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <ScrollReveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
+              Product families
+            </p>
+            <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">
+              The various chute and waste systems we work with
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
+              Downwaste UK covers the full route of building waste management. That includes refuse chute systems for daily waste disposal, laundry chutes for linen handling, garbage room products for collection and compaction, and odour control systems that keep service areas cleaner and more comfortable.
+            </p>
+          </ScrollReveal>
+
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Refuse / waste chutes",
+                body: "Vertical chute systems that move waste safely from upper floors to a central collection point or refuse room.",
+              },
+              {
+                title: "Laundry chutes",
+                body: "Separate linen routes for hotels, private villas and serviced developments where quiet back-of-house flow matters.",
+              },
+              {
+                title: "Garbage room products",
+                body: "Bin carousels, bin feed presses and chute-fed compactors that help manage the base of the system.",
+              },
+              {
+                title: "Odour control solutions",
+                body: "Bin washers, scent diffusers and purification equipment that support hygiene and comfort around waste areas.",
+              },
+            ].map((item, i) => (
+              <ScrollReveal key={item.title} delay={i * 60}>
+                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+                  <h3 className="font-bold text-slate-950">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-500">{item.body}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* City count */}
       <div className="border-b border-slate-100 bg-white px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
@@ -169,7 +305,7 @@ export default function LocationsPage() {
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a
-                href="mailto:info@downwaste.com"
+                href="mailto:info@downwaste.co.uk"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-slate-950 to-blue-900 px-7 py-3 text-sm font-bold text-white shadow-lg hover:scale-105 transition-transform"
               >
                 Email our team

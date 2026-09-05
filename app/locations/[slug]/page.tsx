@@ -14,7 +14,10 @@ import { LightboxImageCard } from "../../components/lightbox-image-card";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 import disposalChuteGraphic from "../../../assets/images/downwaste-disposal-chute.svg";
 import laundryChutePhoto from "../../../assets/images/downwaste_electric_laundry_chute-open.jpg";
-import technicalDiagram from "../../../assets/images/downwaste_rc_001_tech_drawing.jpg";
+import technicalDiagram from "../../../assets/images/DWPC-tech-drawing1.jpg";
+import burujApartments from "../../../assets/images/buruj_apartments_baghdad_iraq_downwaste.jpg";
+import sheratonHotel from "../../../assets/images/sheraton_hotel_bahrain_downwaste.jpg";
+import grandTower from "../../../assets/images/the_grand_residential_tower_dubai_uae_downwaste.jpg";
 
 export function generateStaticParams() {
   return cities.map((city) => ({ slug: city.slug }));
@@ -152,6 +155,49 @@ export default async function CityPage({
         </div>
       </div>
 
+      {/* Key aspects */}
+      <div className="border-b border-slate-100 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+          <ScrollReveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">Key aspects</p>
+            <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">
+              The different parts of a waste and laundry strategy
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
+              The job of a good project specification is not just to choose a chute. It is to define the whole system: how waste enters the shaft, how linen is kept separate, how the refuse room is laid out and how the building remains hygienic over time.
+            </p>
+          </ScrollReveal>
+
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Waste chutes / refuse chutes",
+                body: "Fire-rated vertical disposal routes for apartments, BTR schemes and mixed-use towers.",
+              },
+              {
+                title: "Laundry chutes",
+                body: "Separate linen disposal routes that suit hotels, serviced apartments and private residences.",
+              },
+              {
+                title: "Base-level collection",
+                body: "Refuse rooms, bin stores and collection points where the system is managed at ground level.",
+              },
+              {
+                title: "Odour and maintenance",
+                body: "Ventilation, cleaning and odour-control measures that keep the system working well after handover.",
+              },
+            ].map((item, i) => (
+              <ScrollReveal key={item.title} delay={i * 60}>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm sm:p-6">
+                  <h3 className="font-bold text-slate-950">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-500">{item.body}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* City context */}
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_0.6fr] lg:gap-16">
@@ -185,14 +231,14 @@ export default async function CityPage({
               </p>
               <div className="mt-4 space-y-2">
                 <a
-                  href="mailto:info@downwaste.com"
+                  href="mailto:info@downwaste.co.uk"
                   className="flex items-center gap-2 rounded-xl bg-white border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 hover:border-sky-300 hover:text-sky-700 transition-all"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 text-sky-500 shrink-0">
                     <path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" />
                     <path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" />
                   </svg>
-                  info@downwaste.com
+                  info@downwaste.co.uk
                 </a>
                 <a
                   href="tel:+902362142590"
@@ -205,6 +251,99 @@ export default async function CityPage({
                 </a>
               </div>
             </div>
+          </ScrollReveal>
+        </div>
+      </div>
+
+      {/* About Downwaste */}
+      <div className="border-y border-slate-100 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-16">
+            <ScrollReveal>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">About Downwaste UK</p>
+                <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">
+                  Waste and laundry systems designed for the way UK buildings operate
+                </h2>
+                <div className="mt-4 space-y-4 text-base leading-7 text-slate-600">
+                  <p>
+                    Downwaste UK is a specialist supplier and installer of waste chutes, laundry chutes, garbage room systems and odour control equipment. We work with architects, contractors, engineers and facilities teams to create practical service cores that match the layout, occupancy and fire strategy of each building.
+                  </p>
+                  <p>
+                    The role of Downwaste is broader than simply supplying equipment. We help project teams shape the full waste-management route for a building: how refuse moves down through the shaft, where linen is handled, how bins are collected, and how odour and hygiene are controlled over the life of the scheme.
+                  </p>
+                  <p>
+                    For residential towers, this usually means robust refuse chute systems supported by central collection and management solutions. For hotels and private villas, it often means combining refuse chute and laundry chute systems so waste and linen travel through separate, efficient routes.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal variant="scale" delay={100}>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {[
+                  {
+                    title: "Chute systems",
+                    body: "Waste chutes, refuse chutes, garbage chutes, laundry chutes and recycling chutes for modern multi-storey buildings.",
+                  },
+                  {
+                    title: "Garbage room systems",
+                    body: "Bin carousels, bin feed press systems and chute-fed compactors to keep service areas efficient and organised.",
+                  },
+                  {
+                    title: "Odour control",
+                    body: "Bin washers, scent diffusers and UV-C / ozone / plasma purification equipment to support hygiene and comfort.",
+                  },
+                  {
+                    title: "Specification support",
+                    body: "UK-based help for early design, technical compliance, installation planning and handover.",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <h3 className="font-bold text-slate-950">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-500">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </div>
+
+      {/* Project references */}
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <ScrollReveal>
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">Project references</p>
+          <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">
+            Example projects that show how Downwaste works
+          </h2>
+        </ScrollReveal>
+
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <ScrollReveal>
+            <LightboxImageCard
+              src={burujApartments.src}
+              alt={`Downwaste project reference for ${city.name}`}
+              title="Residential towers"
+              description="High-rise residential waste and service cores where chute systems keep daily disposal efficient."
+            />
+          </ScrollReveal>
+          <ScrollReveal delay={80}>
+            <LightboxImageCard
+              src={sheratonHotel.src}
+              alt={`Downwaste hospitality project reference for ${city.name}`}
+              title="Hotels"
+              description="Hospitality projects where refuse and laundry routes are planned separately for quiet back-of-house operation."
+            />
+          </ScrollReveal>
+          <ScrollReveal delay={160}>
+            <LightboxImageCard
+              src={grandTower.src}
+              alt={`Downwaste premium tower project reference for ${city.name}`}
+              title="Premium towers"
+              description="Mixed-use and premium residential buildings that need robust, compliant and discreet waste systems.
+"
+            />
           </ScrollReveal>
         </div>
       </div>
@@ -394,7 +533,7 @@ export default async function CityPage({
                   Build a quote
                 </Link>
                 <a
-                  href="mailto:info@downwaste.com"
+                href="mailto:info@downwaste.co.uk"
                   className="inline-flex items-center justify-center rounded-full border-2 border-sky-400 px-7 py-3 text-sm font-bold text-sky-400 transition-all hover:bg-sky-400 hover:text-white"
                 >
                   Email our team
