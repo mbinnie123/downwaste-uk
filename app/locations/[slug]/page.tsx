@@ -12,12 +12,12 @@ import { AddToQuoteButton } from "../../components/add-to-quote-button";
 import { ScrollReveal } from "../../components/scroll-reveal";
 import { LightboxImageCard } from "../../components/lightbox-image-card";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
-import disposalChuteGraphic from "../../../assets/images/downwaste-disposal-chute.svg";
-import laundryChutePhoto from "../../../assets/images/downwaste_electric_laundry_chute-open.jpg";
-import technicalDiagram from "../../../assets/images/DWPC-tech-drawing1.jpg";
-import burujApartments from "../../../assets/images/buruj_apartments_baghdad_iraq_downwaste.jpg";
-import sheratonHotel from "../../../assets/images/sheraton_hotel_bahrain_downwaste.jpg";
-import grandTower from "../../../assets/images/the_grand_residential_tower_dubai_uae_downwaste.jpg";
+import disposalChuteGraphic from "../../../assets/images/locations-disposal-chute.svg";
+import laundryChutePhoto from "../../../assets/images/locations-laundry-chute-open.jpg";
+import technicalDiagram from "../../../assets/images/locations-technical-drawing.jpg";
+import burujApartments from "../../../assets/images/locations-residential-reference.jpg";
+import sheratonHotel from "../../../assets/images/locations-hotel-reference.jpg";
+import grandTower from "../../../assets/images/locations-premium-tower-reference.jpg";
 
 export function generateStaticParams() {
   return cities.map((city) => ({ slug: city.slug }));
@@ -139,7 +139,7 @@ export default async function CityPage({
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="mailto:info@downwaste.com"
+                href="mailto:info@downwaste.co.uk"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-sky-400 px-6 py-2.5 text-sm font-bold text-white shadow-lg transition-all hover:scale-105"
               >
                 Request a specification
@@ -363,7 +363,7 @@ export default async function CityPage({
           <ScrollReveal>
             <LightboxImageCard
               src={disposalChuteGraphic.src}
-              alt={`Waste chute flow graphic for projects in ${city.name}`}
+                alt={`Waste chute flow graphic for projects in ${city.name} and across the UK`}
               title="Waste chute flow"
               description="Visual overview of how floor-level loading connects to base-level discharge and collection."
             />
@@ -372,7 +372,7 @@ export default async function CityPage({
           <ScrollReveal delay={80}>
             <LightboxImageCard
               src={laundryChutePhoto.src}
-              alt={`Laundry chute access door detail for hotels and private villas in ${city.name}`}
+                alt={`Laundry chute access door detail for hotels and private villas in ${city.name} and across the UK`}
               title="Laundry chute access"
               description="Electric, mechanical and controlled-access options for hotel and private-villa laundry handling."
             />
@@ -381,7 +381,7 @@ export default async function CityPage({
           <ScrollReveal delay={160}>
             <LightboxImageCard
               src={technicalDiagram.src}
-              alt={`Chute technical reference drawing for specification teams in ${city.name}`}
+                alt={`Technical reference drawing for chute specification teams in ${city.name} and across the UK`}
               title="Technical reference drawing"
               description="Concept diagram to support early-stage planning with consultants, architects and contractors."
             />
