@@ -6,7 +6,6 @@ import { LightboxImageCard } from "../components/lightbox-image-card";
 import type { Metadata } from "next";
 import managementPlan from "../../assets/images/downwaste_management_plan_sil.svg";
 import disposalChute from "../../assets/images/downwaste-disposal-chute.svg";
-import baseManagement from "../../assets/images/downwaste-base-management.svg";
 
 export const metadata: Metadata = {
   title: "Locations | Waste and Laundry Chute Systems Across the UK",
@@ -86,7 +85,7 @@ export default function LocationsPage() {
                 Browse all products
               </Link>
               <a
-                href="mailto:info@downwaste.com"
+                href="mailto:info@downwaste.co.uk"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-6 py-2.5 text-sm font-bold text-slate-300 transition-all hover:border-sky-400 hover:text-sky-400"
               >
                 Speak to the team
@@ -141,6 +140,49 @@ export default function LocationsPage() {
         </div>
       </div>
 
+      {/* Chute basics */}
+      <div className="border-b border-slate-100 bg-white px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <ScrollReveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
+              Chute basics
+            </p>
+            <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">
+              What a waste chute is and what a laundry chute is
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
+              These are the two most common chute systems we specify. Waste chutes handle everyday refuse disposal, while laundry chutes move linen and clothing vertically through a building in a cleaner and more efficient way.
+            </p>
+          </ScrollReveal>
+
+          <div className="mt-8 grid gap-5 lg:grid-cols-2">
+            <ScrollReveal>
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm sm:p-8">
+                <h3 className="text-xl font-bold text-slate-950">What a waste chute is</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
+                  A waste chute, also called a refuse chute or garbage chute, is a vertical shaft with intake doors on each floor. It allows residents or staff to drop waste into a central collection point without carrying bags through corridors, lifts or stairwells.
+                </p>
+                <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
+                  In larger buildings, waste chutes are usually paired with refuse rooms, bin stores, ventilation and odour-control systems so the full waste route stays safe, hygienic and easy to manage.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={80}>
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <h3 className="text-xl font-bold text-slate-950">What a laundry chute is</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
+                  A laundry chute is a separate vertical shaft for linen, towels and clothing. It is often used in hotels, private villas, serviced apartments and residential schemes where laundry needs to move quietly from upper floors to the laundry or collection area.
+                </p>
+                <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
+                  Laundry chutes are typically specified with controlled-access doors and fire-rated details so they sit neatly within the wider building and housekeeping strategy.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </div>
+
       {/* Visual overview */}
       <div className="border-b border-slate-100 bg-white px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
@@ -160,14 +202,6 @@ export default function LocationsPage() {
                 alt="Downwaste chute system illustration"
                 title="Chute systems"
                 description="A visual reference for the chute systems we specify into residential, hospitality and mixed-use buildings."
-              />
-            </ScrollReveal>
-            <ScrollReveal delay={80}>
-              <LightboxImageCard
-                src={baseManagement.src}
-                alt="Downwaste base management visual"
-                title="Base management"
-                description="How waste handling, bin collection and back-of-house flow come together at ground level."
               />
             </ScrollReveal>
             <ScrollReveal delay={160}>

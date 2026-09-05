@@ -198,6 +198,47 @@ export default async function CityPage({
         </div>
       </div>
 
+      {/* Chute basics */}
+      <div className="border-b border-slate-100 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+          <ScrollReveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">Chute basics</p>
+            <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">
+              What a waste chute is and what a laundry chute is
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
+              A waste chute handles daily refuse disposal, while a laundry chute carries linen and clothing between floors. Both systems help project teams move material vertically in a controlled way and reduce unnecessary movement through the building.
+            </p>
+          </ScrollReveal>
+
+          <div className="mt-8 grid gap-5 lg:grid-cols-2">
+            <ScrollReveal>
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                <h3 className="text-xl font-bold text-slate-950">What a waste chute is</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
+                  A waste chute, also known as a refuse chute or garbage chute, is a vertical shaft with intake doors on each floor. It allows residents or staff to dispose of waste without carrying it through corridors, lifts or stairwells, and delivers it to a collection point at the base of the building.
+                </p>
+                <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
+                  Waste chute systems are usually designed together with refuse rooms, bin stores, ventilation and odour-control measures so the whole route stays safe, hygienic and manageable over time.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={80}>
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm sm:p-8">
+                <h3 className="text-xl font-bold text-slate-950">What a laundry chute is</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
+                  A laundry chute is a separate vertical shaft for linen, towels and clothing, commonly used in hotels, private villas, serviced apartments and other multi-storey buildings with regular housekeeping requirements.
+                </p>
+                <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
+                  For hospitality and residential projects, laundry chutes are often specified with controlled-access doors and fire-rated details so they integrate neatly with the wider building strategy.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </div>
+
       {/* City context */}
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_0.6fr] lg:gap-16">
