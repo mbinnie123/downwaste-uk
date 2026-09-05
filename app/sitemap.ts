@@ -9,6 +9,7 @@ const BASE_URL = "https://downwaste.co.uk";
 const productPages = [
   // Chutes
   "garbage-chute",
+  "refuse-chutes",
   "laundry-chute",
   "recycling-chute",
   "pneumatic-chute",

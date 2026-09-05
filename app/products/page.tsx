@@ -82,6 +82,18 @@ export default function ProductsPage() {
         </div>
       </div>
 
+      {/* Refuse chute landing page CTA */}
+      <div className="border-b border-slate-100 bg-white px-4 py-5 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 rounded-2xl border border-sky-100 bg-sky-50 px-4 py-3 sm:px-5">
+          <p className="text-sm font-medium text-slate-700">
+            Looking for refuse chute systems? See our dedicated landing page for the exact search term.
+          </p>
+          <Link href="/products/refuse-chutes" className="inline-flex items-center gap-1.5 text-sm font-bold text-sky-700 hover:text-sky-900 transition-colors">
+            Refuse chute systems →
+          </Link>
+        </div>
+      </div>
+
       {/* Category nav */}
       <div className="sticky top-[57px] sm:top-[73px] z-20 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl overflow-x-auto px-4 sm:px-6 lg:px-8">
