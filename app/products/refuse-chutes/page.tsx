@@ -3,11 +3,11 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { AddToQuoteButton } from "../../components/add-to-quote-button";
 import { ScrollReveal } from "../../components/scroll-reveal";
-import chuteOpen from "../../../assets/images/downwaste_chute_door_opened-tall.jpg";
-import chuteClosed from "../../../assets/images/garbage_chute_door_closed.jpg";
-import trunkDetail from "../../../assets/images/downwaste_structure_detail1.jpg";
-import ventCap from "../../../assets/images/downwaste_vent_cap.jpg";
-import pendant from "../../../assets/images/downwaste_power_switch-1.png";
+import chuteOpen from "../../../assets/images/refuse-chute-door-opened-tall.jpg";
+import chuteClosed from "../../../assets/images/refuse-chute-door-closed.jpg";
+import trunkDetail from "../../../assets/images/refuse-chute-structure-detail1.jpg";
+import ventCap from "../../../assets/images/refuse-chute-vent-cap.jpg";
+import pendant from "../../../assets/images/refuse-chute-power-switch-1.png";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata: Metadata = {
