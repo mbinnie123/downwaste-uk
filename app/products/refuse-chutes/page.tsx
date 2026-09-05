@@ -3,14 +3,11 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { AddToQuoteButton } from "../../components/add-to-quote-button";
 import { ScrollReveal } from "../../components/scroll-reveal";
-import { LightboxImageCard } from "../../components/lightbox-image-card";
 import chuteOpen from "../../../assets/images/downwaste_chute_door_opened-tall.jpg";
 import chuteClosed from "../../../assets/images/garbage_chute_door_closed.jpg";
 import trunkDetail from "../../../assets/images/downwaste_structure_detail1.jpg";
 import ventCap from "../../../assets/images/downwaste_vent_cap.jpg";
 import pendant from "../../../assets/images/downwaste_power_switch-1.png";
-import refuseDiagram from "../../../assets/images/downwaste-disposal-chute.svg";
-import laundryChute from "../../../assets/images/downwaste_electric_laundry_chute-open.jpg";
 import headerStripe from "../../../assets/images/downwaste-header-stripe-bg.svg";
 
 export const metadata: Metadata = {
@@ -43,6 +40,37 @@ const sizes = [
   { label: '18" × 18"', mm: "450 × 450 mm" },
 ];
 
+const components = [
+  {
+    title: "Fire-rated chute doors",
+    description:
+      "Each refuse chute floor intake is fitted with a self-closing, fire-rated door tested to project-specific standards. It provides safe, controlled disposal from every landing.",
+    image: chuteOpen,
+    imageAlt: "Refuse chute door — open",
+  },
+  {
+    title: "Galvanised steel trunk",
+    description:
+      "The refuse chute trunk is fabricated from durable galvanised steel with acoustic and fire-resisting details selected for the building strategy.",
+    image: trunkDetail,
+    imageAlt: "Refuse chute trunk cross-section detail",
+  },
+  {
+    title: "Roof vent cap",
+    description:
+      "A roof-level vent cap helps exhaust odours and maintain continuous airflow through the refuse chute shaft.",
+    image: ventCap,
+    imageAlt: "Refuse chute roof vent cap",
+  },
+  {
+    title: "Cleaning pendant control",
+    description:
+      "Where specified, a pendant control operates automated brushing and flushing equipment for easier chute cleaning and maintenance.",
+    image: pendant,
+    imageAlt: "Refuse chute cleaning pendant control",
+  },
+];
+
 const benefits = [
   {
     title: "Refuse collection from every floor",
@@ -73,29 +101,6 @@ const benefits = [
     title: "Often paired with laundry chutes",
     description:
       "For hotels, private villas and serviced residences, refuse chutes are frequently specified alongside laundry chutes so waste and linen follow separate, efficient service routes.",
-  },
-];
-
-const applications = [
-  {
-    title: "Residential towers",
-    description:
-      "Apartment blocks and high-rise residential schemes use refuse chutes to keep daily waste collection fast, hygienic and staff-efficient.",
-  },
-  {
-    title: "BTR schemes",
-    description:
-      "Build-to-rent developments benefit from controlled refuse disposal on every floor, helping operators reduce labour and improve resident experience.",
-  },
-  {
-    title: "Hotels and private villas",
-    description:
-      "Where back-of-house movement needs to be quiet and discreet, refuse chutes can be paired with laundry chutes and odour control equipment for a complete service core.",
-  },
-  {
-    title: "Mixed-use and commercial buildings",
-    description:
-      "We design refuse chute systems for developments that need safe waste transfer between retail, office, hospitality and residential areas.",
   },
 ];
 
@@ -248,207 +253,94 @@ export default function RefuseChutesPage() {
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">Overview</p>
               <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">
-                What refuse chute systems do
+                The most efficient solution for multi-storey refuse disposal
               </h2>
               <div className="mt-4 space-y-4 text-base leading-7 text-slate-600">
                 <p>
-                  Refuse chute systems provide a controlled vertical route for daily waste disposal. A floor intake door opens into a sealed trunk, allowing waste to drop to a central refuse room or collection point at the base of the building.
+                  Downwaste offers refuse chute systems designed for hygienic and efficient waste disposal in apartments, hotels, private villas and commercial buildings. Our refuse chutes ensure safe, odour-controlled disposal from every floor — making them the preferred choice for high-density residential and mixed-use developments across the UK.
                 </p>
                 <p>
-                  On UK projects, the same equipment is frequently described as a waste chute system, garbage chute or rubbish chute. The terminology varies, but the specification principles are the same: fire safety, hygienic handling, acoustic control and reliable operation for building management teams.
+                  Each refuse chute system is supplied with fire-rated intake doors on every served floor, a galvanised or stainless steel trunk running the full building height, and a weatherproof roof vent cap. The chute discharges directly into a refuse room or wheeled bin at ground level.
                 </p>
                 <p>
-                  For hospitality projects, refuse chute systems can sit alongside laundry chutes so refuse and linen move through separate shafts. That keeps service routes cleaner, quieter and easier to manage across the life of the building.
+                  By eliminating manual waste carrying, refuse chutes reduce the risk of pest attraction in corridors and lift lobbies, improve resident satisfaction and simplify waste management operations across the building.
                 </p>
-              </div>
-
-              <div className="mt-6 rounded-2xl border border-sky-100 bg-sky-50 p-5">
-                <p className="text-xs font-black uppercase tracking-widest text-sky-600">Best for</p>
-                <p className="mt-2 text-sm leading-6 text-slate-700">
-                  Residential towers, BTR developments, hotels, private villas, mixed-use buildings, student accommodation and any scheme where daily waste handling needs to be fast and discreet.
-                </p>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  <Link
-                    href="/products/laundry-chute"
-                    className="inline-flex items-center gap-2 rounded-full border border-sky-300 px-4 py-2 text-xs font-bold text-sky-700 transition-colors hover:bg-white"
-                  >
-                    Laundry chute systems
-                  </Link>
-                  <Link
-                    href="/products/garbage-chute"
-                    className="inline-flex items-center gap-2 rounded-full border border-sky-300 px-4 py-2 text-xs font-bold text-sky-700 transition-colors hover:bg-white"
-                  >
-                    Garbage chute systems
-                  </Link>
-                </div>
               </div>
             </div>
           </ScrollReveal>
 
           <ScrollReveal variant="scale" delay={100}>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:rounded-3xl">
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-sky-700">
-                Quick contact
-              </p>
-              <h3 className="mt-2 text-lg font-bold text-slate-950">
-                Specifying a refuse chute project?
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
-                Talk to our team about the right refuse chute configuration for your building type, fire strategy and service route.
-              </p>
-              <div className="mt-4 space-y-2">
-                <a
-                  href="mailto:info@downwaste.co.uk"
-                  className="flex items-center gap-2 rounded-xl bg-white border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 hover:border-sky-300 hover:text-sky-700 transition-all"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 text-sky-500 shrink-0">
-                    <path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" />
-                    <path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" />
-                  </svg>
-                  info@downwaste.co.uk
-                </a>
-                <a
-                  href="tel:+902362142590"
-                  className="flex items-center gap-2 rounded-xl bg-white border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 hover:border-sky-300 hover:text-sky-700 transition-all"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 text-sky-500 shrink-0">
-                    <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clipRule="evenodd" />
-                  </svg>
-                  +90 236 214 2590
-                </a>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="overflow-hidden rounded-2xl border border-slate-200 shadow">
+                <Image src={trunkDetail} alt="Refuse chute trunk detail" width={400} height={560} className="h-auto w-full object-cover" />
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-slate-200 shadow self-start mt-8">
+                <Image src={ventCap} alt="Refuse chute roof vent cap" width={400} height={340} className="h-auto w-full object-cover" />
               </div>
             </div>
           </ScrollReveal>
         </div>
       </div>
 
-      {/* Supporting graphics and diagrams */}
-      <div className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 sm:pb-20 lg:px-8">
-        <ScrollReveal>
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
-            Supporting graphics and diagrams
-          </p>
-          <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">
-            Visual references for refuse chute specification
-          </h2>
-        </ScrollReveal>
-
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      {/* Available sizes */}
+      <div className="border-y border-slate-100 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
           <ScrollReveal>
-            <LightboxImageCard
-              src={refuseDiagram.src}
-              alt="Refuse chute system diagram for UK project specification"
-              title="Refuse chute diagram"
-              description="Concept graphic showing how a refuse chute system routes waste from floor intakes to base-level collection."
-            />
-          </ScrollReveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">Specifications</p>
+            <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">Available door sizes</h2>
+            <p className="mt-3 max-w-2xl text-base text-slate-600">
+              Five standard opening sizes cover the full range of UK residential and commercial refuse chute projects. Custom sizes are available on request.
+            </p>
 
-          <ScrollReveal delay={60}>
-            <LightboxImageCard
-              src={chuteOpen.src}
-              alt="Refuse chute intake door open"
-              title="Intake door"
-              description="A typical refuse chute floor landing door used on apartment, hotel and BTR projects."
-            />
-          </ScrollReveal>
-
-          <ScrollReveal delay={120}>
-            <LightboxImageCard
-              src={trunkDetail.src}
-              alt="Refuse chute trunk detail and fire-rated enclosure"
-              title="Trunk detail"
-              description="Section detail showing the chute trunk, fire-resisting enclosure and acoustic lining strategy."
-            />
-          </ScrollReveal>
-
-          <ScrollReveal delay={180}>
-            <LightboxImageCard
-              src={ventCap.src}
-              alt="Refuse chute roof vent cap"
-              title="Roof vent cap"
-              description="Ventilation and odour exhaust detail for a complete refuse chute installation."
-            />
-          </ScrollReveal>
-
-          <ScrollReveal delay={240}>
-            <LightboxImageCard
-              src={pendant.src}
-              alt="Refuse chute cleaning and flushing pendant control"
-              title="Cleaning pendant"
-              description="Optional pendant control for brushing and flushing routines on larger refuse chute systems."
-            />
-          </ScrollReveal>
-
-          <ScrollReveal delay={300}>
-            <LightboxImageCard
-              src={laundryChute.src}
-              alt="Laundry chute image for projects that pair refuse and laundry systems"
-              title="Laundry chute pairing"
-              description="For hotels and private villas, refuse chutes are often designed alongside laundry chutes as a complete service core."
-            />
+            <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <table className="min-w-[380px] w-full text-sm">
+                <thead>
+                  <tr className="border-b border-slate-100 bg-slate-50 text-left text-xs font-black uppercase tracking-[0.15em] text-slate-500">
+                    <th className="px-5 py-3.5">Door opening (imperial)</th>
+                    <th className="px-5 py-3.5">Door opening (metric)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {sizes.map((s) => (
+                    <tr key={s.label} className="hover:bg-sky-50/50 transition-colors">
+                      <td className="px-5 py-4 font-bold text-slate-950">{s.label}</td>
+                      <td className="px-5 py-4 text-slate-600">{s.mm}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </ScrollReveal>
         </div>
       </div>
 
-      {/* Technical specification */}
-      <div className="border-y border-slate-100 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-16">
-            <ScrollReveal>
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">Technical details</p>
-                <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">
-                  Common refuse chute sizes and options
-                </h2>
-                <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-                  The exact refuse chute specification depends on the building height, occupier type, collection strategy and fire plan. These are common intake sizes used on UK schemes:
-                </p>
+      {/* System components */}
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <ScrollReveal>
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">System components</p>
+          <h2 className="mt-2 text-2xl font-bold text-slate-950 sm:text-3xl">Main components of a refuse chute system</h2>
+        </ScrollReveal>
 
-                <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                  {sizes.map((size) => (
-                    <div key={size.label} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-                      <p className="text-sm font-bold text-slate-950">{size.label}</p>
-                      <p className="mt-1 text-xs uppercase tracking-widest text-slate-400">{size.mm}</p>
-                    </div>
-                  ))}
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
+          {components.map((c, i) => (
+            <ScrollReveal key={c.title} delay={i * 80}>
+              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                <div className="flex h-52 items-center justify-center bg-slate-50 p-6">
+                  <Image
+                    src={c.image}
+                    alt={c.imageAlt}
+                    width={300}
+                    height={200}
+                    className="h-full w-auto max-w-full object-contain"
+                  />
                 </div>
-
-                <div className="mt-6 rounded-2xl border border-sky-100 bg-white p-5 shadow-sm">
-                  <p className="text-xs font-black uppercase tracking-widest text-sky-600">Optional system components</p>
-                  <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                    <div>
-                      <p className="text-sm font-bold text-slate-950">Cleaning / flushing equipment</p>
-                      <p className="mt-1 text-sm leading-6 text-slate-500">
-                        Pendant or timed control can be added to support brushing and flushing routines where maintenance strategy requires it.
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-slate-950">Laundry chute integration</p>
-                      <p className="mt-1 text-sm leading-6 text-slate-500">
-                        For hotels and private villas, refuse chutes can be planned alongside laundry chutes so dirty linen and waste remain separate.
-                      </p>
-                    </div>
-                  </div>
+                <div className="p-6">
+                  <h3 className="text-base font-bold text-slate-950">{c.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{c.description}</p>
                 </div>
               </div>
             </ScrollReveal>
-
-            <ScrollReveal variant="scale" delay={100}>
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:rounded-3xl">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-sky-700">
-                  Popular applications
-                </p>
-                <div className="mt-4 grid gap-4">
-                  {applications.map((app) => (
-                    <div key={app.title} className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-                      <h3 className="font-bold text-slate-950">{app.title}</h3>
-                      <p className="mt-1 text-sm leading-6 text-slate-600">{app.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -496,32 +388,25 @@ export default function RefuseChutesPage() {
         </div>
       </div>
 
-      {/* Related systems */}
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-        <div className="grid gap-6 rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-950 to-blue-900 p-6 text-white sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+      {/* CTA */}
+      <div className="bg-gradient-to-br from-slate-950 to-blue-900 px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
           <ScrollReveal>
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">Related systems</p>
-              <h2 className="mt-2 text-2xl font-bold sm:text-3xl">
-                Planning both refuse and laundry routes?
-              </h2>
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300 sm:text-base">
-                If your project is a hotel, private villa or serviced development, we can help you combine refuse chute systems with laundry chute systems and odour control so each service route stays separate and efficient.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal variant="scale" delay={100}>
-            <div className="flex flex-wrap gap-3 lg:justify-end">
-              <Link href="/products/laundry-chute" className="inline-flex items-center rounded-full border border-white/20 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-white/10">
-                Laundry chute systems
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">Get a quote</p>
+            <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
+              Ready to specify a refuse chute system?
+            </h2>
+            <p className="mt-4 text-base leading-7 text-slate-300">
+              Use our estimator to get a guide price based on your building height, floor count and specification — or add the system to your quote and our UK team will be in touch.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Link
+                href="/estimator"
+                className="inline-flex items-center gap-2 rounded-full bg-sky-400 px-8 py-3 text-sm font-bold text-white shadow transition-all hover:bg-sky-300 hover:scale-105"
+              >
+                Open Estimator
               </Link>
-              <Link href="/products/garbage-chute" className="inline-flex items-center rounded-full border border-white/20 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-white/10">
-                Garbage chute systems
-              </Link>
-              <Link href="/products/recycling-chute" className="inline-flex items-center rounded-full border border-white/20 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-white/10">
-                Recycling chute systems
-              </Link>
+              <AddToQuoteButton id="garbage-chute" name="Refuse Chute System" category="Chutes" />
             </div>
           </ScrollReveal>
         </div>
