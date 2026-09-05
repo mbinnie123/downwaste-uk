@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { getGuidePrice } from "../../lib/guide-prices";
 
 export async function POST(req: NextRequest) {
   try {
@@ -20,12 +21,30 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    const itemRows = items
-      .map(
-        (item: { name: string; category: string; quantity: number; notes?: string; estimateLow?: number; estimateHigh?: number }) => {
-          const hasEstimate = item.estimateLow != null && item.estimateHigh != null;
+    const resolvedItems = items.map(
+      (item: {
+        id: string;
+        name: string;
+        category: string;
+        quantity: number;
+        notes?: string;
+        estimateLow?: number;
+        estimateHigh?: number;
+      }) => {
+        const fallback = getGuidePrice(item.id);
+        return {
+          ...item,
+          resolvedLow: item.estimateLow ?? fallback?.low,
+          resolvedHigh: item.estimateHigh ?? fallback?.high,
+        };
+      }
+    );
+
+    const itemRows = resolvedItems
+      .map((item) => {
+          const hasEstimate = item.resolvedLow != null && item.resolvedHigh != null;
           const estimateStr = hasEstimate
-            ? `£${item.estimateLow!.toLocaleString("en-GB")} – £${item.estimateHigh!.toLocaleString("en-GB")}`
+            ? `£${item.resolvedLow!.toLocaleString("en-GB")} – £${item.resolvedHigh!.toLocaleString("en-GB")}`
             : "—";
           return `<tr>
             <td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">${item.name}</td>
@@ -34,12 +53,11 @@ export async function POST(req: NextRequest) {
             <td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;color:${hasEstimate ? "#0369a1" : "#64748b"};font-weight:${hasEstimate ? "600" : "400"}">${estimateStr}</td>
             <td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;color:#64748b;">${item.notes || "—"}</td>
           </tr>`;
-        }
-      )
+        })
       .join("");
 
-    const totalLow  = items.reduce((s: number, i: { estimateLow?:  number; quantity: number }) => s + (i.estimateLow  ?? 0) * i.quantity, 0);
-    const totalHigh = items.reduce((s: number, i: { estimateHigh?: number; quantity: number }) => s + (i.estimateHigh ?? 0) * i.quantity, 0);
+    const totalLow = resolvedItems.reduce((s, i) => s + (i.resolvedLow ?? 0) * i.quantity, 0);
+    const totalHigh = resolvedItems.reduce((s, i) => s + (i.resolvedHigh ?? 0) * i.quantity, 0);
     const hasAnyEstimate = totalLow > 0;
 
     const html = `
